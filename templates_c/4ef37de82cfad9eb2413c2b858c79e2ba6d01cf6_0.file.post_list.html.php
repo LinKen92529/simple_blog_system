@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 07:06:38
+/* Smarty version 3.1.32, created on 2018-07-21 13:25:20
   from 'D:\UniServerZ\www\yukino\templates\post_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b52cd6ed87fd5_03694724',
+  'unifunc' => 'content_5b532630ccc727_09076362',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ef37de82cfad9eb2413c2b858c79e2ba6d01cf6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_list.html',
-      1 => 1532153197,
+      1 => 1532175917,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b52cd6ed87fd5_03694724 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b532630ccc727_09076362 (Smarty_Internal_Template $_smarty_tpl) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_post']->value, 'post');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
@@ -38,7 +38,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
 ">
                     <img src="<?php echo $_smarty_tpl->tpl_vars['post']->value['pic'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
-">
+" class="img-thumbnail">
                 </a>
             </center>
         </div>
