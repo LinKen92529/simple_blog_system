@@ -7,6 +7,9 @@ switch ($op) {
     case 'post_list':
         break;
 
+    case 'user_register':
+        break;
+
     default:
         $op = "post_list";
         break;
