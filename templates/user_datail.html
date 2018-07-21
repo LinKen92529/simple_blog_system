@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-6">
+        <img src="{$user_detail.pic}" alt="{$user_detail.pic}" class="rounded-circle">
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div style="font-size: 20px">
+                <div>名前： {$user_detail.user_name}</div>
+                <div>権限： {$user_detail.user_right}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<a href="index.php?op=post_list" class="btn btn-block btn-primary">回到主頁</a>
+{if $is_admin}
+    <a href="user.php?op=user_list" class="btn btn-block btn-success">使用者列表</a>
+    <a href="post.php?op=post_create" class="btn btn-block btn-info">發布文章</a>
+{/if}
+<a href="user.php?op=user_form&user_sn={$user_detail.user_sn}" class="btn btn-block btn-warning">修改資料</a>
+<a href="user.php?op=user_logout" class="btn btn-block btn-danger">登出</a>

@@ -1,0 +1,120 @@
+<h1>{$post.post_title}</h1>
+<br>
+<center>
+    <img src="{$post.pic}" alt="{$post.post_sn}" class="img-thumbnail">
+</center>
+{if $is_admin}
+    <br>
+    <a href="post.php?op=post_form&post_sn={$post.post_sn}" class="btn btn-success">編輯文章</a>
+    <a href="javascript:delete_post('{$post.post_sn}')" class="btn btn-danger">刪除文章</a>
+    <br>
+{/if}
+<br>
+<div style="font-size: 20px">{$post.post_content}</div>
+<br>
+<div class="col-md-12" style="color: greenyellow">
+    <div class="row">   
+        <i class="fas fa-user">{$post.post_owner}</i>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fas fa-clock">{$post.post_date}</i>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fas fa-users">瀏覽人數：{$post.post_counter}</i>
+    </div>
+</div>
+<br>
+<i class="fas fa-tag" style="color: rgba(161, 11, 190, 0.877)">標籤</i>
+<br>
+<br>
+<div class="row">
+&nbsp;&nbsp;
+{foreach from=$post.tag item=tag}
+    {if $tag != ''}
+        <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px">
+            {$tag}
+        </div>
+        &nbsp;&nbsp;
+    {/if}
+{/foreach}
+</div>
+<br>
+<h1>留言區</h1>
+{if isset($post.cmt) and $post.cmt != ''}
+    {foreach from=$post.cmt item=cmt}
+        <div class="row">
+            <div class="col-md-1">
+                <img src="{$cmt.user_pic}" alt="{$cmt.user_sn}" class="rounded" style="width: 50px;">
+            </div>
+            <div class="col-md-8">
+                <i class="fas fa-clock" style="color: rgb(0, 217, 255)">{$cmt.cmt_date}</i>
+                <br>
+                {$cmt.user_name}：
+            </div>
+            <div class="col-md-3">
+                {if $is_admin or isset($now_user_sn) and $now_user_sn=={$cmt.user_sn}}
+                    <a href="javascript:delete_cmt('{$cmt.cmt_sn}', '{$post.post_sn}')" class="btn btn-sm btn-danger">刪除留言</a>
+                    <a href="cmt.php?op=cmt_form&cmt_sn={$cmt.cmt_sn}&post_sn={$post.post_sn}" class="btn btn-sm btn-success">編輯留言</a>
+                {/if}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div>{$cmt.cmt_content}</div>
+        </div>
+        <hr>
+    {/foreach}
+{else}
+    &nbsp;<div>暫時還沒有留言喔QAqqqqq</div>
+{/if}
+<br>
+<div class="col-md-12">
+    <h1>發表回響</h1>
+    {if $is_user}
+        <form action="cmt.php" method="POST" class="form-horizontal" role="form">
+            <div class="form-group">
+                <textarea class="form-control" name="cmt_content" id="cmt_content" placeholder="發表回響"></textarea>
+            </div>
+            <input type="hidden" name="op" value="insert_cmt">
+            <input type="hidden" name="post_sn" value="{$post.post_sn}">
+            <button type="submit" class="btn btn-primary">發表</button>
+        </form>
+    {else}
+        <div>請先登入!</div>
+    {/if}
+</div>
+<script src="plugin/bootstrap-sweetalert/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="plugin/bootstrap-sweetalert/sweet-alert.css">
+<script>
+    function delete_post(post_sn) {
+        swal({
+                title: "刪除文章",
+                text: "將永久刪除該篇文章",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "確認",
+                closeOnConfirm: false,
+            },
+            function () {
+                location.href = "post.php?op=delete_post&post_sn=" + post_sn;
+                swal("刪除完畢", "後悔來不及了030", "success");
+            });
+    }
+</script>
+<script>
+    function delete_cmt(cmt_sn, post_sn) {
+        swal({
+                title: "刪除留言",
+                text: "將永久刪除該則留言",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "確認",
+                closeOnConfirm: false,
+            },
+            function () {
+                location.href = "cmt.php?op=delete_cmt&cmt_sn=" + cmt_sn + "&post_sn=" + post_sn;
+                swal("刪除完畢", "後悔來不及了030", "success");
+            });
+    }
+</script>

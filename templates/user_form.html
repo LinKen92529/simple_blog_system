@@ -1,0 +1,84 @@
+<script>
+    $(document).ready(function() {
+        function readURL(input){
+            if(input.files && input.files[0]){
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                $("#user_img").attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#user_pic").change(function(){
+            readURL(this);
+        });
+    });
+</script>
+{if $is_user}
+    <h1>修改基本資料</h1>
+    <br>
+    <form action="user.php" id="user_form" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="user_name" id="user_id" placeholder="請輸入修改後的名稱" value="{$user.user_name}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="user_id" id="user_id" placeholder="請輸入修改後的帳號" value="{$user.user_id}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6 has-error">
+                <input type="password" class="form-control" name="user_pw" id="user_pw" placeholder="若無需要修改密碼則不需要填入">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                <input type="email" class="form-control" name="user_email" id="user_email" placeholder="請輸入修改後的信箱" value="{$user.user_email}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">上傳頭貼</label>
+            <div class="col-md-4">
+                <input type="file" name="user_pic" id="user_pic" accept="image/gif, image/jpeg, image/jpg, image/png">
+            </div>
+            <br>
+            <label class="col-md-2 control-label">圖片預覽</label>
+            <div class="col-md-6">
+                <img src="{$user.pic}" alt="{$user.user_sn}" id="user_img" class="img-thumbnail">
+            </div>
+        </div>
+        <div class="row">
+            {if $is_admin}
+                {if $user.user_right != "admin"}
+                    <a href="javascript:delete_user('{$user.user_sn}')" class="btn btn-danger">刪除帳號</a>
+                {/if}
+            {/if}
+            <div class="col-md-2">
+                <input type="hidden" name="user_sn" value="{$user.user_sn}">
+                <input type="hidden" name="op" value="update_user">
+                <button type="submit" class="btn btn-info">修改資料</button>
+            </div>
+        </div>
+    </form>
+{/if}
+<script src="plugin/bootstrap-sweetalert/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="plugin/bootstrap-sweetalert/sweet-alert.css">
+<script>
+    function delete_user(user_sn) {
+        swal({
+            title: "刪除使用者",
+            text: "將永久刪除該使用者",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "確認",
+            closeOnConfirm: false,
+        },
+        function() {
+            location.href="user.php?op=delete_user&user_sn=" + user_sn;
+            swal("刪除完畢", "後悔來不及了030", "success");
+        });
+    }
+</script>

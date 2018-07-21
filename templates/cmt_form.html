@@ -1,0 +1,12 @@
+<h1>編輯留言</h1>
+<form action="cmt.php" method="post" class="form-horizontal">
+    <div class="form-group">
+        <textarea class="form-control" name="cmt_content" id="cmt_content" placeholder="請輸入留言" required>{$cmt.cmt_content}</textarea>
+    </div>
+    <div class="form-group">
+        <input type="hidden" name="post_sn" value="{$cmt.post_sn}">
+        <input type="hidden" name="cmt_sn" value="{$cmt.cmt_sn}">
+        <input type="hidden" name="op" value="update_cmt">
+        <button type="submit" class="btn btn-primary">確認</button>
+    </div>
+</form>
