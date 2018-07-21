@@ -61,6 +61,16 @@ switch ($op) {
         delete_user($user_sn);
         header("location:{$_SERVER['PHP_SELF']}?op=user_list");
         break;
+
+    case 'add_admin':
+        add_admin($user_sn);
+        header("location:user.php?op=user_form&user_sn={$user_sn}");
+        break;
+    
+    case 'delete_admin':
+        delete_admin($user_sn);
+        header("location:user.php?op=user_form&user_sn={$user_sn}");
+        break;
     
     default:
         if ($is_user) {

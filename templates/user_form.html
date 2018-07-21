@@ -38,6 +38,16 @@
                 <input type="email" class="form-control" name="user_email" id="user_email" placeholder="請輸入修改後的信箱" value="{$user.user_email}">
             </div>
         </div>
+        {if $is_top}
+            <br>
+            <div class="form-group">
+                {if $user.user_right == "user"}
+                    <a href="javascript:add_admin('{$user.user_sn}')" class="btn btn-warning">新增管理員</a>
+                {else if $user.user_right == "admin"}
+                    <a href="javascript:delete_admin('{$user.user_sn}')" class="btn btn-danger">刪除管理員</a>
+                {/if}
+            </div>
+        {/if}
         <div class="form-group">
             <label class="col-md-2 control-label">上傳頭貼</label>
             <div class="col-md-4">
@@ -51,7 +61,7 @@
         </div>
         <div class="row">
             {if $is_admin}
-                {if $user.user_right != "admin"}
+                {if $user.user_right != "admin" and $user.user_right != "top"}
                     <a href="javascript:delete_user('{$user.user_sn}')" class="btn btn-danger">刪除帳號</a>
                 {/if}
             {/if}
@@ -78,6 +88,36 @@
         },
         function() {
             location.href="user.php?op=delete_user&user_sn=" + user_sn;
+            swal("刪除完畢", "後悔來不及了030", "success");
+        });
+    }
+    function add_admin(user_sn) {
+        swal({
+            title: "新增管理員",
+            text: "他即將擁有權限",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-warning",
+            confirmButtonText: "確認",
+            closeOnConfirm: false,
+        },
+        function() {
+            location.href="user.php?op=add_admin&user_sn=" + user_sn;
+            swal("新增完畢", "後悔來不及了030", "success");
+        });
+    }
+    function delete_admin(user_sn) {
+        swal({
+            title: "刪除管理員",
+            text: "將刪除他的管理員權限",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "確認",
+            closeOnConfirm: false,
+        },
+        function() {
+            location.href="user.php?op=delete_admin&user_sn=" + user_sn;
             swal("刪除完畢", "後悔來不及了030", "success");
         });
     }

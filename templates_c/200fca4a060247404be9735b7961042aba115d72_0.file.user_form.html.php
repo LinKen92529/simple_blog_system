@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-18 05:37:43
+/* Smarty version 3.1.32, created on 2018-07-21 13:19:36
   from 'D:\UniServerZ\www\yukino\templates\user_form.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4ec417713d61_31013001',
+  'unifunc' => 'content_5b5324d8529e21_76128233',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '200fca4a060247404be9735b7961042aba115d72' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\user_form.html',
-      1 => 1531888005,
+      1 => 1532175295,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4ec417713d61_31013001 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5324d8529e21_76128233 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function() {
@@ -66,6 +66,18 @@ echo '<script'; ?>
 ">
             </div>
         </div>
+        <?php if ($_smarty_tpl->tpl_vars['is_top']->value) {?>
+            <br>
+            <div class="form-group">
+                <?php if ($_smarty_tpl->tpl_vars['user']->value['user_right'] == "user") {?>
+                    <a href="javascript:add_admin('<?php echo $_smarty_tpl->tpl_vars['user']->value['user_sn'];?>
+')" class="btn btn-warning">新增管理員</a>
+                <?php } elseif ($_smarty_tpl->tpl_vars['user']->value['user_right'] == "admin") {?>
+                    <a href="javascript:delete_admin('<?php echo $_smarty_tpl->tpl_vars['user']->value['user_sn'];?>
+')" class="btn btn-danger">刪除管理員</a>
+                <?php }?>
+            </div>
+        <?php }?>
         <div class="form-group">
             <label class="col-md-2 control-label">上傳頭貼</label>
             <div class="col-md-4">
@@ -81,7 +93,7 @@ echo '<script'; ?>
         </div>
         <div class="row">
             <?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
-                <?php if ($_smarty_tpl->tpl_vars['user']->value['user_right'] != "admin") {?>
+                <?php if ($_smarty_tpl->tpl_vars['user']->value['user_right'] != "admin" && $_smarty_tpl->tpl_vars['user']->value['user_right'] != "top") {?>
                     <a href="javascript:delete_user('<?php echo $_smarty_tpl->tpl_vars['user']->value['user_sn'];?>
 ')" class="btn btn-danger">刪除帳號</a>
                 <?php }?>
@@ -113,6 +125,36 @@ echo '<script'; ?>
         },
         function() {
             location.href="user.php?op=delete_user&user_sn=" + user_sn;
+            swal("刪除完畢", "後悔來不及了030", "success");
+        });
+    }
+    function add_admin(user_sn) {
+        swal({
+            title: "新增管理員",
+            text: "他即將擁有權限",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-warning",
+            confirmButtonText: "確認",
+            closeOnConfirm: false,
+        },
+        function() {
+            location.href="user.php?op=add_admin&user_sn=" + user_sn;
+            swal("新增完畢", "後悔來不及了030", "success");
+        });
+    }
+    function delete_admin(user_sn) {
+        swal({
+            title: "刪除管理員",
+            text: "將刪除他的管理員全縣",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "確認",
+            closeOnConfirm: false,
+        },
+        function() {
+            location.href="user.php?op=delete_admin&user_sn=" + user_sn;
             swal("刪除完畢", "後悔來不及了030", "success");
         });
     }

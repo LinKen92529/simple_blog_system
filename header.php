@@ -17,12 +17,16 @@ if (!empty($_SESSION['user_sn']) and !empty($_COOKIE['token'])) {
 post_list();
 latest_post();
 
-$is_admin = $is_user = false;
+$is_top = $is_admin = $is_user = false;
 if(isset($_SESSION['user_sn'])) {
     if(isset($_COOKIE['token'])) {
         if ($_SESSION['token'] == $_COOKIE['token']) {
             $is_user = true;
             if ($_SESSION['user_right'] == "admin") {
+                $is_admin = true;
+            }
+            if ($_SESSION['user_right'] == "top") {
+                $is_top = true;
                 $is_admin = true;
             }
         }
@@ -32,6 +36,7 @@ if (isset($_SESSION['user_sn'])) {
     $now_user_sn = $_SESSION['user_sn'];
     $smarty->assign('now_user_sn', $now_user_sn);
 }
+$smarty->assign('is_top', $is_top);
 $smarty->assign('is_admin', $is_admin);
 $smarty->assign('is_user', $is_user);
 

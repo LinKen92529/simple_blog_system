@@ -1,6 +1,6 @@
 <?php
 function insert_user() {
-    global $mysqli, $admin_array;
+    global $mysqli, $admin_array, $top_array;
     foreach ($_POST as $var_name => $var_val) {
         $$var_name = $mysqli->real_escape_string($var_val);
     }
@@ -23,10 +23,14 @@ function insert_user() {
         return false;
     }
     $user_pw = password_hash($_POST['user_pw'], PASSWORD_DEFAULT);
-    if (in_array($user_id, $admin_array)) {
-        $user_right = 'admin';
+    err_log($user_id);
+    if (in_array($user_id, $top_array)) {
+        err_log("1");
+        $user_right = "top";
+    } else if (in_array($user_id, $admin_array)) {
+        $user_right = "admin";
     } else {
-        $user_right = 'user';
+        $user_right = "user";
     }
     $sql = "INSERT INTO `users` (`user_id`,
     `user_pw`,
