@@ -12,8 +12,8 @@
             </center>
         </div>
         <br>
-        <div class="col-md-12" style="font-size: 20px">
-            {$post.post_content}
+        <div class="col-md-12" style="font-size: 20px;text-overflow:ellipsis;overflow:hidden;">
+            {include file="../uploads/post/{$post.post_sn}/{$post.post_sn}.html"}
             <br>
             <a href="post.php?op=post_display&post_sn={$post.post_sn}">(點擊查看全文...)</a>
         </div>
@@ -28,14 +28,14 @@
             </div>
         </div>
         <br>
-        <i class="fas fa-tag" style="color: rgba(161, 11, 190, 0.877)">標籤</i>
+        <i class="fas fa-tag" style="color: rgba(161, 11, 190, 0.877);">標籤</i>
         <br>
         <br>
         <div class="row">
             &nbsp;&nbsp;
             {foreach from=$post.post_tag item=tag}
                 {if $tag != ''}
-                    <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px">
+                    <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px;margin-bottom: 10px;">
                         {$tag}
                     </div>
                     &nbsp;&nbsp;

@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 07:05:37
+/* Smarty version 3.1.32, created on 2018-07-21 16:22:42
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b52cd3184f575_84280980',
+  'unifunc' => 'content_5b534fc2229c11_10348747',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1532153135,
+      1 => 1532186558,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:../uploads/post/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\'])."/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\']).".html' => 1,
   ),
 ),false)) {
-function content_5b52cd3184f575_84280980 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b534fc2229c11_10348747 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h1><?php echo $_smarty_tpl->tpl_vars['post']->value['post_title'];?>
 </h1>
 <br>
@@ -38,8 +39,8 @@ function content_5b52cd3184f575_84280980 (Smarty_Internal_Template $_smarty_tpl)
     <br>
 <?php }?>
 <br>
-<div style="font-size: 20px"><?php echo $_smarty_tpl->tpl_vars['post']->value['post_content'];?>
-</div>
+<div style="font-size: 20px;word-wrap: break-word;"><?php $_smarty_tpl->_subTemplateRender("file:../uploads/post/".((string)$_smarty_tpl->tpl_vars['post']->value['post_sn'])."/".((string)$_smarty_tpl->tpl_vars['post']->value['post_sn']).".html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?></div>
 <br>
 <div class="col-md-12" style="color: greenyellow">
     <div class="row">   
@@ -65,7 +66,7 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
 ?>
     <?php if ($_smarty_tpl->tpl_vars['tag']->value != '') {?>
-        <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px">
+        <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px;margin-bottom: 10px;">
             <?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
 
         </div>

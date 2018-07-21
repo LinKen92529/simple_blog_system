@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 13:25:20
+/* Smarty version 3.1.32, created on 2018-07-21 16:31:27
   from 'D:\UniServerZ\www\yukino\templates\post_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b532630ccc727_09076362',
+  'unifunc' => 'content_5b5351cf25e6a5_36503375',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ef37de82cfad9eb2413c2b858c79e2ba6d01cf6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_list.html',
-      1 => 1532175917,
+      1 => 1532187083,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:../uploads/post/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\'])."/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\']).".html' => 1,
   ),
 ),false)) {
-function content_5b532630ccc727_09076362 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5351cf25e6a5_36503375 (Smarty_Internal_Template $_smarty_tpl) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_post']->value, 'post');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
@@ -43,9 +44,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
             </center>
         </div>
         <br>
-        <div class="col-md-12" style="font-size: 20px">
-            <?php echo $_smarty_tpl->tpl_vars['post']->value['post_content'];?>
-
+        <div class="col-md-12" style="font-size: 20px;text-overflow:ellipsis;overflow:hidden;">
+            <?php $_smarty_tpl->_subTemplateRender("file:../uploads/post/".((string)$_smarty_tpl->tpl_vars['post']->value['post_sn'])."/".((string)$_smarty_tpl->tpl_vars['post']->value['post_sn']).".html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
             <br>
             <a href="post.php?op=post_display&post_sn=<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
 ">(點擊查看全文...)</a>
@@ -64,7 +65,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
             </div>
         </div>
         <br>
-        <i class="fas fa-tag" style="color: rgba(161, 11, 190, 0.877)">標籤</i>
+        <i class="fas fa-tag" style="color: rgba(161, 11, 190, 0.877);">標籤</i>
         <br>
         <br>
         <div class="row">
@@ -75,7 +76,7 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
 ?>
                 <?php if ($_smarty_tpl->tpl_vars['tag']->value != '') {?>
-                    <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px">
+                    <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px;margin-bottom: 10px;">
                         <?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
 
                     </div>

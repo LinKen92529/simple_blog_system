@@ -28,6 +28,7 @@ switch ($op) {
     case 'update_post':
         update_post($post_sn);
         header("location:post.php?op=post_display&post_sn={$post_sn}");
+        break;
 
     case 'delete_post':
         delete_post($post_sn);

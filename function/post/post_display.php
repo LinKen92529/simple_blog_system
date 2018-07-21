@@ -13,6 +13,9 @@ function post_display($post_sn) {
     } else {
         $post['post_owner'] = "不明";
     }
+    if (!file_exists("uploads/post/{$post_sn}/{$post_sn}.html")) {
+        copy("templates/default.html", "uploads/post/{$post_sn}/{$post_sn}.html");
+    }
     $sql = "SELECT * FROM `cmt` WHERE `post_sn`='{$post_sn}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $i = 0;

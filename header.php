@@ -75,6 +75,9 @@ function post_list() {
         } else {
             $post['post_owner'] = "不明";
         }
+        if (!file_exists("uploads/post/{$post_sn}/{$post_sn}.html")) {
+            copy("templates/default.html", "uploads/post/{$post_sn}/{$post_sn}.html");
+        }
         $tag_explode = explode(";", $post['post_tag']);
         $all_post[$i] = $post;
         $all_post[$i]["pic"] = get_pic_path("./uploads/post/{$post_sn}/normal_post_pic.png", "./img/normal_get_pic.jpg");

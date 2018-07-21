@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-20 07:01:16
+/* Smarty version 3.1.32, created on 2018-07-21 16:38:12
   from 'D:\UniServerZ\www\yukino\templates\post_create.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b517aac19b752_86391040',
+  'unifunc' => 'content_5b535364e48b38_37857349',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '969b75733d6370577c11e446202e17c651932ca9' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_create.html',
-      1 => 1532066473,
+      1 => 1532187488,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b517aac19b752_86391040 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b535364e48b38_37857349 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function () {
@@ -51,7 +51,7 @@ echo '<script'; ?>
     <div class="form-group">
         <label class="col-md-4 control-label">文章內容</label>
         <div class="col-md-8">
-            <textarea class="form-control" name="post_content" id="post_content" placeholder="請輸入文章內容"></textarea>
+            <input type="file" name="post_content" id="post_content" accept=".html">
         </div>
     </div>
     <div class="form-group">
