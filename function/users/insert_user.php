@@ -23,9 +23,7 @@ function insert_user() {
         return false;
     }
     $user_pw = password_hash($_POST['user_pw'], PASSWORD_DEFAULT);
-    err_log($user_id);
     if (in_array($user_id, $top_array)) {
-        err_log("1");
         $user_right = "top";
     } else if (in_array($user_id, $admin_array)) {
         $user_right = "admin";
