@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 16:31:27
+/* Smarty version 3.1.32, created on 2018-07-22 12:16:04
   from 'D:\UniServerZ\www\yukino\templates\post_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5351cf25e6a5_36503375',
+  'unifunc' => 'content_5b546774b9a676_65939302',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ef37de82cfad9eb2413c2b858c79e2ba6d01cf6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_list.html',
-      1 => 1532187083,
+      1 => 1532258162,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../uploads/post/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\'])."/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\']).".html' => 1,
   ),
 ),false)) {
-function content_5b5351cf25e6a5_36503375 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b546774b9a676_65939302 (Smarty_Internal_Template $_smarty_tpl) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_post']->value, 'post');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
@@ -44,10 +44,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
             </center>
         </div>
         <br>
-        <div class="col-md-12" style="font-size: 20px;text-overflow:ellipsis;overflow:hidden;">
+        <div class="col-md-12" id="post_content" style="font-size: 20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
             <?php $_smarty_tpl->_subTemplateRender("file:../uploads/post/".((string)$_smarty_tpl->tpl_vars['post']->value['post_sn'])."/".((string)$_smarty_tpl->tpl_vars['post']->value['post_sn']).".html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
             <br>
+            <br>    
             <a href="post.php?op=post_display&post_sn=<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
 ">(點擊查看全文...)</a>
         </div>

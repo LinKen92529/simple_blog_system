@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 13:19:36
+/* Smarty version 3.1.32, created on 2018-07-22 12:01:17
   from 'D:\UniServerZ\www\yukino\templates\user_form.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5324d8529e21_76128233',
+  'unifunc' => 'content_5b5463fdd86d63_68571117',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '200fca4a060247404be9735b7961042aba115d72' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\user_form.html',
-      1 => 1532175295,
+      1 => 1532175798,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5324d8529e21_76128233 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5463fdd86d63_68571117 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function() {
@@ -146,7 +146,7 @@ echo '<script'; ?>
     function delete_admin(user_sn) {
         swal({
             title: "刪除管理員",
-            text: "將刪除他的管理員全縣",
+            text: "將刪除他的管理員權限",
             type: "warning",
             showCancelButton: true,
             confirmButtonClass: "btn-danger",
