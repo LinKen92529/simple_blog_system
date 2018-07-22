@@ -6,6 +6,8 @@ function delete_post($post_sn) {
     }
     $sql = "DELETE FROM `post` WHERE `post_sn`='{$post_sn}'";
     $mysqli->query($sql) or die($mysqli->connect_error);
+    $sql = "DELETE FROM `cmt` WHERE `post_sn`='{$post_sn}'";
+    $mysqli->query($sql) or die($mysqli->connect_error);
     $path = "./uploads/post/{$post_sn}";
     delete_file($path, "folder");
 } 
