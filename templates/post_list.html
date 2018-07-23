@@ -37,7 +37,9 @@
             {foreach from=$post.post_tag item=tag}
                 {if $tag != ''}
                     <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px;margin-bottom: 10px;">
-                        {$tag}
+                        <a href="post.php?op=find_tag&keyword={$tag}" style="color: white;">
+                            {$tag}
+                        </a>
                     </div>
                     &nbsp;&nbsp;
                 {/if}

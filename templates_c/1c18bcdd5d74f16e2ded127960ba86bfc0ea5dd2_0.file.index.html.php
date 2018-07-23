@@ -1,24 +1,25 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 06:36:47
+/* Smarty version 3.1.32, created on 2018-07-22 14:20:13
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b52c66f89d807_86463574',
+  'unifunc' => 'content_5b54848dd50a91_30105690',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1532151401,
+      1 => 1532265570,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:post_list.html' => 1,
+    'file:find_tag.html' => 2,
     'file:history.html' => 1,
     'file:user_register.html' => 1,
     'file:user_form.html' => 1,
@@ -32,7 +33,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b52c66f89d807_86463574 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b54848dd50a91_30105690 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -80,6 +81,11 @@ function content_5b52c66f89d807_86463574 (Smarty_Internal_Template $_smarty_tpl)
                         <?php $_smarty_tpl->_subTemplateRender('file:post_list.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                     </div>
+                <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'find_tag') {?>
+                    <div class="col-md-8" style="margin-top: 20px">
+                        <?php $_smarty_tpl->_subTemplateRender('file:find_tag.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                    </div>
                 <?php } else { ?>
                     <div id="system_main" class="col-md-8">
                         <?php if (isset($_smarty_tpl->tpl_vars['msg']->value)) {?>
@@ -109,6 +115,9 @@ function content_5b52c66f89d807_86463574 (Smarty_Internal_Template $_smarty_tpl)
 ?>
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'cmt_form') {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:cmt_form.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "find_tag") {?>
+                            <?php $_smarty_tpl->_subTemplateRender('file:find_tag.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
                         <?php }?>
                     </div>

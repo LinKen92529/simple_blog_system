@@ -4,6 +4,7 @@ require_folder("./function/post/");
 
 $op      = isset($_REQUEST['op']) ? my_filter($_REQUEST['op'], "string") : '';
 $post_sn = isset($_REQUEST['post_sn']) ? my_filter($_REQUEST['post_sn'], "int") : 0;
+$keyword = isset($_REQUEST['keyword']) ? my_filter($_REQUEST['keyword'], "string") : '';
 
 switch ($op) {
     case 'insert_post':
@@ -33,6 +34,10 @@ switch ($op) {
     case 'delete_post':
         delete_post($post_sn);
         header("location:index.php");
+        break;
+
+    case 'find_tag':
+        find_tag($keyword);
         break;
     
     default:

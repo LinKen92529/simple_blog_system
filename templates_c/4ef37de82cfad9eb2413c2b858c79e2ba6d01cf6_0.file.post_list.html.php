@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-22 12:16:04
+/* Smarty version 3.1.32, created on 2018-07-22 14:26:42
   from 'D:\UniServerZ\www\yukino\templates\post_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b546774b9a676_65939302',
+  'unifunc' => 'content_5b5486123648e6_45258656',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ef37de82cfad9eb2413c2b858c79e2ba6d01cf6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_list.html',
-      1 => 1532258162,
+      1 => 1532266000,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../uploads/post/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\'])."/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\']).".html' => 1,
   ),
 ),false)) {
-function content_5b546774b9a676_65939302 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5486123648e6_45258656 (Smarty_Internal_Template $_smarty_tpl) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_post']->value, 'post');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
@@ -78,8 +78,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
 ?>
                 <?php if ($_smarty_tpl->tpl_vars['tag']->value != '') {?>
                     <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px;margin-bottom: 10px;">
-                        <?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
+                        <a href="post.php?op=find_tag&keyword=<?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
+" style="color: white;">
+                            <?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
 
+                        </a>
                     </div>
                     &nbsp;&nbsp;
                 <?php }?>
