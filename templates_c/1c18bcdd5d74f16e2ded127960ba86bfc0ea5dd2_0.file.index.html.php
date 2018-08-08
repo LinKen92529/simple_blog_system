@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-22 14:20:13
+/* Smarty version 3.1.32, created on 2018-08-08 07:21:39
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b54848dd50a91_30105690',
+  'unifunc' => 'content_5b6a8bf3692b09_57235496',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1532265570,
+      1 => 1533709294,
       2 => 'file',
     ),
   ),
@@ -30,10 +30,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:cmt_form.html' => 1,
     'file:user_datail.html' => 1,
     'file:user_login.html' => 1,
+    'file:search.html' => 1,
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b54848dd50a91_30105690 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6a8bf3692b09_57235496 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -76,18 +77,19 @@ function content_5b54848dd50a91_30105690 (Smarty_Internal_Template $_smarty_tpl)
         </nav>
         <div class="container">
             <div class="row">
+                <div class="col-md-1"></div>
                 <?php if ($_smarty_tpl->tpl_vars['op']->value == 'post_list') {?>
-                    <div class="col-md-8" style="margin-top: 20px">
+                    <div class="col-md-7" style="margin-top: 20px">
                         <?php $_smarty_tpl->_subTemplateRender('file:post_list.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                     </div>
                 <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'find_tag') {?>
-                    <div class="col-md-8" style="margin-top: 20px">
+                    <div class="col-md-7" style="margin-top: 20px">
                         <?php $_smarty_tpl->_subTemplateRender('file:find_tag.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                     </div>
                 <?php } else { ?>
-                    <div id="system_main" class="col-md-8">
+                    <div id="system_main" class="col-md-7">
                         <?php if (isset($_smarty_tpl->tpl_vars['msg']->value)) {?>
                             <div class="text-danger bg-danger"><?php echo $_smarty_tpl->tpl_vars['msg']->value;?>
 </div>
@@ -132,16 +134,36 @@ function content_5b54848dd50a91_30105690 (Smarty_Internal_Template $_smarty_tpl)
 ?>
                         <?php }?>
                     </div>
+                    <div class="col-md-12" id="search">
+                        <?php $_smarty_tpl->_subTemplateRender('file:search.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                    </div>
                     <div class="col-md-12" id="self">
                         <?php $_smarty_tpl->_subTemplateRender('file:self.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                     </div>
                 </div>
+                <div class="col-md-1"></div>
             </div>
         </div>
         <div id="system_foot">
-            <div>Version-Alphat-Yukino_Official_System</div>
+            <div class="text-info">TFcis20 NoteWeb</div>
+        </div>
+        <div class="waifu" style="float: right;">
+            <div class="waifu-tips"></div>
+            <canvas id="live2d" width="280" height="250" class="live2d" style="right: 0px;"></canvas>
         </div>
     </body>
+    <?php echo '<script'; ?>
+ async src="plugin/live2d/waifu-tips.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="plugin/live2d.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+>
+        loadlive2d("live2d", "plugin/Pio/model.json");
+    <?php echo '</script'; ?>
+>
 </html><?php }
 }

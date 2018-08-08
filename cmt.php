@@ -24,6 +24,11 @@ switch ($op) {
     case 'cmt_form':
         cmt_form($cmt_sn);
         break;
+
+    case 'cmt_reply':
+        cmt_reply($cmt_sn);
+        header("location:post.php?op=post_display&post_sn={$post_sn}");
+        break;
     
     default:
         # code...

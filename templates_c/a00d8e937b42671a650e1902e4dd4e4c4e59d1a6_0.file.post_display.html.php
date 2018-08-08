@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 16:22:42
+/* Smarty version 3.1.32, created on 2018-08-08 04:05:50
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b534fc2229c11_10348747',
+  'unifunc' => 'content_5b6a5e0ebeb5b3_93790288',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1532186558,
+      1 => 1533697546,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../uploads/post/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\'])."/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\']).".html' => 1,
   ),
 ),false)) {
-function content_5b534fc2229c11_10348747 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6a5e0ebeb5b3_93790288 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h1><?php echo $_smarty_tpl->tpl_vars['post']->value['post_title'];?>
 </h1>
 <br>
@@ -47,7 +47,7 @@ function content_5b534fc2229c11_10348747 (Smarty_Internal_Template $_smarty_tpl)
         <i class="fas fa-user"><?php echo $_smarty_tpl->tpl_vars['post']->value['post_owner'];?>
 </i>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <i class="fas fa-clock"><?php echo $_smarty_tpl->tpl_vars['post']->value['post_date'];?>
+        <i class="fas fa-clock"> <?php echo $_smarty_tpl->tpl_vars['post']->value['post_date'];?>
 </i>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <i class="fas fa-users">瀏覽人數：<?php echo $_smarty_tpl->tpl_vars['post']->value['post_counter'];?>
@@ -88,14 +88,16 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cmt']->value) {
             <div class="col-md-1">
                 <img src="<?php echo $_smarty_tpl->tpl_vars['cmt']->value['user_pic'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['cmt']->value['user_sn'];?>
-" class="rounded" style="width: 50px;">
+" class="rounded" style="width: 50px">
             </div>
             <div class="col-md-8">
-                <i class="fas fa-clock" style="color: rgb(0, 217, 255)"><?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_date'];?>
+                <i class="fas fa-clock" style="color: rgb(25, 252, 252)">&nbsp;<?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_date'];?>
 </i>
                 <br>
                 <?php echo $_smarty_tpl->tpl_vars['cmt']->value['user_name'];?>
-：
+說：
+                <div style="word-wrap: break-word;"><?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_content'];?>
+</div>
             </div>
             <div class="col-md-3">
                 <?php ob_start();
@@ -107,16 +109,68 @@ if ($_smarty_tpl->tpl_vars['is_admin']->value || isset($_smarty_tpl->tpl_vars['n
 ')" class="btn btn-sm btn-danger">刪除留言</a>
                     <a href="cmt.php?op=cmt_form&cmt_sn=<?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_sn'];?>
 &post_sn=<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
-" class="btn btn-sm btn-success">編輯留言</a>
+" class="btn btn-sm btn-info">編輯留言</a>
                 <?php }?>
+                <div>
+                    <br>
+                    <?php if ($_smarty_tpl->tpl_vars['is_user']->value) {?>
+                        <a href="javascript:reply('<?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_sn'];?>
+', '<?php echo $_smarty_tpl->tpl_vars['cmt']->value['post_sn'];?>
+')" id="reply_href_<?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_sn'];?>
+">
+                            <i class="fas fa-reply" style="color: rgb(14, 243, 14)"> 回覆</i>
+                        </a>
+                    <?php } else { ?>
+                        <i class="fas fa-reply" style="color: rgb(14, 243, 14)"> 登入後回覆</i>
+                    <?php }?>
+                </div>
             </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div><?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_content'];?>
+        <?php if (isset($_smarty_tpl->tpl_vars['cmt']->value['reply']) && $_smarty_tpl->tpl_vars['cmt']->value['reply'] != '') {?>
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['cmt']->value['reply'], 'reply');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['reply']->value) {
+?>
+                <br>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1">
+                        <img src="<?php echo $_smarty_tpl->tpl_vars['reply']->value['user_pic'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['reply']->value['user_sn'];?>
+" class="rounded" style="width: 50px;">
+                    </div>
+                    <div class="col-md-7">
+                        <i class="fas fa-clock" style="color: rgb(248, 244, 7)"><?php echo $_smarty_tpl->tpl_vars['reply']->value['cmt_date'];?>
+</i>
+                        <br>
+                        <?php echo $_smarty_tpl->tpl_vars['reply']->value['user_name'];?>
+回覆說：
+                        <div style="word-wrap: break-word;"><?php echo $_smarty_tpl->tpl_vars['reply']->value['cmt_content'];?>
 </div>
-        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['reply']->value['user_sn'];
+$_prefixVariable2 = ob_get_clean();
+if ($_smarty_tpl->tpl_vars['is_admin']->value || isset($_smarty_tpl->tpl_vars['now_user_sn']->value) && $_smarty_tpl->tpl_vars['now_user_sn']->value == $_prefixVariable2) {?>
+                            <a href="javascript:delete_cmt('<?php echo $_smarty_tpl->tpl_vars['reply']->value['cmt_sn'];?>
+', '<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
+')" class="btn btn-sm btn-danger">刪除留言</a>
+                            <a href="cmt.php?op=cmt_form&cmt_sn=<?php echo $_smarty_tpl->tpl_vars['reply']->value['cmt_sn'];?>
+&post_sn=<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
+" class="btn btn-sm btn-info">編輯留言</a>
+                        <?php }?>
+                    </div>
+                </div>
+            <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        <?php }?>
+        <br>
+        <div class="col-md-12" id="<?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_sn'];?>
+"></div>
         <hr>
     <?php
 }
@@ -181,6 +235,17 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
                 location.href = "cmt.php?op=delete_cmt&cmt_sn=" + cmt_sn + "&post_sn=" + post_sn;
                 swal("刪除完畢", "後悔來不及了030", "success");
             });
+    }
+<?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+    function reply(cmt_sn ,post_sn) {
+        $("#" + cmt_sn).append("<form action=\"cmt.php\" method=\"POST\" role=\"form\"><div class=\"form-group\"><textarea class=\"form-control\" name=\"cmt_content\" placeholder=\"回覆留言\"></textarea></div><input type=\"hidden\" name=\"op\" value=\"cmt_reply\"><input type=\"hidden\" name=\"post_sn\" value=\"" + post_sn + "\"><input type=\"hidden\" name=\"cmt_sn\" value=\"" + cmt_sn +"\"><button type=\"submit\" class=\"btn btn-primary\">回覆</button></form>")
+        $("#reply_href_" + cmt_sn).attr("href", "javascript:toggle(" + cmt_sn + ")");
+    }
+    function toggle(cmt_sn) {
+        $("#" + cmt_sn).toggle();
     }
 <?php echo '</script'; ?>
 ><?php }

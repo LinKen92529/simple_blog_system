@@ -16,7 +16,7 @@
     <div class="row">   
         <i class="fas fa-user">{$post.post_owner}</i>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <i class="fas fa-clock">{$post.post_date}</i>
+        <i class="fas fa-clock"> {$post.post_date}</i>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <i class="fas fa-users">瀏覽人數：{$post.post_counter}</i>
     </div>
@@ -42,25 +42,56 @@
     {foreach from=$post.cmt item=cmt}
         <div class="row">
             <div class="col-md-1">
-                <img src="{$cmt.user_pic}" alt="{$cmt.user_sn}" class="rounded" style="width: 50px;">
+                <img src="{$cmt.user_pic}" alt="{$cmt.user_sn}" class="rounded" style="width: 50px">
             </div>
             <div class="col-md-8">
-                <i class="fas fa-clock" style="color: rgb(0, 217, 255)">{$cmt.cmt_date}</i>
+                <i class="fas fa-clock" style="color: rgb(25, 252, 252)">&nbsp;{$cmt.cmt_date}</i>
                 <br>
-                {$cmt.user_name}：
+                {$cmt.user_name}說：
+                <div style="word-wrap: break-word;">{$cmt.cmt_content}</div>
             </div>
             <div class="col-md-3">
                 {if $is_admin or isset($now_user_sn) and $now_user_sn=={$cmt.user_sn}}
                     <a href="javascript:delete_cmt('{$cmt.cmt_sn}', '{$post.post_sn}')" class="btn btn-sm btn-danger">刪除留言</a>
-                    <a href="cmt.php?op=cmt_form&cmt_sn={$cmt.cmt_sn}&post_sn={$post.post_sn}" class="btn btn-sm btn-success">編輯留言</a>
+                    <a href="cmt.php?op=cmt_form&cmt_sn={$cmt.cmt_sn}&post_sn={$post.post_sn}" class="btn btn-sm btn-info">編輯留言</a>
                 {/if}
+                <div>
+                    <br>
+                    {if $is_user}
+                        <a href="javascript:reply('{$cmt.cmt_sn}', '{$cmt.post_sn}')" id="reply_href_{$cmt.cmt_sn}">
+                            <i class="fas fa-reply" style="color: rgb(14, 243, 14)"> 回覆</i>
+                        </a>
+                    {else}
+                        <i class="fas fa-reply" style="color: rgb(14, 243, 14)"> 登入後回覆</i>
+                    {/if}
+                </div>
             </div>
         </div>
+        {if isset($cmt.reply) and $cmt.reply != ''}
+            {foreach from=$cmt.reply item=reply}
+                <br>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1">
+                        <img src="{$reply.user_pic}" alt="{$reply.user_sn}" class="rounded" style="width: 50px;">
+                    </div>
+                    <div class="col-md-7">
+                        <i class="fas fa-clock" style="color: rgb(248, 244, 7)">{$reply.cmt_date}</i>
+                        <br>
+                        {$reply.user_name}回覆說：
+                        <div style="word-wrap: break-word;">{$reply.cmt_content}</div>
+                    </div>
+                    <div class="col-md-3">
+                        {if $is_admin or isset($now_user_sn) and $now_user_sn=={$reply.user_sn}}
+                            <a href="javascript:delete_cmt('{$reply.cmt_sn}', '{$post.post_sn}')" class="btn btn-sm btn-danger">刪除留言</a>
+                            <a href="cmt.php?op=cmt_form&cmt_sn={$reply.cmt_sn}&post_sn={$post.post_sn}" class="btn btn-sm btn-info">編輯留言</a>
+                        {/if}
+                    </div>
+                </div>
+            {/foreach}
+        {/if}
         <br>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div>{$cmt.cmt_content}</div>
-        </div>
+        <div class="col-md-12" id="{$cmt.cmt_sn}"></div>
         <hr>
     {/foreach}
 {else}
@@ -116,5 +147,14 @@
                 location.href = "cmt.php?op=delete_cmt&cmt_sn=" + cmt_sn + "&post_sn=" + post_sn;
                 swal("刪除完畢", "後悔來不及了030", "success");
             });
+    }
+</script>
+<script>
+    function reply(cmt_sn ,post_sn) {
+        $("#" + cmt_sn).append("<form action=\"cmt.php\" method=\"POST\" role=\"form\"><div class=\"form-group\"><textarea class=\"form-control\" name=\"cmt_content\" placeholder=\"回覆留言\"></textarea></div><input type=\"hidden\" name=\"op\" value=\"cmt_reply\"><input type=\"hidden\" name=\"post_sn\" value=\"" + post_sn + "\"><input type=\"hidden\" name=\"cmt_sn\" value=\"" + cmt_sn +"\"><button type=\"submit\" class=\"btn btn-primary\">回覆</button></form>")
+        $("#reply_href_" + cmt_sn).attr("href", "javascript:toggle(" + cmt_sn + ")");
+    }
+    function toggle(cmt_sn) {
+        $("#" + cmt_sn).toggle();
     }
 </script>

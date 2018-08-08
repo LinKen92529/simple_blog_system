@@ -39,6 +39,10 @@ switch ($op) {
     case 'find_tag':
         find_tag($keyword);
         break;
+
+    case 'search_result':
+        search_result($keyword);
+        break;
     
     default:
         $op = "post_list";

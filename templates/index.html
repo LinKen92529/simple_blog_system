@@ -33,16 +33,17 @@
         </nav>
         <div class="container">
             <div class="row">
+                <div class="col-md-1"></div>
                 {if $op=='post_list'}
-                    <div class="col-md-8" style="margin-top: 20px">
+                    <div class="col-md-7" style="margin-top: 20px">
                         {include file='post_list.html'}
                     </div>
                 {else if $op=='find_tag'}
-                    <div class="col-md-8" style="margin-top: 20px">
+                    <div class="col-md-7" style="margin-top: 20px">
                         {include file='find_tag.html'}
                     </div>
                 {else}
-                    <div id="system_main" class="col-md-8">
+                    <div id="system_main" class="col-md-7">
                         {if isset($msg)}
                             <div class="text-danger bg-danger">{$msg}</div>
                         {/if}
@@ -75,14 +76,27 @@
                             {include file='user_login.html'}
                         {/if}
                     </div>
+                    <div class="col-md-12" id="search">
+                        {include file='search.html'}
+                    </div>
                     <div class="col-md-12" id="self">
                         {include file='self.html'}
                     </div>
                 </div>
+                <div class="col-md-1"></div>
             </div>
         </div>
         <div id="system_foot">
-            <div>Version-Alphat-Yukino_Official_System</div>
+            <div class="text-info">TFcis20 NoteWeb</div>
+        </div>
+        <div class="waifu" style="float: right;">
+            <div class="waifu-tips"></div>
+            <canvas id="live2d" width="280" height="250" class="live2d" style="right: 0px;"></canvas>
         </div>
     </body>
+    <script async src="plugin/live2d/waifu-tips.js"></script>
+    <script src="plugin/live2d.js"></script>
+    <script>
+        loadlive2d("live2d", "plugin/Pio/model.json");
+    </script>
 </html>

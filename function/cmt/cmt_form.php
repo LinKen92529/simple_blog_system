@@ -4,5 +4,9 @@ function cmt_form($cmt_sn) {
     $sql = "SELECT * FROM `cmt` WHERE `cmt_sn`='{$cmt_sn}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $cmt = $result->fetch_assoc();
+    $sql= "SELECT * FROM `cmt` WHERE `cmt_sn`='{$cmt['reply_sn']}'" ;
+    $result = $mysqli->query($sql) or die($mysqli->connect_error);
+    $origin_cmt = $result->fetch_assoc();
+    $cmt['post_sn'] = $origin_cmt['post_sn'];
     $smarty->assign("cmt", $cmt);
 }

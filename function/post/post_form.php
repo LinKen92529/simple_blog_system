@@ -9,7 +9,6 @@ function post_form($post_sn) {
     $sql = "SELECT * FROM `post` WHERE `post_sn`='{$post_sn}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $post = $result->fetch_assoc();
-    err_log($post['post_content']);
     if(empty($post)) {
         return false;
     }
