@@ -1,111 +1,110 @@
--- phpMyAdmin SQL Dump
--- version 4.6.6
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1:3306
--- Generation Time: Jul 21, 2018 at 07:24 AM
--- Server version: 5.6.35
--- PHP Version: 7.1.1
+  -- phpMyAdmin SQL Dump
+  -- version 4.6.6
+  -- https://www.phpmyadmin.net/
+  --
+  -- Host: 127.0.0.1:3306
+  -- Generation Time: Aug 08, 2018 at 03:33 PM
+  -- Server version: 5.6.35
+  -- PHP Version: 7.1.1
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+  SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+  SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+  /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+  /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+  /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+  /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `yukino`
---
+  --
+  -- Database: `yukino`
+  --
 
--- --------------------------------------------------------
+  -- --------------------------------------------------------
 
---
--- Table structure for table `cmt`
---
+  --
+  -- Table structure for table `cmt`
+  --
 
-CREATE TABLE `cmt` (
-  `cmt_sn` mediumint(8) NOT NULL COMMENT '留言編號',
-  `cmt_content` varchar(255) NOT NULL COMMENT '留言內容',
-  `post_sn` varchar(255) NOT NULL COMMENT '留言文章',
-  `user_sn` varchar(255) NOT NULL COMMENT '留言作者',
-  `cmt_date` datetime NOT NULL COMMENT '留言時間'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CREATE TABLE `cmt` (
+    `cmt_sn` mediumint(8) NOT NULL COMMENT '留言編號',
+    `cmt_content` varchar(255) NOT NULL COMMENT '留言內容',
+    `post_sn` varchar(255) NOT NULL COMMENT '留言文章',
+    `user_sn` varchar(255) NOT NULL COMMENT '留言作者',
+    `reply_sn` varchar(255) NOT NULL COMMENT '回覆編號',
+    `cmt_date` datetime NOT NULL COMMENT '留言時間'
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+  -- --------------------------------------------------------
 
---
--- Table structure for table `post`
---
+  --
+  -- Table structure for table `post`
+  --
 
-CREATE TABLE `post` (
-  `post_sn` mediumint(8) NOT NULL COMMENT '文章編號',
-  `post_title` varchar(255) NOT NULL COMMENT '文章標題',
-  `post_content` varchar(255) NOT NULL COMMENT '文章內容',
-  `post_date` datetime NOT NULL COMMENT '發布時間',
-  `post_owner` varchar(255) NOT NULL COMMENT '文章作者',
-  `post_counter` varchar(255) NOT NULL COMMENT '瀏覽人數',
-  `post_tag` varchar(255) NOT NULL COMMENT '文章標籤'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CREATE TABLE `post` (
+    `post_sn` mediumint(8) NOT NULL COMMENT '文章編號',
+    `post_title` varchar(255) NOT NULL COMMENT '文章標題',
+    `post_date` datetime NOT NULL COMMENT '發布時間',
+    `post_owner` varchar(255) NOT NULL COMMENT '文章作者',
+    `post_counter` varchar(255) NOT NULL COMMENT '瀏覽人數',
+    `post_tag` varchar(255) NOT NULL COMMENT '文章標籤'
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+  -- --------------------------------------------------------
 
---
--- Table structure for table `users`
---
+  --
+  -- Table structure for table `users`
+  --
 
-CREATE TABLE `users` (
-  `user_sn` mediumint(8) UNSIGNED NOT NULL COMMENT '使用者編號',
-  `user_id` varchar(255) NOT NULL COMMENT '使用者帳號',
-  `user_pw` varchar(255) NOT NULL COMMENT '使用者密碼',
-  `user_name` varchar(255) NOT NULL COMMENT '使用者姓名',
-  `user_email` varchar(255) NOT NULL COMMENT '使用者信箱',
-  `user_right` varchar(255) NOT NULL COMMENT '使用者權限'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CREATE TABLE `users` (
+    `user_sn` mediumint(8) UNSIGNED NOT NULL COMMENT '使用者編號',
+    `user_id` varchar(255) NOT NULL COMMENT '使用者帳號',
+    `user_pw` varchar(255) NOT NULL COMMENT '使用者密碼',
+    `user_name` varchar(255) NOT NULL COMMENT '使用者姓名',
+    `user_email` varchar(255) NOT NULL COMMENT '使用者信箱',
+    `user_right` varchar(255) NOT NULL COMMENT '使用者權限'
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  --
+  -- Indexes for dumped tables
+  --
 
---
--- Indexes for dumped tables
---
+  --
+  -- Indexes for table `cmt`
+  --
+  ALTER TABLE `cmt`
+    ADD PRIMARY KEY (`cmt_sn`);
 
---
--- Indexes for table `cmt`
---
-ALTER TABLE `cmt`
-  ADD PRIMARY KEY (`cmt_sn`);
+  --
+  -- Indexes for table `post`
+  --
+  ALTER TABLE `post`
+    ADD PRIMARY KEY (`post_sn`);
 
---
--- Indexes for table `post`
---
-ALTER TABLE `post`
-  ADD PRIMARY KEY (`post_sn`);
+  --
+  -- Indexes for table `users`
+  --
+  ALTER TABLE `users`
+    ADD PRIMARY KEY (`user_sn`);
 
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_sn`);
+  --
+  -- AUTO_INCREMENT for dumped tables
+  --
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `cmt`
---
-ALTER TABLE `cmt`
-  MODIFY `cmt_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '留言編號', AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `post`
---
-ALTER TABLE `post`
-  MODIFY `post_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_sn` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '使用者編號', AUTO_INCREMENT=12;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  --
+  -- AUTO_INCREMENT for table `cmt`
+  --
+  ALTER TABLE `cmt`
+    MODIFY `cmt_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '留言編號', AUTO_INCREMENT=0;
+  --
+  -- AUTO_INCREMENT for table `post`
+  --
+  ALTER TABLE `post`
+    MODIFY `post_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=0;
+  --
+  -- AUTO_INCREMENT for table `users`
+  --
+  ALTER TABLE `users`
+    MODIFY `user_sn` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '使用者編號', AUTO_INCREMENT=0;
+  /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+  /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+  /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

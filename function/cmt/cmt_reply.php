@@ -10,9 +10,11 @@ function cmt_reply($cmt_sn) {
     $cmt_date = date("Y-m-d H:i:s");
     $sql = "INSERT INTO `cmt` (`cmt_content`,
     `user_sn`,
+    `post_sn`,
     `reply_sn`,
     `cmt_date`) VALUES ('{$cmt_content}',
     '{$_SESSION['user_sn']}',
+    '0',
     '{$cmt_sn}',
     '{$cmt_date}')";
     $mysqli->query($sql) or die($mysqli->connect_error);
