@@ -32,7 +32,7 @@ switch ($op) {
         if ($user_login) {
             header("location:index.php?op=post_list");
         } else {
-            header("location:{$_SERVER['PHP_SELF']}?msg=帳號或密碼錯誤(ﾒﾟДﾟ)ﾒ");
+            header("location:index.php?op=post_list&msg=帳號或密碼錯誤(ﾒﾟДﾟ)ﾒ");
         }
         break;
 
@@ -73,8 +73,6 @@ switch ($op) {
         break;
     
     default:
-        if ($is_user) {
-        }
         break;
 }
 
