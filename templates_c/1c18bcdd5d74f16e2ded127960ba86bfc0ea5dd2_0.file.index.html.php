@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-10 01:43:55
+/* Smarty version 3.1.32, created on 2018-08-10 09:43:22
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6cdfcb276f97_42824464',
+  'unifunc' => 'content_5b6d502a588b54_35841422',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1533861830,
+      1 => 1533890596,
       2 => 'file',
     ),
   ),
@@ -35,7 +35,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b6cdfcb276f97_42824464 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6d502a588b54_35841422 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -44,7 +44,6 @@ function content_5b6cdfcb276f97_42824464 (Smarty_Internal_Template $_smarty_tpl)
         <title><?php echo $_smarty_tpl->tpl_vars['system_name']->value;?>
 </title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugin/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="style.css">
@@ -73,7 +72,7 @@ function content_5b6cdfcb276f97_42824464 (Smarty_Internal_Template $_smarty_tpl)
     </head>
     <body>
         <nav class="navbar navbar-dark" id="head_pill">
-            <a class="navbar-brand" href="index.php">ARASIのストーリー</a>
+            <a class="navbar-brand" href="index.php" id="home">ARASIのストーリー</a>
             <span id="date"></span>
         </nav>
         <div class="container">

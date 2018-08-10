@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-10 01:20:28
+/* Smarty version 3.1.32, created on 2018-08-10 09:42:34
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6cda4ca47394_87935962',
+  'unifunc' => 'content_5b6d4ffad3d856_26082845',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1533860422,
+      1 => 1533890438,
       2 => 'file',
     ),
   ),
@@ -21,14 +21,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../uploads/post/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\'])."/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\']).".html' => 1,
   ),
 ),false)) {
-function content_5b6cda4ca47394_87935962 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6d4ffad3d856_26082845 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h1><?php echo $_smarty_tpl->tpl_vars['post']->value['post_title'];?>
 </h1>
 <br>
 <center>
     <img src="<?php echo $_smarty_tpl->tpl_vars['post']->value['pic'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
-" class="img-thumbnail">
+" class="img-thumbnail"  data-action="zoom">
 </center>
 <?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
     <br>

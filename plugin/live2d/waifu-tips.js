@@ -36,7 +36,7 @@ $(document).on('copy', function () {
 
 $.ajax({
     cache: true,
-    url: "path/to/waifu-tips.json",
+    url: "plugin/live2d//waifu-tips.json",
     dataType: "json",
     success: function (result) {
         $.each(result.mouseover, function (index, tips) {
