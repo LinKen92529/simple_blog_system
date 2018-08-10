@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-08 07:21:39
+/* Smarty version 3.1.32, created on 2018-08-10 01:43:55
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6a8bf3692b09_57235496',
+  'unifunc' => 'content_5b6cdfcb276f97_42824464',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1533709294,
+      1 => 1533861830,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     'file:post_list.html' => 1,
     'file:find_tag.html' => 2,
+    'file:search_result.html' => 1,
     'file:history.html' => 1,
     'file:user_register.html' => 1,
     'file:user_form.html' => 1,
@@ -34,7 +35,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b6a8bf3692b09_57235496 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6cdfcb276f97_42824464 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -86,6 +87,11 @@ function content_5b6a8bf3692b09_57235496 (Smarty_Internal_Template $_smarty_tpl)
                 <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'find_tag') {?>
                     <div class="col-md-7" style="margin-top: 20px">
                         <?php $_smarty_tpl->_subTemplateRender('file:find_tag.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                    </div>
+                <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "search_result") {?>
+                    <div class="col-md-7" style="margin-top: 20px">
+                        <?php $_smarty_tpl->_subTemplateRender("file:search_result.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                     </div>
                 <?php } else { ?>

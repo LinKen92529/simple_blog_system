@@ -42,6 +42,10 @@
                     <div class="col-md-7" style="margin-top: 20px">
                         {include file='find_tag.html'}
                     </div>
+                {else if $op=="search_result"}
+                    <div class="col-md-7" style="margin-top: 20px">
+                        {include file="search_result.html"}
+                    </div>
                 {else}
                     <div id="system_main" class="col-md-7">
                         {if isset($msg)}

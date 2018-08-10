@@ -5,11 +5,13 @@ function find_tag($keyword) {
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $i = 0;
     while($post = $result->fetch_assoc()) {
-        if(preg_match("/$keyword/i", $post['post_tag'])) {
+        $tag_array = explode(';', $post['post_tag']);
+        if (in_array($keyword, $tag_array)) {
             $tag[$i] = $post;
-            $tag[$i]["pic"] = get_pic_path("./uploads/post/{$post['post_sn']}/normal_post_pic.png", "./img/normal_get_pic.jpg");
-            $i++;
+            $tag[$i]['pic'] = get_pic_path("./uploads/post/{$post['post_sn']}/normal_post_pic.png", "./img/normal_get_pic.jpg");
+            $tag[$i]['post_tag'] = $tag_array;
         }
+        $i++;
     }
     if(isset($tag)) {
         $smarty->assign("tag", $tag);

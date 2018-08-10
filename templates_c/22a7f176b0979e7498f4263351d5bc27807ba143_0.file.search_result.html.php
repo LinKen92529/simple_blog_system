@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-10 01:14:23
-  from 'D:\UniServerZ\www\yukino\templates\find_tag.html' */
+/* Smarty version 3.1.32, created on 2018-08-10 01:40:49
+  from 'D:\UniServerZ\www\yukino\templates\search_result.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6cd8df7a19b4_44530307',
+  'unifunc' => 'content_5b6cdf11629e74_21639633',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '6600c1d86c6de91449cc9a30f290ea21a24eba59' => 
+    '22a7f176b0979e7498f4263351d5bc27807ba143' => 
     array (
-      0 => 'D:\\UniServerZ\\www\\yukino\\templates\\find_tag.html',
-      1 => 1533860059,
+      0 => 'D:\\UniServerZ\\www\\yukino\\templates\\search_result.html',
+      1 => 1533861435,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b6cd8df7a19b4_44530307 (Smarty_Internal_Template $_smarty_tpl) {
-if (isset($_smarty_tpl->tpl_vars['tag']->value)) {?>
+function content_5b6cdf11629e74_21639633 (Smarty_Internal_Template $_smarty_tpl) {
+if (isset($_smarty_tpl->tpl_vars['find_result']->value)) {?>
     <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tag']->value, 'post');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['find_result']->value, 'post');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
 ?>
@@ -95,7 +95,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 } else { ?>
     <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.7);margin-bottom: 20px;min-height: 500px;padding: 30px;">
-        <h1>並未尋找到指定標籤</h1>
+        <h1>沒有搜尋結果</h1>
     </div>
 <?php }
 }

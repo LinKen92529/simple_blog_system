@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-08 04:05:50
+/* Smarty version 3.1.32, created on 2018-08-10 01:20:28
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6a5e0ebeb5b3_93790288',
+  'unifunc' => 'content_5b6cda4ca47394_87935962',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1533697546,
+      1 => 1533860422,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../uploads/post/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\'])."/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\']).".html' => 1,
   ),
 ),false)) {
-function content_5b6a5e0ebeb5b3_93790288 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6cda4ca47394_87935962 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h1><?php echo $_smarty_tpl->tpl_vars['post']->value['post_title'];?>
 </h1>
 <br>
@@ -67,8 +67,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
 ?>
     <?php if ($_smarty_tpl->tpl_vars['tag']->value != '') {?>
         <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px;margin-bottom: 10px;">
-            <?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
+            <a href="post.php?op=find_tag&keyword=<?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
+" style="color: white;">
+                <?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
 
+            </a>
         </div>
         &nbsp;&nbsp;
     <?php }
