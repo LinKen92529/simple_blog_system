@@ -32,7 +32,9 @@ switch ($op) {
         if ($user_login) {
             header("location:index.php?op=post_list");
         } else {
-            header("location:index.php?op=post_list&msg=帳號或密碼錯誤(ﾒﾟДﾟ)ﾒ");
+            global $smarty;
+            $smarty->assign("error_msg", "帳號或密碼錯誤");
+            header("location:index.php?op=post_list");
         }
         break;
 

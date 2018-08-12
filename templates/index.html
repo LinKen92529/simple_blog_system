@@ -41,10 +41,6 @@
                     <div class="col-md-7" style="margin-top: 20px">
                         {include file='find_tag.html'}
                     </div>
-                {else if $op=="search_result"}
-                    <div class="col-md-7" style="margin-top: 20px">
-                        {include file="search_result.html"}
-                    </div>
                 {else}
                     <div id="system_main" class="col-md-7">
                         {if isset($msg)}
@@ -66,8 +62,8 @@
                             {include file='post_form.html'}
                         {else if $op=='cmt_form'}
                             {include file='cmt_form.html'}
-                        {else if $op=="find_tag"}
-                            {include file='find_tag.html'}
+                        {else if $op=="search_result"}
+                            {include file='search_result.html'}
                         {/if}
                     </div>
                 {/if}
@@ -98,7 +94,7 @@
         </div>
     </body>
     <script async src="plugin/live2d/waifu-tips.js"></script>
-    <script src="plugin/live2d.js"></script>
+    <script src="plugin/live2d/live2d.js"></script>
     <script>
         loadlive2d("live2d", "plugin/Pio/model.json");
     </script>
