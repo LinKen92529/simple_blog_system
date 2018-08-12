@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-18 05:36:34
+/* Smarty version 3.1.32, created on 2018-08-12 13:41:14
   from 'D:\UniServerZ\www\yukino\templates\user_register.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b4ec3d28515c8_24674765',
+  'unifunc' => 'content_5b702aea9c1cc1_72971956',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '63d0465af71d6f089c744a95080ad99c841a70a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\user_register.html',
-      1 => 1531817269,
+      1 => 1534077649,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b4ec3d28515c8_24674765 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b702aea9c1cc1_72971956 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
  src="plugin/jquery.validate.min.js"><?php echo '</script'; ?>
 >
@@ -42,17 +42,17 @@ echo '<script'; ?>
                 success: function($id_judge) {
                     var result = $id_judge.charAt(0);
                     if (result == "t") {
-                        var rlt = "true";
+                        var rlt = "帳號可使用(´Ａ｀。)";
                         $("#submit_button").removeAttr("disabled");
                     } else if (result=="f") {
-                        var rlt = "false";
+                        var rlt = "帳號已被別人搶先註冊過了喔( ˘･з･)";
                         $("#submit_button").attr("disabled", true);
                     }
                     $("#uid_judge_result").html(rlt);
                 }
             });
         });
-        $("#user_email").blur(function(){
+        $("#email_judge_btn").click(function(){
             $.ajax({
                 url: "user.php?op=user_email_judge",
                 data: {
@@ -61,18 +61,18 @@ echo '<script'; ?>
                 type: "POST",
                 dataType: "HTML",
                 success: function($email_judge) {
-                    var judge_email_result = $email_judge.charAt(0);
-                    if (judge_email_result == "t") {
-                        var email_rlt = "true";
+                    var result = $email_judge.charAt(0);
+                    if (result == "t") {
+                        var email_rlt = "信箱可使用(*‘ v`*)";
                         $("#submit_button").removeAttr("disabled");
                     } else if (result=="f") {
-                        var email_rlt = "false";
+                        var email_rlt = "信箱已被槍先註冊了(*´艸`*)";
                         $("#submit_button").attr("disabled", true);
                     }
                     $("#user_email_judge_result").html(email_rlt);
                 }
             });
-        });
+        }); 
     });
 <?php echo '</script'; ?>
 >
@@ -102,7 +102,10 @@ echo '<script'; ?>
     <div class="form-group">
         <label class="col-md-4 col-form-label" for="user_email">使用者信箱：</label>
         <div class="col-md-8">
-            <input type="email" class="form-control" name="user_email" id="user_email" placeholder="請輸入信箱" required>
+            <div class="input-group-append">
+                <input type="email" class="form-control" name="user_email" id="user_email" placeholder="請輸入信箱" required>
+                <button class="btn btn-outline-danger" id="email_judge_btn">檢查</button>
+            </div>
             <span id="user_email_judge_result"></span>
         </div>
     </div>

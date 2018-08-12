@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-12 13:03:21
+/* Smarty version 3.1.32, created on 2018-08-12 13:12:45
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b702209004423_53610409',
+  'unifunc' => 'content_5b70243d338151_30251665',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1534075396,
+      1 => 1534075959,
       2 => 'file',
     ),
   ),
@@ -35,7 +35,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b702209004423_53610409 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b70243d338151_30251665 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -147,7 +147,10 @@ function content_5b702209004423_53610409 (Smarty_Internal_Template $_smarty_tpl)
             </div>
         </div>
         <div id="system_foot">
-            <div class="text-info">TFcis20 NoteWeb</div>
+            <div class="row">
+                <div class="col-md-10"></div>
+                <div class="col-md-2">TFcis20 Note Web</div>
+            </div>
         </div>
         <div class="waifu" style="float: right;">
             <div class="waifu-tips"></div>

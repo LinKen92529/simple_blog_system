@@ -281,3 +281,17 @@ hr {
     transform: translate(0, 0) rotate(0);
   }
 }
+
+.btn-purple {
+  color: #fff;
+  background-color: rgb(223, 16, 223);
+  border-color: rgb(223, 16, 223);
+}
+
+.btn-purple:hover,
+.btn-purple:focus,
+.btn-purple:active:hover {
+  color: #fff;
+  background-color: rgb(223, 16, 223);
+  border-color: rgb(223, 16, 223);
+}

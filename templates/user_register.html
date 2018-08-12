@@ -14,17 +14,17 @@
                 success: function($id_judge) {
                     var result = $id_judge.charAt(0);
                     if (result == "t") {
-                        var rlt = "true";
+                        var rlt = "帳號可使用(´Ａ｀。)";
                         $("#submit_button").removeAttr("disabled");
                     } else if (result=="f") {
-                        var rlt = "false";
+                        var rlt = "帳號已被別人搶先註冊過了喔( ˘･з･)";
                         $("#submit_button").attr("disabled", true);
                     }
                     $("#uid_judge_result").html(rlt);
                 }
             });
         });
-        $("#user_email").blur(function(){
+        $("#email_judge_btn").click(function(){
             $.ajax({
                 url: "user.php?op=user_email_judge",
                 data: {
@@ -33,18 +33,18 @@
                 type: "POST",
                 dataType: "HTML",
                 success: function($email_judge) {
-                    var judge_email_result = $email_judge.charAt(0);
-                    if (judge_email_result == "t") {
-                        var email_rlt = "true";
+                    var result = $email_judge.charAt(0);
+                    if (result == "t") {
+                        var email_rlt = "信箱可使用(*‘ v`*)";
                         $("#submit_button").removeAttr("disabled");
                     } else if (result=="f") {
-                        var email_rlt = "false";
+                        var email_rlt = "信箱已被槍先註冊了(*´艸`*)";
                         $("#submit_button").attr("disabled", true);
                     }
                     $("#user_email_judge_result").html(email_rlt);
                 }
             });
-        });
+        }); 
     });
 </script>
 <br>
@@ -73,7 +73,10 @@
     <div class="form-group">
         <label class="col-md-4 col-form-label" for="user_email">使用者信箱：</label>
         <div class="col-md-8">
-            <input type="email" class="form-control" name="user_email" id="user_email" placeholder="請輸入信箱" required>
+            <div class="input-group-append">
+                <input type="email" class="form-control" name="user_email" id="user_email" placeholder="請輸入信箱" required>
+                <button class="btn btn-outline-danger" id="email_judge_btn">檢查</button>
+            </div>
             <span id="user_email_judge_result"></span>
         </div>
     </div>
