@@ -7,7 +7,7 @@ function delete_cmt($cmt_sn) {
     if (empty($cmt)) {
         return;
     }
-    if (!$is_admin and $_SESSION['user_sn'] != $cmt['user_sn']) {
+    if (!$is_top and $_SESSION['user_sn'] != $cmt['user_sn']) {
         die('揍凱尼沒權限(／‵Д′)／~ ╧╧');
     }
     $sql = "DELETE FROM `cmt` WHERE `cmt_sn`='{$cmt_sn}'";

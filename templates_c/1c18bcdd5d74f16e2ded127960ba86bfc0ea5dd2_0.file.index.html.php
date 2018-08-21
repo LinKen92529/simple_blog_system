@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-21 08:16:56
+/* Smarty version 3.1.32, created on 2018-08-21 11:45:58
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7bbc68c29859_65853952',
+  'unifunc' => 'content_5b7bed665b5bd0_42149487',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1534835164,
+      1 => 1534848031,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b7bbc68c29859_65853952 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7bed665b5bd0_42149487 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>

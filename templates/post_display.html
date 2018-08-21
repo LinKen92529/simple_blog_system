@@ -84,7 +84,7 @@
                         <div style="word-wrap: break-word;">{$reply.cmt_content}</div>
                     </div>
                     <div class="col-md-3">
-                        {if $is_admin or isset($now_user_sn) and $now_user_sn=={$reply.user_sn}}
+                        {if $is_top or isset($now_user_sn) and $now_user_sn=={$reply.user_sn}}
                             <a href="javascript:delete_cmt('{$reply.cmt_sn}', '{$post.post_sn}')" class="btn btn-sm btn-danger">刪除留言</a>
                             <a href="cmt.php?op=cmt_form&cmt_sn={$reply.cmt_sn}&post_sn={$post.post_sn}" class="btn btn-sm btn-info">編輯留言</a>
                         {/if}
