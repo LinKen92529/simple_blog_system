@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-17 16:45:44
+/* Smarty version 3.1.32, created on 2018-08-20 16:44:18
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b76eda8d7ad25_39477831',
+  'unifunc' => 'content_5b7ae1d2575507_89696406',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1534520736,
+      1 => 1534779852,
       2 => 'file',
     ),
   ),
@@ -29,13 +29,15 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:post_form.html' => 1,
     'file:cmt_form.html' => 1,
     'file:search_result.html' => 1,
+    'file:web_setting.html' => 1,
+    'file:webset_bg.html' => 1,
     'file:user_datail.html' => 1,
     'file:user_login.html' => 1,
     'file:search.html' => 1,
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b76eda8d7ad25_39477831 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7ae1d2575507_89696406 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -120,6 +122,12 @@ function content_5b76eda8d7ad25_39477831 (Smarty_Internal_Template $_smarty_tpl)
 ?>
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "search_result") {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:search_result.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "web_setting") {?>
+                            <?php $_smarty_tpl->_subTemplateRender('file:web_setting.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "webset_bg") {?>
+                            <?php $_smarty_tpl->_subTemplateRender("file:webset_bg.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                         <?php }?>
                     </div>

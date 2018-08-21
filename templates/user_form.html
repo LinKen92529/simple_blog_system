@@ -14,7 +14,7 @@
         });
     });
 </script>
-{if $is_user}
+{if $is_user and $user.user_sn == $now_user_sn or $is_admin}
     <h1>修改基本資料</h1>
     <br>
     <form action="user.php" id="user_form" method="post" class="form-horizontal" enctype="multipart/form-data">

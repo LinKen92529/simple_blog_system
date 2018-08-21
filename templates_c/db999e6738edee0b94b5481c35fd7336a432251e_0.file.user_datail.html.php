@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-20 01:44:06
+/* Smarty version 3.1.32, created on 2018-08-21 01:31:41
   from 'D:\UniServerZ\www\yukino\templates\user_datail.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b513056d51931_30327838',
+  'unifunc' => 'content_5b7b5d6d4526f0_88459439',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db999e6738edee0b94b5481c35fd7336a432251e' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\user_datail.html',
-      1 => 1532047443,
+      1 => 1534811487,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b513056d51931_30327838 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7b5d6d4526f0_88459439 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row">
     <div class="col-md-6">
         <img src="<?php echo $_smarty_tpl->tpl_vars['user_detail']->value['pic'];?>
@@ -40,7 +40,10 @@ function content_5b513056d51931_30327838 (Smarty_Internal_Template $_smarty_tpl)
 </div>
 <br>
 <a href="index.php?op=post_list" class="btn btn-block btn-primary">回到主頁</a>
-<?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
+<?php if ($_smarty_tpl->tpl_vars['is_top']->value) {?>
+    <a href="webset.php?op=web_setting" class="btn btn-block btn-purple">管理網站</a>
+<?php }
+if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
     <a href="user.php?op=user_list" class="btn btn-block btn-success">使用者列表</a>
     <a href="post.php?op=post_create" class="btn btn-block btn-info">發布文章</a>
 <?php }?>

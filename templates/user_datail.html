@@ -13,6 +13,9 @@
 </div>
 <br>
 <a href="index.php?op=post_list" class="btn btn-block btn-primary">回到主頁</a>
+{if $is_top}
+    <a href="webset.php?op=web_setting" class="btn btn-block btn-purple">管理網站</a>
+{/if}
 {if $is_admin}
     <a href="user.php?op=user_list" class="btn btn-block btn-success">使用者列表</a>
     <a href="post.php?op=post_create" class="btn btn-block btn-info">發布文章</a>

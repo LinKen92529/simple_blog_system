@@ -284,14 +284,28 @@ hr {
 
 .btn-purple {
   color: #fff;
-  background-color: rgb(223, 16, 223);
-  border-color: rgb(223, 16, 223);
+  background-color: rgb(176, 8, 218);
+  border-color: rgb(176, 8, 218);
 }
 
 .btn-purple:hover,
 .btn-purple:focus,
 .btn-purple:active:hover {
   color: #fff;
-  background-color: rgb(223, 16, 223);
-  border-color: rgb(223, 16, 223);
+  background-color: rgb(138, 9, 170);
+  border-color: rgb(138, 9, 170);
+}
+
+.btn-skyblue {
+  color: #fff;
+  background-color: rgb(48, 211, 240);
+  border-color: rgb(48, 211, 240);
+}
+
+.btn-skyblue:hover,
+.btn-skyblue:focus,
+.btn-skyblue:active:hover {
+  color: #fff;
+  background-color: rgb(48, 211, 240);
+  border-color: rgb(48, 211, 240);
 }

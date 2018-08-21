@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-22 12:01:17
+/* Smarty version 3.1.32, created on 2018-08-21 02:51:55
   from 'D:\UniServerZ\www\yukino\templates\user_form.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5463fdd86d63_68571117',
+  'unifunc' => 'content_5b7b703b9d0150_95280359',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '200fca4a060247404be9735b7961042aba115d72' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\user_form.html',
-      1 => 1532175798,
+      1 => 1534816305,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5463fdd86d63_68571117 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7b703b9d0150_95280359 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function() {
@@ -39,7 +39,7 @@ echo '<script'; ?>
     });
 <?php echo '</script'; ?>
 >
-<?php if ($_smarty_tpl->tpl_vars['is_user']->value) {?>
+<?php if ($_smarty_tpl->tpl_vars['is_user']->value && $_smarty_tpl->tpl_vars['user']->value['user_sn'] == $_smarty_tpl->tpl_vars['now_user_sn']->value || $_smarty_tpl->tpl_vars['is_admin']->value) {?>
     <h1>修改基本資料</h1>
     <br>
     <form action="user.php" id="user_form" method="post" class="form-horizontal" enctype="multipart/form-data">

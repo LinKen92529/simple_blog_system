@@ -1,0 +1,35 @@
+<script>
+    $(document).ready(function () {
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#bg_pic").attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+                $("#submit_btn").removeAttr("disabled");
+            }
+        }
+        $("#bg_img").change(function () {
+            readURL(this);
+        });
+    });
+</script>
+<h1>更改網站背景</h1>
+<form action="webset.php" method="POST" role="form" enctype="multipart/form-data">
+    <div class="form-group">
+        <label class="col-md-2 ">上傳圖片</label>
+        <div class="col-md-2">
+            <input type="file" name="bg_img" id="bg_img" accept="image/jpg">
+        </div>
+        <br>
+        <br>
+        <div class="col-md-12">
+            <img src="img/bg.jpg" alt="bg_pic" id="bg_pic" class="img-thumbnail"> 
+        </div>
+    </div>
+    <div class="col-md-2">
+        <input type="hidden" name="op" value="webset_bg">
+        <button type="submit" id="submit_btn" class="btn btn-block btn-primary" disabled>更改</button>
+    </div>
+</form>

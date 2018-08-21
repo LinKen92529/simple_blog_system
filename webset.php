@@ -1,20 +1,13 @@
 <?php
 require_once 'header.php';
+require_folder('./function/webset/');
+
 $op = isset($_REQUEST['op']) ? my_filter($_REQUEST['op'], "string") : '';
 
 switch ($op) {
-
-    case 'post_list':
-        break;
-
-    case 'user_register':
-        break;
-
     case 'webset_bg':
-        break;
-
-    default:
-        $op = "post_list";
+        webset_bg($_FILES['bg_img']);
+        header("location:webset.php?op=web_setting");
         break;
 }
 
