@@ -12,7 +12,7 @@
         {foreach from=$find_result item=post}
             <tbody>
                 <tr>
-                    <th scope="row">{$post.post_title}</th>
+                    <th scope="row"><a href="post.php?op=post_display&post_sn={$post.post_sn}">{$post.post_title}</a></th>
                     <td>{$post.post_owner}</td>
                     <td>{$post.post_date}</td>
                     <td>{$post.post_counter}</td>
@@ -21,7 +21,5 @@
         {/foreach}
     </table>
 {else}
-    <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.7);margin-bottom: 20px;min-height: 500px;padding: 30px;">
-        <h1>沒有搜尋結果</h1>
-    </div>
+    <h1>沒有搜尋結果</h1>
 {/if}

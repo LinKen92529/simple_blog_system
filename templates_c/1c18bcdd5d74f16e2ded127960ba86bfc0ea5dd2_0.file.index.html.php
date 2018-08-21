@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-20 16:44:18
+/* Smarty version 3.1.32, created on 2018-08-21 08:16:56
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7ae1d2575507_89696406',
+  'unifunc' => 'content_5b7bbc68c29859_65853952',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1534779852,
+      1 => 1534835164,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b7ae1d2575507_89696406 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7bbc68c29859_65853952 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -156,13 +156,15 @@ function content_5b7ae1d2575507_89696406 (Smarty_Internal_Template $_smarty_tpl)
         </div>
         <div id="system_foot">
             <div class="row">
-                <div class="col-md-10"></div>
                 <div class="col-md-2">TFcis20 Note Web</div>
             </div>
         </div>
-        <div class="waifu" style="float: right;">
-            <div class="waifu-tips"></div>
-            <canvas id="live2d" width="280" height="250" class="live2d" style="right: 0px;"></canvas>
+        <div class="col-md-12 waifu row">
+            <div class="col-md-10"></div>
+            <div>
+                <div class="waifu-tips"></div>
+                <canvas id="live2d" width="255" height="235" class="live2d"></canvas>
+            </div>
         </div>
     </body>
     <?php echo '<script'; ?>

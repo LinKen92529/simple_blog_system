@@ -22,7 +22,7 @@ function search_result($keyword) {
                 }
             }
         } else {
-            $sql = "SELECT * FROM `post` WHERE `post_title` LIKE '%{$keyword}%'";
+            $sql = "SELECT * FROM `post` WHERE `post_title` LIKE '%{$keyword}%' OR (`post_tag` LIKE '%{$keyword}%')";
             $result = $mysqli->query($sql) or die($mysqli->connect_error);
             $i = 0;
             while ($post = $result->fetch_assoc()) {
