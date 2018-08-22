@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-21 02:51:55
+/* Smarty version 3.1.32, created on 2018-08-22 08:33:34
   from 'D:\UniServerZ\www\yukino\templates\user_form.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7b703b9d0150_95280359',
+  'unifunc' => 'content_5b7d11cee50f67_96381446',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '200fca4a060247404be9735b7961042aba115d72' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\user_form.html',
-      1 => 1534816305,
+      1 => 1534923190,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b7b703b9d0150_95280359 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7d11cee50f67_96381446 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function() {
@@ -98,6 +98,7 @@ echo '<script'; ?>
 ')" class="btn btn-danger">刪除帳號</a>
                 <?php }?>
             <?php }?>
+            <div class="col-md-2"></div>
             <div class="col-md-2">
                 <input type="hidden" name="user_sn" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['user_sn'];?>
 ">

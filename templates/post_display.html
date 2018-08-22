@@ -3,7 +3,7 @@
 <center>
     <img src="{$post.pic}" alt="{$post.post_sn}" class="img-thumbnail"  data-action="zoom">
 </center>
-{if $is_admin}
+{if $is_top or $now_user_sn == $post.user_sn}
     <br>
     <a href="post.php?op=post_form&post_sn={$post.post_sn}" class="btn btn-success">編輯文章</a>
     <a href="javascript:delete_post('{$post.post_sn}')" class="btn btn-danger">刪除文章</a>

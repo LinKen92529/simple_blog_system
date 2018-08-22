@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-21 11:47:17
+/* Smarty version 3.1.32, created on 2018-08-22 15:14:37
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7bedb5e6a481_80771840',
+  'unifunc' => 'content_5b7d6fcd3bdb75_34888243',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1534848434,
+      1 => 1534947269,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../uploads/post/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\'])."/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\']).".html' => 1,
   ),
 ),false)) {
-function content_5b7bedb5e6a481_80771840 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7d6fcd3bdb75_34888243 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h1><?php echo $_smarty_tpl->tpl_vars['post']->value['post_title'];?>
 </h1>
 <br>
@@ -30,7 +30,7 @@ function content_5b7bedb5e6a481_80771840 (Smarty_Internal_Template $_smarty_tpl)
 " alt="<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
 " class="img-thumbnail"  data-action="zoom">
 </center>
-<?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
+<?php if ($_smarty_tpl->tpl_vars['is_top']->value || $_smarty_tpl->tpl_vars['now_user_sn']->value == $_smarty_tpl->tpl_vars['post']->value['user_sn']) {?>
     <br>
     <a href="post.php?op=post_form&post_sn=<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
 " class="btn btn-success">編輯文章</a>

@@ -8,6 +8,11 @@ function insert_user() {
         $msg = "有些東西似乎是空的呢,例如你的腦袋(;ﾟдﾟ)";
         return false;
     }
+    $user_id_len = strlen($user_id);
+    $user_pw_len = strlen($user_pw);
+    if ($user_id_len < 6 or $user_id_len > 16 or $user_pw_len < 6 or $user_pw_len > 16) {
+        die('還有後端你改不到d(`･∀･)b');
+    }
     $sql     = "SELECT * FROM `users` WHERE  `user_id`='{$user_id}'";
     $result  = $mysqli->query($sql) or die($mysqli->connect_error);
     $user    = $result->fetch_assoc();

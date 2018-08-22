@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-12 13:16:58
+/* Smarty version 3.1.32, created on 2018-08-22 03:17:49
   from 'D:\UniServerZ\www\yukino\templates\user_login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b70253a2ba5d3_39291178',
+  'unifunc' => 'content_5b7cc7cdf2c029_06945609',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b753135cc1ec436105caf6c9e7f2f5e51cc7e9e8' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\user_login.html',
-      1 => 1534074791,
+      1 => 1534904157,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b70253a2ba5d3_39291178 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7cc7cdf2c029_06945609 (Smarty_Internal_Template $_smarty_tpl) {
 ?><form action="user.php" method="post" role="form" class="form-horizontal">
     <div class="form-group">
         <label class="col-form-label">帳號</label>

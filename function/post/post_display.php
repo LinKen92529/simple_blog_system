@@ -8,7 +8,9 @@ function post_display($post_sn) {
     $post['tag'] = explode(";", $post['post_tag']);
     $sql = "SELECT * FROM `users` WHERE `user_sn`='{$post['post_owner']}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
-    if ($user = $result->fetch_assoc()) {
+    $user = $result->fetch_assoc();
+    $post['user_sn'] = $user['user_sn'];
+    if (!empty($user) and $user != '') {
         $post['post_owner'] = $user['user_name'];
     } else {
         $post['post_owner'] = "不明";

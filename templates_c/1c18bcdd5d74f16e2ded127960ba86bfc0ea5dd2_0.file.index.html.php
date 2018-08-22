@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-21 11:45:58
+/* Smarty version 3.1.32, created on 2018-08-22 08:27:55
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7bed665b5bd0_42149487',
+  'unifunc' => 'content_5b7d107bcbeb56_02512680',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1534848031,
+      1 => 1534922860,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b7bed665b5bd0_42149487 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7d107bcbeb56_02512680 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -50,10 +50,13 @@ function content_5b7bed665b5bd0_42149487 (Smarty_Internal_Template $_smarty_tpl)
         <link rel="stylesheet" href="plugin/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="style.css">
         <?php echo '<script'; ?>
- src="bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+ src="plugin/jquery.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
- src="plugin/jquery.min.js"><?php echo '</script'; ?>
+ src="plugin/popper.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
 >
@@ -68,6 +71,12 @@ function content_5b7bed665b5bd0_42149487 (Smarty_Internal_Template $_smarty_tpl)
                     today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
                     $("#date").html(currentDateTime);
                 }
+                $('.waifu').mouseover(function() {
+                    $('.waifu-tools').css('display', 'block');
+                });
+                $('.waifu').mouseout(function() {
+                    $('.waifu-tools').css('display', 'none');
+                });
             });
         <?php echo '</script'; ?>
 >
@@ -159,11 +168,12 @@ function content_5b7bed665b5bd0_42149487 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="col-md-2">TFcis20 Note Web</div>
             </div>
         </div>
-        <div class="col-md-12 waifu row">
-            <div class="col-md-10"></div>
-            <div>
-                <div class="waifu-tips"></div>
-                <canvas id="live2d" width="255" height="235" class="live2d"></canvas>
+        <div class="waifu">
+            <div class="waifu-tips"></div>
+            <canvas id="live2d" width="280" height="250" class="live2d" style="right: 0px;"></canvas>
+            <div class="waifu-tools" style="font-size: 14px;text-align: center;display: none;">
+                <a href="index.php" style="color: rgb(72, 194, 241);"><i class="fas fa-home"></i></a>
+                <a href="javascript:void(0)" style="color: rgb(72, 194, 241);" id="fa-times"><i class="fas fa-times"></i></a>
             </div>
         </div>
     </body>
@@ -176,6 +186,16 @@ function content_5b7bed665b5bd0_42149487 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
 >
         loadlive2d("live2d", "plugin/Pio/model.json");
+        $("#fa-times").click(function() {
+            $(".waifu").css("display", "none");
+        });
+    <?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+>
+        $(function () {
+            $("[data-toggle='tooltip']").tooltip();
+        });
     <?php echo '</script'; ?>
 >
 </html><?php }

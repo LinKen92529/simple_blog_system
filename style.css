@@ -90,6 +90,7 @@ hr {
   transition: all .3s ease-in-out;
   -webkit-transform: translateY(3px);
   transform: translateY(3px);
+  display: block;
 }
 
 .waifu:hover {
@@ -122,6 +123,14 @@ hr {
   animation-iteration-count: infinite;
   animation-name: shake;
   animation-timing-function: ease-in-out;
+}
+
+.waifu-tools {
+  position: absolute;
+  width: 14px;
+  right: 10px;
+  top: 50px;
+  color: rgb(72, 194, 241);
 }
 
 .waifu #live2d {
