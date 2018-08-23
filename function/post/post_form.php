@@ -1,7 +1,6 @@
 <?php
 function post_form($post_sn) {
     global $mysqli, $is_admin, $smarty;
-
     if (!$is_admin) {
         die("你沒有權限喔><");
     }

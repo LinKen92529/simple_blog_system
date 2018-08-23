@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-23 05:17:59
+/* Smarty version 3.1.32, created on 2018-08-23 09:36:38
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7e3577629310_21353005',
+  'unifunc' => 'content_5b7e721646f8d5_47335608',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1534997840,
+      1 => 1535013395,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b7e3577629310_21353005 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7e721646f8d5_47335608 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -77,6 +77,7 @@ function content_5b7e3577629310_21353005 (Smarty_Internal_Template $_smarty_tpl)
                 $('.waifu').mouseout(function() {
                     $('.waifu-tools').css('display', 'none');
                 });
+                var sc_width = $(window).width;
             });
         <?php echo '</script'; ?>
 >
@@ -163,17 +164,17 @@ function content_5b7e3577629310_21353005 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="col-md-1"></div>
             </div>
         </div>
-        <div id="system_foot">
-            <div class="row">
-                <div class="col-md-2">TFcis20 Note Web</div>
-            </div>
-        </div>
-        <div class="waifu">
+        <div class="waifu justify-content-end" class="pull-right">
             <div class="waifu-tips"></div>
-            <canvas id="live2d" width="280" height="250" class="live2d" style="right: 0px;"></canvas>
+            <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
             <div class="waifu-tools" style="font-size: 14px;text-align: center;display: none;">
                 <a href="index.php" style="color: rgb(72, 194, 241);"><i class="fas fa-home"></i></a>
                 <a href="javascript:void(0)" style="color: rgb(72, 194, 241);" id="fa-times"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+        <div id="system_foot">
+            <div class="row">
+                <div class="col-md-2">TFcis20 Note Web</div>
             </div>
         </div>
     </body>

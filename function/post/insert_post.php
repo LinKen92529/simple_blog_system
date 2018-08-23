@@ -22,6 +22,5 @@ function insert_post() {
     $mysqli->query($sql) or die($mysqli->connect_error);
     $post_sn = $mysqli->insert_id;
     save_post_pic($post_sn);
-    // insert_post_content($_FILES['post_content'], $post_sn);
     return $post_sn;
 }

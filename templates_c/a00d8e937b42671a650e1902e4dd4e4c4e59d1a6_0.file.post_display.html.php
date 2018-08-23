@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-23 05:53:09
+/* Smarty version 3.1.32, created on 2018-08-23 15:19:56
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7e3db5804036_80260690',
+  'unifunc' => 'content_5b7ec28c7ff154_88896690',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1534998202,
+      1 => 1535033993,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b7e3db5804036_80260690 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7ec28c7ff154_88896690 (Smarty_Internal_Template $_smarty_tpl) {
 ?><link rel="stylesheet" href="plugin/prism/prism.css">
 <?php echo '<script'; ?>
  src="plugin/prism/prism.js"><?php echo '</script'; ?>
@@ -33,7 +33,7 @@ function content_5b7e3db5804036_80260690 (Smarty_Internal_Template $_smarty_tpl)
 " alt="<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
 " class="img-thumbnail">
 </center>
-<?php if ($_smarty_tpl->tpl_vars['is_top']->value || $_smarty_tpl->tpl_vars['now_user_sn']->value == $_smarty_tpl->tpl_vars['post']->value['user_sn']) {?>
+<?php if ($_smarty_tpl->tpl_vars['is_top']->value || isset($_smarty_tpl->tpl_vars['now_user_sn']->value) && $_smarty_tpl->tpl_vars['now_user_sn']->value == $_smarty_tpl->tpl_vars['post']->value['user_sn']) {?>
     <br>
     <a href="post.php?op=post_form&post_sn=<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
 " class="btn btn-success">編輯文章</a>
@@ -210,7 +210,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
     &nbsp;<div>暫時還沒有留言喔QAqqqqq</div>
 <?php }?>
 <br>
-<div class="col-md-12">
+<div class="col-md-12" id="cmt_box">
     <h1>發表回響</h1>
     <?php if ($_smarty_tpl->tpl_vars['is_user']->value) {?>
         <form action="cmt.php" method="POST" class="form-horizontal" role="form">

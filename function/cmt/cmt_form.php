@@ -1,6 +1,9 @@
 <?php
 function cmt_form($cmt_sn) {
-    global $mysqli, $smarty;
+    global $mysqli, $smarty, $is_user;
+    if (!$is_user) {
+        die('你想幹嘛呢Σ(ﾟωﾟ)');
+    }
     $sql = "SELECT * FROM `cmt` WHERE `cmt_sn`='{$cmt_sn}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $cmt = $result->fetch_assoc();

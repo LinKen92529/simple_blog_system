@@ -3,7 +3,6 @@ function search_result($keyword) {
     global $mysqli, $smarty;
     foreach ($_POST as $var_title => $var_value) {
        $$var_title = $mysqli->real_escape_string($_POST[$var_title]);
-       err_log($$var_title);
     }
     if (isset($target)) {
         if ($target == "user_name") {
