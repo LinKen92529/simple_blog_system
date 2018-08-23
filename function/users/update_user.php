@@ -1,6 +1,6 @@
 <?php
-function update_user() {
-    global $mysqli, $is_admin, $is_user;
+function update_user($user_sn) {
+    global $mysqli, $is_admin, $is_user, $now_user_sn;
     if ($_COOKIE['token'] == $_SESSION['token'] or $is_admin) {
         $user_name = $mysqli->real_escape_string($_POST['user_name']);
         $user_id = $mysqli->real_escape_string($_POST['user_id']);
@@ -19,14 +19,15 @@ function update_user() {
         $sql = "SELECT * FROM `users` WHERE `user_id`='{$user_id}'";
         $result = $mysqli->query($sql) or die($mysqli->connect_error);
         $id_judge = $result->fetch_assoc();
-        err_log($id_judge['user_id']);
-        err_log($user_id);
         if (!empty($id_judge) and $id_judge != '' and $id_judge['user_sn'] != $user_sn) {
             die('帳號重複了喔 哭哭( • ̀ω•́ )');
         }
         $sql    = "SELECT * FROM `users` WHERE `user_sn`='{$user_sn}'";
         $result = $mysqli->query($sql) or die($mysqli->connect_error);
         $user   = $result->fetch_assoc();
+        if ($user['user_right'] == 'top' and $now_user_sn != $user['user_sn']) {
+            die ('母湯喔(╬☉д⊙)');
+        }
         if (!empty($user)) {
             $pw_update = '';
             if(!empty($_POST['user_pw'])) {
