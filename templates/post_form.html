@@ -14,8 +14,9 @@
         });
     });
 </script>
+<script src="plugin/ckeditor/ckeditor.js"></script>
 {if $is_admin}
-<h1>發布文章</h1>
+<h1>修改文章</h1>
 <form action="post.php" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
     <div class="form-group">
         <label class="col-md-4 control-label">文章標題</label>
@@ -25,8 +26,8 @@
     </div>
     <div class="form-group">
         <label class="col-md-4 control-label">文章內容</label>
-        <div class="col-md-8">
-            <input type="file" name="post_content" id="post_content" accept=".html">
+        <div class="col-md-12">
+            <textarea class="form-control" name="post_content" id="post_content" placeholder="請輸入文章內容">{$post.post_content}</textarea>
         </div>
     </div>
     <div class="form-group">
@@ -51,10 +52,16 @@
         <div class="col-md-2">
             <input type="hidden" name="post_sn" value="{$post.post_sn}">
             <input type="hidden" name="op" value="update_post">
-            <button type="submit" class="btn btn-block btn-primary">發布</button>
+            <button type="submit" class="btn btn-block btn-primary">更新</button>
         </div>
     </div>
 </form>
 {else}
 你沒有權限喔=QwQ=
 {/if}
+<script>
+    CKEDITOR.replace("post_content", {
+        removeButtons: "Image",
+        codeSnippetGeshi_url: 'plugin/lib/colorize.php'
+    });
+</script>

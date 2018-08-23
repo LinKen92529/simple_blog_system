@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 16:52:05
+/* Smarty version 3.1.32, created on 2018-08-23 03:46:28
   from 'D:\UniServerZ\www\yukino\templates\post_form.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5356a5f3d515_04070692',
+  'unifunc' => 'content_5b7e20049af2e2_38862732',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '64d67841bdb7706558c77a3e705e9d10448afd84' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_form.html',
-      1 => 1532188292,
+      1 => 1534992384,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5356a5f3d515_04070692 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7e20049af2e2_38862732 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function () {
@@ -39,8 +39,11 @@ echo '<script'; ?>
     });
 <?php echo '</script'; ?>
 >
+<?php echo '<script'; ?>
+ src="plugin/ckeditor/ckeditor.js"><?php echo '</script'; ?>
+>
 <?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
-<h1>發布文章</h1>
+<h1>修改文章</h1>
 <form action="post.php" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
     <div class="form-group">
         <label class="col-md-4 control-label">文章標題</label>
@@ -51,8 +54,9 @@ echo '<script'; ?>
     </div>
     <div class="form-group">
         <label class="col-md-4 control-label">文章內容</label>
-        <div class="col-md-8">
-            <input type="file" name="post_content" id="post_content" accept=".html">
+        <div class="col-md-12">
+            <textarea class="form-control" name="post_content" id="post_content" placeholder="請輸入文章內容"><?php echo $_smarty_tpl->tpl_vars['post']->value['post_content'];?>
+</textarea>
         </div>
     </div>
     <div class="form-group">
@@ -80,12 +84,19 @@ echo '<script'; ?>
             <input type="hidden" name="post_sn" value="<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
 ">
             <input type="hidden" name="op" value="update_post">
-            <button type="submit" class="btn btn-block btn-primary">發布</button>
+            <button type="submit" class="btn btn-block btn-primary">更新</button>
         </div>
     </div>
 </form>
 <?php } else { ?>
 你沒有權限喔=QwQ=
 <?php }
-}
+echo '<script'; ?>
+>
+    CKEDITOR.replace("post_content", {
+        removeButtons: "Image",
+        codeSnippetGeshi_url: 'plugin/lib/colorize.php'
+    });
+<?php echo '</script'; ?>
+><?php }
 }

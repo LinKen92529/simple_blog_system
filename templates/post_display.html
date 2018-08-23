@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="plugin/prism/prism.css">
+<script src="plugin/prism/prism.js"></script>
 <h1>{$post.post_title}</h1>
 <br>
 <center>
-    <img src="{$post.pic}" alt="{$post.post_sn}" class="img-thumbnail"  data-action="zoom">
+    <img src="{$post.pic}" alt="{$post.post_sn}" class="img-thumbnail">
 </center>
 {if $is_top or $now_user_sn == $post.user_sn}
     <br>
@@ -10,7 +12,31 @@
     <br>
 {/if}
 <br>
-<div style="font-size: 20px;word-wrap: break-word;">{include file="../uploads/post/{$post.post_sn}/{$post.post_sn}.html"}</div>
+{if $post.post_content != ''}
+    <div>{$post.post_content}</div>
+{else}
+    <div>
+        <p class="text-danger">這篇文章是空白的喔</p>
+    </div>
+    <pre style="color: white;">
+　　　　　 ♪∧,,∧
+　　　♪∧,,∧・ ω・)
+　∧,,∧・ ω・)　　 )っ
+(・ ω・)　　 )っ＿_フ
+(っ　　)っ＿_フ(_/彡
+　( ＿_フ(_/彡
+　 (_/彡♪
+
+屁屁攻擊!!!
+
+　   ∧_∧
+=≡( ･ω･)  ∧_∧ ,;
+　 ⊂⊂ニ  );)д｀)∵
+-=≡ (_(_／⊂　Ｏ)
+　　　   　'/　 ヽ
+　　　   　∪￣＼)"
+    </pre>
+{/if}
 <br>
 <div class="col-md-12" style="color: greenyellow">
     <div class="row">   

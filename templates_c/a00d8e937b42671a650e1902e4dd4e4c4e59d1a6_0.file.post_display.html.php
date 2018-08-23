@@ -1,28 +1,31 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-22 15:14:37
+/* Smarty version 3.1.32, created on 2018-08-23 05:19:05
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7d6fcd3bdb75_34888243',
+  'unifunc' => 'content_5b7e35b90e9814_88365207',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1534947269,
+      1 => 1534997942,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:../uploads/post/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\'])."/".((string)$_smarty_tpl->tpl_vars[\'post\']->value[\'post_sn\']).".html' => 1,
   ),
 ),false)) {
-function content_5b7d6fcd3bdb75_34888243 (Smarty_Internal_Template $_smarty_tpl) {
-?><h1><?php echo $_smarty_tpl->tpl_vars['post']->value['post_title'];?>
+function content_5b7e35b90e9814_88365207 (Smarty_Internal_Template $_smarty_tpl) {
+?><link rel="stylesheet" href="plugin/prism/prism.css">
+<?php echo '<script'; ?>
+ src="plugin/prism/prism.js"><?php echo '</script'; ?>
+>
+<h1><?php echo $_smarty_tpl->tpl_vars['post']->value['post_title'];?>
 </h1>
 <br>
 <center>
@@ -39,8 +42,32 @@ function content_5b7d6fcd3bdb75_34888243 (Smarty_Internal_Template $_smarty_tpl)
     <br>
 <?php }?>
 <br>
-<div style="font-size: 20px;word-wrap: break-word;"><?php $_smarty_tpl->_subTemplateRender("file:../uploads/post/".((string)$_smarty_tpl->tpl_vars['post']->value['post_sn'])."/".((string)$_smarty_tpl->tpl_vars['post']->value['post_sn']).".html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
-?></div>
+<?php if ($_smarty_tpl->tpl_vars['post']->value['post_content'] != '') {?>
+    <div><?php echo $_smarty_tpl->tpl_vars['post']->value['post_content'];?>
+</div>
+<?php } else { ?>
+    <div>
+        <p class="text-danger">這篇文章是空白的喔</p>
+    </div>
+    <pre style="color: white;">
+　　　　　 ♪∧,,∧
+　　　♪∧,,∧・ ω・)
+　∧,,∧・ ω・)　　 )っ
+(・ ω・)　　 )っ＿_フ
+(っ　　)っ＿_フ(_/彡
+　( ＿_フ(_/彡
+　 (_/彡♪
+
+屁屁攻擊!!!
+
+　   ∧_∧
+=≡( ･ω･)  ∧_∧ ,;
+　 ⊂⊂ニ  );)д｀)∵
+-=≡ (_(_／⊂　Ｏ)
+　　　   　'/　 ヽ
+　　　   　∪￣＼)"
+    </pre>
+<?php }?>
 <br>
 <div class="col-md-12" style="color: greenyellow">
     <div class="row">   
