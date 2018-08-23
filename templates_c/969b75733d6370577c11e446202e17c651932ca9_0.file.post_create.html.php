@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 16:38:12
+/* Smarty version 3.1.32, created on 2018-08-23 05:51:24
   from 'D:\UniServerZ\www\yukino\templates\post_create.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b535364e48b38_37857349',
+  'unifunc' => 'content_5b7e3d4c863d16_39474837',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '969b75733d6370577c11e446202e17c651932ca9' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_create.html',
-      1 => 1532187488,
+      1 => 1534999882,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b535364e48b38_37857349 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7e3d4c863d16_39474837 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function () {
@@ -39,6 +39,9 @@ echo '<script'; ?>
     });
 <?php echo '</script'; ?>
 >
+<?php echo '<script'; ?>
+ src="plugin/ckeditor/ckeditor.js"><?php echo '</script'; ?>
+>
 <?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
 <h1>發布文章</h1>
 <form action="post.php" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
@@ -50,8 +53,8 @@ echo '<script'; ?>
     </div>
     <div class="form-group">
         <label class="col-md-4 control-label">文章內容</label>
-        <div class="col-md-8">
-            <input type="file" name="post_content" id="post_content" accept=".html">
+        <div class="col-md-12">
+            <textarea class="form-control" name="post_content" id="post_content" placeholder="請輸入文章內容"></textarea>
         </div>
     </div>
     <div class="form-group">
@@ -82,5 +85,12 @@ echo '<script'; ?>
 <?php } else { ?>
 你沒有權限喔=QwQ=
 <?php }
-}
+echo '<script'; ?>
+>
+    CKEDITOR.replace("post_content", {
+        removeButtons: "Image",
+        codeSnippetGeshi_url: 'plugin/lib/colorize.php'
+    });
+<?php echo '</script'; ?>
+><?php }
 }

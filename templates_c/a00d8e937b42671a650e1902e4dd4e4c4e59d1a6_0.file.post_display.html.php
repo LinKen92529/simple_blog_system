@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-23 05:19:05
+/* Smarty version 3.1.32, created on 2018-08-23 05:53:09
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7e35b90e9814_88365207',
+  'unifunc' => 'content_5b7e3db5804036_80260690',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1534997942,
+      1 => 1534998202,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b7e35b90e9814_88365207 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7e3db5804036_80260690 (Smarty_Internal_Template $_smarty_tpl) {
 ?><link rel="stylesheet" href="plugin/prism/prism.css">
 <?php echo '<script'; ?>
  src="plugin/prism/prism.js"><?php echo '</script'; ?>
@@ -31,7 +31,7 @@ function content_5b7e35b90e9814_88365207 (Smarty_Internal_Template $_smarty_tpl)
 <center>
     <img src="<?php echo $_smarty_tpl->tpl_vars['post']->value['pic'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['post']->value['post_sn'];?>
-" class="img-thumbnail"  data-action="zoom">
+" class="img-thumbnail">
 </center>
 <?php if ($_smarty_tpl->tpl_vars['is_top']->value || $_smarty_tpl->tpl_vars['now_user_sn']->value == $_smarty_tpl->tpl_vars['post']->value['user_sn']) {?>
     <br>
