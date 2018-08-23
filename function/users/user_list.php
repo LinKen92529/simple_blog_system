@@ -10,8 +10,10 @@ function user_list() {
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $i = 0;
     while($user = $result->fetch_assoc()) {
-        $all_user[$i] = $user;
-        $i++;
+        if ($user['user_right'] != "top") {
+            $all_user[$i] = $user;
+            $i++;
+        }
     }
     $smarty->assign("all_user", $all_user);
 }

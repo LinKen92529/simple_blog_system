@@ -7,7 +7,7 @@ function update_post($post_sn) {
     if (!$is_top and $_SESSION['user_sn'] != $post['post_owner']) {
         die('你沒有權限修改文章喔 廠廠⧸⎩⎠⎞͏(・∀・)⎛͏⎝⎭⧹');
     }
-    $post_title = $mysqli->real_escape_string($post_title);
+    $post_title = $mysqli->real_escape_string($_POST['post_title']);
     $post_content = $mysqli->real_escape_string($_POST['post_content']);
     $post_tag = $mysqli->real_escape_string($_post['post_tag']);
     $sql = "UPDATE `post` SET
