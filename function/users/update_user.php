@@ -13,7 +13,7 @@ function update_user() {
         $sql    = "SELECT * FROM `users` WHERE `user_email`='{$user_email}'";
         $result = $mysqli->query($sql) or die($mysqli->connect_error);
         $email_judge = $result->fetch_assoc();
-        if (!empty($email_judge) and $email_judge != '' and $email_judge['user_email'] != $user_email) {
+        if (!empty($email_judge) and $email_judge != '' and $email_judge['user_sn'] != $user_sn) {
             die('信箱重複了騷年(●▼●;)');
         }
         $sql = "SELECT * FROM `users` WHERE `user_id`='{$user_id}'";
@@ -21,7 +21,7 @@ function update_user() {
         $id_judge = $result->fetch_assoc();
         err_log($id_judge['user_id']);
         err_log($user_id);
-        if (!empty($id_judge) and $id_judge != '' and $id_judge['user_id'] != $user_id) {
+        if (!empty($id_judge) and $id_judge != '' and $id_judge['user_sn'] != $user_sn) {
             die('帳號重複了喔 哭哭( • ̀ω•́ )');
         }
         $sql    = "SELECT * FROM `users` WHERE `user_sn`='{$user_sn}'";
