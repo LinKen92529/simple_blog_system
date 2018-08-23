@@ -1,9 +1,7 @@
 <?php
 function search_result($keyword) {
     global $mysqli, $smarty;
-    foreach ($_POST as $var_title => $var_value) {
-       $$var_title = $mysqli->real_escape_string($_POST[$var_title]);
-    }
+    $target = $mysqli->real_escape_string($_POST['target']);
     if (isset($target)) {
         if ($target == "user_name") {
             $sql = "SELECT * FROM `users` WHERE `user_name` LIKE '%{$keyword}%'";

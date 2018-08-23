@@ -20,17 +20,17 @@
     <form action="user.php" id="user_form" method="post" class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
             <div class="col-md-6">
-                <input type="text" class="form-control" name="user_name" id="user_id" placeholder="請輸入修改後的名稱" value="{$user.user_name}">
+                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="請輸入修改後的名稱" value="{$user.user_name}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-6">
-                <input type="text" class="form-control" name="user_id" id="user_id" placeholder="請輸入修改後的帳號" value="{$user.user_id}">
+                <input type="text" class="form-control" minlength="6" maxlength="16" name="user_id" id="user_id" placeholder="請輸入修改後的帳號" value="{$user.user_id}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-6 has-error">
-                <input type="password" class="form-control" name="user_pw" id="user_pw" placeholder="若無需要修改密碼則不需要填入">
+                <input type="password" class="form-control" minlength="6" maxlength="16" name="user_pw" id="user_pw" placeholder="若無需要修改密碼則不需要填入">
             </div>
         </div>
         <div class="form-group">

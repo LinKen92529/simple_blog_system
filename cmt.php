@@ -17,6 +17,7 @@ switch ($op) {
         break;
 
     case 'update_cmt':
+        err_log($post_sn);
         update_cmt($cmt_sn);
         header("location:post.php?op=post_display&post_sn={$post_sn}");
         break;

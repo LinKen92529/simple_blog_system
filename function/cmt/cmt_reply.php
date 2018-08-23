@@ -4,9 +4,8 @@ function cmt_reply($cmt_sn) {
     if (!$is_user) {
         die ('請先登入Σ(ﾟωﾟ)');
     }
-    foreach ($_POST as $var_name => $var_val) {
-        $$var_name = $mysqli->real_escape_string($var_val);
-    }
+    $cmt_content = $mysqli->real_escape_string($_POST['cmt_content']);
+    $cmt_sn = $mysqli->real_escape_string($_POST['cmt_sn']);
     $cmt_date = date("Y-m-d H:i:s");
     $sql = "INSERT INTO `cmt` (`cmt_content`,
     `user_sn`,

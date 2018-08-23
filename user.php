@@ -47,7 +47,7 @@ switch ($op) {
         break;
 
     case 'update_user':
-        update_user();
+        update_user($user_sn);
         if($is_admin) {
             header("location:user.php?op=user_list");
         } else {

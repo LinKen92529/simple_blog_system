@@ -4,10 +4,10 @@ function insert_post() {
     if (!$is_admin) {
         die("請先獲得管理員權限ヾ(●゜▽゜●)♡");
     }
-    foreach ($_POST as $var_name => $var_val) {
-        $$var_name = $mysqli->real_escape_string($var_val);
-    }
+    $post_title = $mysqli->real_escape_string($_POST['post_title']);
+    $post_content = $mysqli->real_escape_string($_POST['post_content']);
     $post_date = date("Y-m-d H:i:s");
+    $post_tag = $mysqli->real_escape_string($_POST['post_tag']);
     $sql = "INSERT INTO `post` (`post_title`,
     `post_content`,
     `post_date`,
@@ -19,7 +19,7 @@ function insert_post() {
     '{$_SESSION['user_sn']}',
     '0',
     '{$post_tag}')";
-    $mysqli->query($sql) or die($mysqli->connect_error);
+    $mysqli->query($sql) or die(mysqli_error($mysqli));
     $post_sn = $mysqli->insert_id;
     save_post_pic($post_sn);
     return $post_sn;

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-22 08:33:34
+/* Smarty version 3.1.32, created on 2018-08-23 17:00:29
   from 'D:\UniServerZ\www\yukino\templates\user_form.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7d11cee50f67_96381446',
+  'unifunc' => 'content_5b7eda1d361545_45310141',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '200fca4a060247404be9735b7961042aba115d72' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\user_form.html',
-      1 => 1534923190,
+      1 => 1535039481,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b7d11cee50f67_96381446 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7eda1d361545_45310141 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function() {
@@ -45,19 +45,19 @@ echo '<script'; ?>
     <form action="user.php" id="user_form" method="post" class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
             <div class="col-md-6">
-                <input type="text" class="form-control" name="user_name" id="user_id" placeholder="請輸入修改後的名稱" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['user_name'];?>
+                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="請輸入修改後的名稱" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['user_name'];?>
 ">
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-6">
-                <input type="text" class="form-control" name="user_id" id="user_id" placeholder="請輸入修改後的帳號" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
+                <input type="text" class="form-control" minlength="6" maxlength="16" name="user_id" id="user_id" placeholder="請輸入修改後的帳號" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['user_id'];?>
 ">
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-6 has-error">
-                <input type="password" class="form-control" name="user_pw" id="user_pw" placeholder="若無需要修改密碼則不需要填入">
+                <input type="password" class="form-control" minlength="6" maxlength="16" name="user_pw" id="user_pw" placeholder="若無需要修改密碼則不需要填入">
             </div>
         </div>
         <div class="form-group">
