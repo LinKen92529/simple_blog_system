@@ -1,46 +1,24 @@
-{foreach from=$all_post item=post}
-    <div class="col-md-12" style="background-color: rgba(0, 0, 0, 0.7);margin-bottom: 20px;min-height: 500px;padding: 30px;">
-        <div class="col-md-12">
-            <a href="post.php?op=post_display&post_sn={$post.post_sn}"><h1 style="font-style: oblique;">{$post.post_title}</h1></a>
-        </div>
-        <br>
-        <div class="col-md-12">
-            <center>
-                <a href="post.php?op=post_display&post_sn={$post.post_sn}">
-                    <img src="{$post.pic}" alt="{$post.post_sn}" class="img-thumbnail">
-                </a>
-            </center>
-        </div>
-        <br>
-        <div class="col-md-12" id="post_content" style="font-size: 20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"> 
-            <a href="post.php?op=post_display&post_sn={$post.post_sn}">(點擊查看全文...)</a>
-        </div>
-        <br>
-        <div class="col-md-12" style="color: greenyellow">
-            <div class="row">
-                <i class="fas fa-user">{$post.post_owner}</i>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <i class="fas fa-clock">{$post.post_date}</i>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <i class="fas fa-users">瀏覽人數：{$post.post_counter}</i>
+<div class="row" style="align-items: center;justify-content: center;">
+    {foreach from=$all_post item=post}
+        <div class="col-md-3" style="background-color: rgba(0, 0, 0, 0.7);margin-bottom: 20px;padding: 20px;margin-right: 20px;">
+            <div class="col-md-12">
+                <a href="post.php?op=post_display&post_sn={$post.post_sn}"><h4 style="font-style: oblique;">{$post.post_title}</h4></a>
+            </div>
+             <div class="col-md-12">
+                <center>
+                    <a href="post.php?op=post_display&post_sn={$post.post_sn}">
+                        <img src="{$post.pic}" alt="{$post.post_sn}" class="img-thumbnail">
+                    </a>
+                </center>
+            </div>
+            <br>
+            <div class="col-md-12" style="color: greenyellow">
+                <div class="row">
+                    <i class="fas fa-clock">{$post.post_date}</i>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="fas fa-users">瀏覽人數：{$post.post_counter}</i>
+                </div>
             </div>
         </div>
-        <br>
-        <i class="fas fa-tag" style="color: rgba(161, 11, 190, 0.877);">標籤</i>
-        <br>
-        <br>
-        <div class="row">
-            &nbsp;&nbsp;
-            {foreach from=$post.post_tag item=tag}
-                {if $tag != ''}
-                    <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px;margin-bottom: 10px;">
-                        <a href="post.php?op=find_tag&keyword={$tag}" style="color: white;">
-                            {$tag}
-                        </a>
-                    </div>
-                    &nbsp;&nbsp;
-                {/if}
-            {/foreach}
-        </div>
-    </div>
-{/foreach}
+    {/foreach}
+</div>

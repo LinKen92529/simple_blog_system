@@ -11,49 +11,55 @@
         <script src="plugin/jquery.min.js"></script>
         <script src="plugin/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                window.setInterval(getTime, 1000)
-                function getTime() {
-                    var today = new Date();
-                    var currentDateTime =
-                    today.getFullYear() + ' 年 ' +
-                    (today.getMonth()+1) + ' 月 ' +
-                    today.getDate() + ' 日 ' +
-                    today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-                    $("#date").html(currentDateTime);
-                }
-                $('.waifu').mouseover(function() {
-                    $('.waifu-tools').css('display', 'block');
-                });
-                $('.waifu').mouseout(function() {
-                    $('.waifu-tools').css('display', 'none');
-                });
-                var sc_width = $(window).width;
-            });
-        </script>
     </head>
     <body>
-        <nav class="navbar navbar-dark" id="head_pill">
+        <nav class="navbar navbar-dark" id="head_pill" style="margin-bottom:20px;">
             <a class="navbar-brand" href="index.php" id="home">ARASIのストーリー</a>
-            <span id="date"></span>
+            {if $is_user}
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="{$user_detail.pic}" alt="{$user_detail.pic}" class="rounded-circle" width="30" height="30">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-item">
+                            名前：{$user_detail.user_name}
+                            <br>
+                            権限： {$user_detail.user_right}
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.php?op=post_list" class="dropdown-item">回到主頁</a>
+                        <a href="user.php?op=user_form&user_sn={$user_detail.user_sn}" class="dropdown-item">修改資料</a>
+                        {if $is_admin}
+                            <div class="dropdown-divider"></div>
+                            <a href="user.php?op=user_list" class="dropdown-item">使用者列表</a>
+                            <a href="post.php?op=post_create" class="dropdown-item">發布文章</a>
+                        {/if}
+                        {if $is_top}
+                            <div class="dropdown-divider"></div>
+                            <a href="webset.php?op=web_setting" class="dropdown-item">管理網站</a>
+                        {/if}
+                        <div class="dropdown-divider"></div>
+                        <a href="user.php?op=user_logout" class="dropdown-item" style="color: red;">登出</a>
+                    </div>
+                </div>
+            {else}
+                <span>
+                    <a href="user.php?op=user_login_page" class="btn btn-block btn-primary">登入</a>
+                </span>
+            {/if}
         </nav>
         <div class="container">
-            <div class="row">
-                <div class="col-md-1"></div>
+            <div class="col-md-12">
                 {if $op=='post_list'}
-                    <div class="col-md-7" style="margin-top: 20px">
+                    <div class="col-md-12" style="margin-top: 20px;">
                         {include file='post_list.html'}
                     </div>
                 {else if $op=='find_tag'}
-                    <div class="col-md-7" style="margin-top: 20px">
+                    <div class="col-md-12" style="margin-top: 20px">
                         {include file='find_tag.html'}
                     </div>
                 {else}
-                    <div id="system_main" class="col-md-7">
-                        {if isset($msg)}
-                            <div class="text-danger bg-danger">{$msg}</div>
-                        {/if}
+                    <div class="col-md-7" id="system_main" style="margin:0px auto;">
                         {if $op=='history'}
                             {include file='history.html'}
                         {else if $op=='user_register'}
@@ -62,6 +68,8 @@
                             {include file='user_form.html'}
                         {else if $op=='user_list'}
                             {include file='user_list.html'}
+                        {else if $op=='user_login_page'}
+                            {include file='user_login_page.html'}
                         {else if $op=="post_create"}
                             {include file='post_create.html'}
                         {else if $op=='post_display'}
@@ -79,25 +87,9 @@
                         {/if}
                     </div>
                 {/if}
-                <div class="col-md-3" id="system_side">
-                    <div class="col-md=12" id="user_area">
-                        {if $is_user}
-                            {include file='user_datail.html'}
-                        {else}
-                            {include file='user_login.html'}
-                        {/if}
-                    </div>
-                    <div class="col-md-12" id="search">
-                        {include file='search.html'}
-                    </div>
-                    <div class="col-md-12" id="self">
-                        {include file='self.html'}
-                    </div>
-                </div>
-                <div class="col-md-1"></div>
             </div>
         </div>
-        <div class="waifu justify-content-end" class="pull-right">
+        <div class="waifu" class="pull-right">
             <div class="waifu-tips"></div>
             <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
             <div class="waifu-tools" style="font-size: 14px;text-align: center;display: none;">
@@ -113,12 +105,12 @@
     </body>
     <script async src="plugin/live2d/waifu-tips.js"></script>
     <script src="plugin/live2d/live2d.js"></script>
-    <script>
+    <!-- <script>
         loadlive2d("live2d", "plugin/Pio/model.json");
         $("#fa-times").click(function() {
             $(".waifu").css("display", "none");
         });
-    </script>
+    </script> -->
     <script>
         $(function () {
             $("[data-toggle='tooltip']").tooltip();

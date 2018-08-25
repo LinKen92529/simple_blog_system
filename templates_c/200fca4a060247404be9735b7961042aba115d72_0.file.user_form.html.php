@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-23 17:00:29
+/* Smarty version 3.1.32, created on 2018-08-24 17:24:40
   from 'D:\UniServerZ\www\yukino\templates\user_form.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7eda1d361545_45310141',
+  'unifunc' => 'content_5b8031489b3489_24334943',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '200fca4a060247404be9735b7961042aba115d72' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\user_form.html',
-      1 => 1535039481,
+      1 => 1535127877,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b7eda1d361545_45310141 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b8031489b3489_24334943 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function() {
@@ -91,6 +91,7 @@ echo '<script'; ?>
 " id="user_img" class="img-thumbnail">
             </div>
         </div>
+        <br>
         <div class="row">
             <?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
                 <?php if ($_smarty_tpl->tpl_vars['user']->value['user_right'] != "admin" && $_smarty_tpl->tpl_vars['user']->value['user_right'] != "top") {?>
@@ -98,7 +99,6 @@ echo '<script'; ?>
 ')" class="btn btn-danger">刪除帳號</a>
                 <?php }?>
             <?php }?>
-            <div class="col-md-2"></div>
             <div class="col-md-2">
                 <input type="hidden" name="user_sn" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['user_sn'];?>
 ">

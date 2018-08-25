@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-23 09:36:38
+/* Smarty version 3.1.32, created on 2018-08-25 01:57:09
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b7e721646f8d5_47335608',
+  'unifunc' => 'content_5b80a9654dbeb5_05823309',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1535013395,
+      1 => 1535158619,
       2 => 'file',
     ),
   ),
@@ -24,6 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:user_register.html' => 1,
     'file:user_form.html' => 1,
     'file:user_list.html' => 1,
+    'file:user_login_page.html' => 1,
     'file:post_create.html' => 1,
     'file:post_display.html' => 1,
     'file:post_form.html' => 1,
@@ -31,13 +32,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:search_result.html' => 1,
     'file:web_setting.html' => 1,
     'file:webset_bg.html' => 1,
-    'file:user_datail.html' => 1,
-    'file:user_login.html' => 1,
-    'file:search.html' => 1,
-    'file:self.html' => 1,
   ),
 ),false)) {
-function content_5b7e721646f8d5_47335608 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b80a9654dbeb5_05823309 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -58,54 +55,62 @@ function content_5b7e721646f8d5_47335608 (Smarty_Internal_Template $_smarty_tpl)
         <?php echo '<script'; ?>
  src="bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
->
-            $(document).ready(function(){
-                window.setInterval(getTime, 1000)
-                function getTime() {
-                    var today = new Date();
-                    var currentDateTime =
-                    today.getFullYear() + ' 年 ' +
-                    (today.getMonth()+1) + ' 月 ' +
-                    today.getDate() + ' 日 ' +
-                    today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-                    $("#date").html(currentDateTime);
-                }
-                $('.waifu').mouseover(function() {
-                    $('.waifu-tools').css('display', 'block');
-                });
-                $('.waifu').mouseout(function() {
-                    $('.waifu-tools').css('display', 'none');
-                });
-                var sc_width = $(window).width;
-            });
-        <?php echo '</script'; ?>
->
     </head>
     <body>
-        <nav class="navbar navbar-dark" id="head_pill">
+        <nav class="navbar navbar-dark" id="head_pill" style="margin-bottom:20px;">
             <a class="navbar-brand" href="index.php" id="home">ARASIのストーリー</a>
-            <span id="date"></span>
+            <?php if ($_smarty_tpl->tpl_vars['is_user']->value) {?>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="<?php echo $_smarty_tpl->tpl_vars['user_detail']->value['pic'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['user_detail']->value['pic'];?>
+" class="rounded-circle" width="30" height="30">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-item">
+                            名前：<?php echo $_smarty_tpl->tpl_vars['user_detail']->value['user_name'];?>
+
+                            <br>
+                            権限： <?php echo $_smarty_tpl->tpl_vars['user_detail']->value['user_right'];?>
+
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.php?op=post_list" class="dropdown-item">回到主頁</a>
+                        <a href="user.php?op=user_form&user_sn=<?php echo $_smarty_tpl->tpl_vars['user_detail']->value['user_sn'];?>
+" class="dropdown-item">修改資料</a>
+                        <?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
+                            <div class="dropdown-divider"></div>
+                            <a href="user.php?op=user_list" class="dropdown-item">使用者列表</a>
+                            <a href="post.php?op=post_create" class="dropdown-item">發布文章</a>
+                        <?php }?>
+                        <?php if ($_smarty_tpl->tpl_vars['is_top']->value) {?>
+                            <div class="dropdown-divider"></div>
+                            <a href="webset.php?op=web_setting" class="dropdown-item">管理網站</a>
+                        <?php }?>
+                        <div class="dropdown-divider"></div>
+                        <a href="user.php?op=user_logout" class="dropdown-item" style="color: red;">登出</a>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <span>
+                    <a href="user.php?op=user_login_page" class="btn btn-block btn-primary">登入</a>
+                </span>
+            <?php }?>
         </nav>
         <div class="container">
-            <div class="row">
-                <div class="col-md-1"></div>
+            <div class="col-md-12">
                 <?php if ($_smarty_tpl->tpl_vars['op']->value == 'post_list') {?>
-                    <div class="col-md-7" style="margin-top: 20px">
+                    <div class="col-md-12" style="margin-top: 20px;">
                         <?php $_smarty_tpl->_subTemplateRender('file:post_list.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                     </div>
                 <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'find_tag') {?>
-                    <div class="col-md-7" style="margin-top: 20px">
+                    <div class="col-md-12" style="margin-top: 20px">
                         <?php $_smarty_tpl->_subTemplateRender('file:find_tag.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                     </div>
                 <?php } else { ?>
-                    <div id="system_main" class="col-md-7">
-                        <?php if (isset($_smarty_tpl->tpl_vars['msg']->value)) {?>
-                            <div class="text-danger bg-danger"><?php echo $_smarty_tpl->tpl_vars['msg']->value;?>
-</div>
-                        <?php }?>
+                    <div class="col-md-7" id="system_main" style="margin:0px auto;">
                         <?php if ($_smarty_tpl->tpl_vars['op']->value == 'history') {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:history.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -117,6 +122,9 @@ function content_5b7e721646f8d5_47335608 (Smarty_Internal_Template $_smarty_tpl)
 ?>
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'user_list') {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:user_list.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'user_login_page') {?>
+                            <?php $_smarty_tpl->_subTemplateRender('file:user_login_page.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "post_create") {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:post_create.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -142,29 +150,9 @@ function content_5b7e721646f8d5_47335608 (Smarty_Internal_Template $_smarty_tpl)
                         <?php }?>
                     </div>
                 <?php }?>
-                <div class="col-md-3" id="system_side">
-                    <div class="col-md=12" id="user_area">
-                        <?php if ($_smarty_tpl->tpl_vars['is_user']->value) {?>
-                            <?php $_smarty_tpl->_subTemplateRender('file:user_datail.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-                        <?php } else { ?>
-                            <?php $_smarty_tpl->_subTemplateRender('file:user_login.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-                        <?php }?>
-                    </div>
-                    <div class="col-md-12" id="search">
-                        <?php $_smarty_tpl->_subTemplateRender('file:search.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-                    </div>
-                    <div class="col-md-12" id="self">
-                        <?php $_smarty_tpl->_subTemplateRender('file:self.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-                    </div>
-                </div>
-                <div class="col-md-1"></div>
             </div>
         </div>
-        <div class="waifu justify-content-end" class="pull-right">
+        <div class="waifu" class="pull-right">
             <div class="waifu-tips"></div>
             <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
             <div class="waifu-tools" style="font-size: 14px;text-align: center;display: none;">
@@ -184,14 +172,14 @@ function content_5b7e721646f8d5_47335608 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="plugin/live2d/live2d.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+    <!-- <?php echo '<script'; ?>
 >
         loadlive2d("live2d", "plugin/Pio/model.json");
         $("#fa-times").click(function() {
             $(".waifu").css("display", "none");
         });
     <?php echo '</script'; ?>
->
+> -->
     <?php echo '<script'; ?>
 >
         $(function () {
