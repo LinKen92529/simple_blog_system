@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-26 08:57:18
+/* Smarty version 3.1.32, created on 2018-08-26 10:01:32
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b825d5e7f1837_87401076',
+  'unifunc' => 'content_5b826c6c84b015_53790681',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1535270230,
+      1 => 1535270251,
       2 => 'file',
     ),
   ),
@@ -36,7 +36,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:tag_list.html' => 1,
   ),
 ),false)) {
-function content_5b825d5e7f1837_87401076 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b826c6c84b015_53790681 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -88,7 +88,7 @@ function content_5b825d5e7f1837_87401076 (Smarty_Internal_Template $_smarty_tpl)
                         <?php }?>
                         <?php if ($_smarty_tpl->tpl_vars['is_top']->value) {?>
                             <div class="dropdown-divider"></div>
-                            <a href="webset.php?op=web_setting" class="dropdown-item" style="color: rgb(176, 8, 218)">管理網站</a>
+                            <a href="webset.php?op=web_setting" class="dropdown-item" style="color: rgb(176, 8, 218);">管理網站</a>
                         <?php }?>
                         <div class="dropdown-divider"></div>
                         <a href="user.php?op=user_logout" class="dropdown-item" style="color: red;">登出</a>

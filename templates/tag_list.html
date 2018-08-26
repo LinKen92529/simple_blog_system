@@ -1,4 +1,19 @@
 {if $is_admin}
+    <div>
+        <label class="col-md-4 control-label">搜尋標籤</label>
+        <div class="input-group col-md-8">
+            <input type="text" class="form-control" name="tag_search" id="tag_search" placeholder="請輸入標籤名稱">
+            <div class="input-group-append">
+                <a href="javascript:serach_tag()" class="btn btn-outline-info">搜尋</a>
+            </div>
+        </div>
+        <br>
+        <label class="col-md-4 control-label">標籤編號</label>
+        <div class="col-md-8">
+            <input type="text" class="form-control" name="tag_name" id="tag_name" placeholder="這裡會顯示你選擇的標籤的編號" readonly>
+        </div>
+    </div>
+    <br>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -15,16 +30,21 @@
                 </td>
                 <td><a href="javascript:add_tag()" class="btn btn-bloco btn-primary">新增</a></td>
             </tr>
+            <style id="search_result"></style>
             <tr id="locate" style="display:none"></tr>
             {foreach from=$all_tag item=tag}
-                <tr id="tag_{$tag.tag_sn}">
+                <tr class="arashi" id="tag_{$tag.tag_sn}" data-title=" {$tag.tag_name}">
                     <th scope="row">{$tag.tag_sn}</th>
                     <td><input type="text" name="{$tag.tag_name}" id="{$tag.tag_sn}" placeholder="請輸入標籤名稱" value="{$tag.tag_name}"></td>
                     <td class="row">
                         &nbsp;&nbsp;&nbsp;
-                        <a href="javascript:update_tag('{$tag.tag_sn}')" style="color: rgb(48, 211, 240);"><i class="fas fa-edit">編輯</i></a>
+                        <a href="javascript:update_tag('{$tag.tag_sn}')" style="color: rgb(48, 211, 240);display: block;"><i class="fas fa-edit">編輯</i></a>
                         &nbsp;
-                        <a href="javascript:delete_tag('{$tag.tag_sn}')" style="color: red;"><i class="fas fa-backspace">刪除</i></a> 
+                        <a href="javascript:delete_tag('{$tag.tag_sn}')" style="color: red;display: block;"><i class="fas fa-backspace">刪除</i></a>
+                        &nbsp;
+                        <a href="javascript:insert_tag('{$tag.tag_sn}')" id="insert_{$tag.tag_sn}" style="color:rgb(72, 230, 72);display: block;"><i class="fas fa-plus-circle">新增</i></a>
+                        &nbsp;
+                        <a href="javascript:remove_tag('{$tag.tag_sn}')" id="remove_{$tag.tag_sn}" style="color: rgb(224, 52, 224);display: none;"><i class="fas fa-minus-circle">移除</i></a>
                     </td>
                 </tr>
             {/foreach}
@@ -51,7 +71,7 @@
                 if ($add_tag_result == 'r') {
                     alert('重複標籤><');
                 } else if ($add_tag_result == 't') {
-                    $("#locate").after("<tr id=\"tag_ " + string[1] +"\"><th scope=\"row\">" + string[1] +"</th><td><input type=\"text\" name=\"" + string[2] + "\" id=\"" + string[1] +"\" placeholder=\"請輸入標籤名稱\" value=\"" + string[2] + "\"></td><td class=\"row\">&nbsp;&nbsp;&nbsp;<a href=\"javascript:update_tag('" + string[1] + "')\" style=\"color: rgb(48, 211, 240);\"><i class=\"fas fa-edit\">編輯</i></a>&nbsp;<a href=\"javascript:delete_tag('" + string[1] +"')\" style=\"color: red;\"><i class=\"fas fa-backspace\">刪除</i></a> </td></tr>");
+                    $("#locate").after("<tr class=\"arashi\" id=\"tag_ " + string[1] +"\" data-index=\"" + string[2] +"\"><th scope=\"row\">" + string[1] +"</th><td><input type=\"text\" name=\"" + string[2] + "\" id=\"" + string[1] +"\" placeholder=\"請輸入標籤名稱\" value=\"" + string[2] + "\"></td><td class=\"row\">&nbsp;&nbsp;&nbsp;<a href=\"javascript:update_tag('" + string[1] + "')\" style=\"color: rgb(48, 211, 240);\"><i class=\"fas fa-edit\">編輯</i></a>&nbsp;<a href=\"javascript:delete_tag('" + string[1] +"')\" style=\"color: red;\"><i class=\"fas fa-backspace\">刪除</i></a> </td></tr>");
                 }
             }
         });
@@ -96,4 +116,27 @@
             }
         })
     }
+    function insert_tag(tag_sn) {
+        $("#tag_name").val($("#tag_name").val() + tag_sn + ';');
+        $("#insert_" + tag_sn).css("display", "none");
+        $("#remove_" + tag_sn).css("display", "block");
+    }
+    function remove_tag(tag_sn) {
+        var target = $("#tag_name").val();
+        remove_target = new RegExp(tag_sn + ';' );
+        target = target.replace(remove_target, "");
+        $("#tag_name").val(target);
+        $("#insert_" + tag_sn).css("display", "block");
+        $("#remove_" + tag_sn).css("display", "none");
+    }
+</script>
+<script>
+    $("#tag_search").on("keyup change paste", function() {
+        var target = $(this).val();
+        if (!target) {
+            $("#search_result").html("");
+        } else {
+            $("#search_result").html(".arashi:not([data-title*= \"" + target.toLowerCase() + "\"]) { display: none; }");
+        }
+    })
 </script>
