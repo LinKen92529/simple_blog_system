@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-25 02:08:14
+/* Smarty version 3.1.32, created on 2018-08-25 02:49:41
   from 'D:\UniServerZ\www\yukino\templates\post_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b80abfe6615b1_24388583',
+  'unifunc' => 'content_5b80b5b5e2a8f6_18746389',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ef37de82cfad9eb2413c2b858c79e2ba6d01cf6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_list.html',
-      1 => 1535159290,
+      1 => 1535161294,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b80abfe6615b1_24388583 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b80b5b5e2a8f6_18746389 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row" style="align-items: center;justify-content: center;">
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_post']->value, 'post');
@@ -53,31 +53,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
 </i>
                 </div>
             </div>
-            <!-- <br>
-            <i class="fas fa-tag" style="color: rgba(161, 11, 190, 0.877);">標籤</i>
-            <br>
-            <div class="row">
-                &nbsp;&nbsp;
-                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['post']->value['post_tag'], 'tag');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
-?>
-                    <?php if ($_smarty_tpl->tpl_vars['tag']->value != '') {?>
-                        <div class="rounded" style="background-color: rgb(247, 176, 25);padding-right: 5px;padding-left: 5px;margin-bottom: 10px;">
-                            <a href="post.php?op=find_tag&keyword=<?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
-" style="color: white;">
-                                <?php echo $_smarty_tpl->tpl_vars['tag']->value;?>
-
-                            </a>
-                        </div>
-                        &nbsp;&nbsp;
-                    <?php }?>
-                <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-            </div> -->
         </div>
     <?php
 }

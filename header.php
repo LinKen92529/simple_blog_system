@@ -40,6 +40,12 @@ $smarty->assign('is_top', $is_top);
 $smarty->assign('is_admin', $is_admin);
 $smarty->assign('is_user', $is_user);
 
+if (isset($_POST)) {
+    foreach ($_POST as $var_name => $var_val) {
+         $_POST[$var_name] = htmlspecialchars($var_val);
+     } 
+}
+
 
 function user_detail($user_sn, $token) {
     global $mysqli, $smarty;

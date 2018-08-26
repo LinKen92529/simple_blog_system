@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-25 01:57:09
+/* Smarty version 3.1.32, created on 2018-08-26 08:57:18
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b80a9654dbeb5_05823309',
+  'unifunc' => 'content_5b825d5e7f1837_87401076',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1535158619,
+      1 => 1535270230,
       2 => 'file',
     ),
   ),
@@ -28,13 +28,15 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:post_create.html' => 1,
     'file:post_display.html' => 1,
     'file:post_form.html' => 1,
+    'file:add_tag.html' => 1,
     'file:cmt_form.html' => 1,
     'file:search_result.html' => 1,
     'file:web_setting.html' => 1,
     'file:webset_bg.html' => 1,
+    'file:tag_list.html' => 1,
   ),
 ),false)) {
-function content_5b80a9654dbeb5_05823309 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b825d5e7f1837_87401076 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -75,17 +77,18 @@ function content_5b80a9654dbeb5_05823309 (Smarty_Internal_Template $_smarty_tpl)
 
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a href="index.php?op=post_list" class="dropdown-item">回到主頁</a>
+                        <a href="index.php?op=post_list" class="dropdown-item" style="color: rgb(0, 105, 217);">回到主頁</a>
                         <a href="user.php?op=user_form&user_sn=<?php echo $_smarty_tpl->tpl_vars['user_detail']->value['user_sn'];?>
-" class="dropdown-item">修改資料</a>
+" class="dropdown-item" style="color: rgb(0, 105, 217);">修改資料</a>
                         <?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
                             <div class="dropdown-divider"></div>
-                            <a href="user.php?op=user_list" class="dropdown-item">使用者列表</a>
-                            <a href="post.php?op=post_create" class="dropdown-item">發布文章</a>
+                            <a href="user.php?op=user_list" class="dropdown-item" style="color: rgb(33, 136, 56);">使用者列表</a>
+                            <a href="post.php?op=post_create" class="dropdown-item" style="color: rgb(33, 136, 56);">發布文章</a>
+                            <a href="tag.php?op=tag_list" class="dropdown-item" style="color: rgb(33, 136, 56)">類別總表</a>
                         <?php }?>
                         <?php if ($_smarty_tpl->tpl_vars['is_top']->value) {?>
                             <div class="dropdown-divider"></div>
-                            <a href="webset.php?op=web_setting" class="dropdown-item">管理網站</a>
+                            <a href="webset.php?op=web_setting" class="dropdown-item" style="color: rgb(176, 8, 218)">管理網站</a>
                         <?php }?>
                         <div class="dropdown-divider"></div>
                         <a href="user.php?op=user_logout" class="dropdown-item" style="color: red;">登出</a>
@@ -135,6 +138,9 @@ function content_5b80a9654dbeb5_05823309 (Smarty_Internal_Template $_smarty_tpl)
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'post_form') {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:post_form.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'add_tag') {?>
+                            <?php $_smarty_tpl->_subTemplateRender('file:add_tag.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'cmt_form') {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:cmt_form.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -146,6 +152,9 @@ function content_5b80a9654dbeb5_05823309 (Smarty_Internal_Template $_smarty_tpl)
 ?>
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "webset_bg") {?>
                             <?php $_smarty_tpl->_subTemplateRender("file:webset_bg.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'tag_list') {?>
+                            <?php $_smarty_tpl->_subTemplateRender('file:tag_list.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                         <?php }?>
                     </div>
@@ -172,14 +181,20 @@ function content_5b80a9654dbeb5_05823309 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="plugin/live2d/live2d.js"><?php echo '</script'; ?>
 >
-    <!-- <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
 >
         loadlive2d("live2d", "plugin/Pio/model.json");
         $("#fa-times").click(function() {
             $(".waifu").css("display", "none");
         });
+        $('.waifu').mouseover(function() {
+            $('.waifu-tools').css('display', 'block');
+        });
+        $('.waifu').mouseout(function() {
+            $('.waifu-tools').css('display', 'none');
+        });
     <?php echo '</script'; ?>
-> -->
+>
     <?php echo '<script'; ?>
 >
         $(function () {

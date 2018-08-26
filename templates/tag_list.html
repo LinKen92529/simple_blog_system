@@ -1,0 +1,99 @@
+{if $is_admin}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width: 30%;">標籤編號</th>
+                <th style="width: 30%;">標籤名稱</th>
+                <th style="width: 40%;">標籤操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"></th>
+                <td>
+                    <input type="text" name="tag_name" id="tag_name" placeholder="請輸入標籤名稱">
+                </td>
+                <td><a href="javascript:add_tag()" class="btn btn-bloco btn-primary">新增</a></td>
+            </tr>
+            <tr id="locate" style="display:none"></tr>
+            {foreach from=$all_tag item=tag}
+                <tr id="tag_{$tag.tag_sn}">
+                    <th scope="row">{$tag.tag_sn}</th>
+                    <td><input type="text" name="{$tag.tag_name}" id="{$tag.tag_sn}" placeholder="請輸入標籤名稱" value="{$tag.tag_name}"></td>
+                    <td class="row">
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="javascript:update_tag('{$tag.tag_sn}')" style="color: rgb(48, 211, 240);"><i class="fas fa-edit">編輯</i></a>
+                        &nbsp;
+                        <a href="javascript:delete_tag('{$tag.tag_sn}')" style="color: red;"><i class="fas fa-backspace">刪除</i></a> 
+                    </td>
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
+{/if}
+<script>
+    function add_tag() {
+        var tag_content = $("#tag_name").val();
+        if (tag_content == '') {
+            alert("請不要留空");
+            return;
+        }
+        $.ajax({
+            url: "tag.php?op=add_tag",
+            data: {
+                tag_name: tag_content
+            },
+            type: "POST",
+            dataType: "HTML",
+            success: function($result) {
+                $add_tag_result = $result.charAt(0);
+                var string = $result.split('_', 3);
+                if ($add_tag_result == 'r') {
+                    alert('重複標籤><');
+                } else if ($add_tag_result == 't') {
+                    $("#locate").after("<tr id=\"tag_ " + string[1] +"\"><th scope=\"row\">" + string[1] +"</th><td><input type=\"text\" name=\"" + string[2] + "\" id=\"" + string[1] +"\" placeholder=\"請輸入標籤名稱\" value=\"" + string[2] + "\"></td><td class=\"row\">&nbsp;&nbsp;&nbsp;<a href=\"javascript:update_tag('" + string[1] + "')\" style=\"color: rgb(48, 211, 240);\"><i class=\"fas fa-edit\">編輯</i></a>&nbsp;<a href=\"javascript:delete_tag('" + string[1] +"')\" style=\"color: red;\"><i class=\"fas fa-backspace\">刪除</i></a> </td></tr>");
+                }
+            }
+        });
+    }
+    function update_tag(tag_sn) {
+        var tag_name = $("#" + tag_sn).val();
+        $.ajax({
+            url: "tag.php?op=update_tag",
+            data: {
+                tag_sn: tag_sn,
+                tag_name: tag_name
+            },
+            type: "POST",
+            dataType: "HTML",
+            success: function($result) {
+                $update_tag_result = $result.charAt(0);
+                if ($update_tag_result == 'r') {
+                    alert("標籤重複惹OuO");
+                } else if ($update_tag_result == 't') {
+                    $("#" + tag_sn).attr("value", '');
+                    $("#" + tag_sn).attr("value", tag_name);
+                    alert("成功更改");
+                }
+            }
+        });
+    }
+    function delete_tag(tag_sn) {
+        $.ajax({
+            url: "tag.php?op=delete_tag",
+            data: {
+                tag_sn: tag_sn
+            },
+            type: "POST",
+            dataType: "HTML",
+            success: function($result) {
+                $delete_tag_result = $result.charAt(0);
+                if ($delete_tag_result == 't') {
+                    $("#tag_" + tag_sn).remove();
+                } else if ($delete_tag_result == 'e') {
+                    alert('你不能刪除一個不存在的元素(ㄏ￣▽￣)ㄏ   ㄟ(￣▽￣ㄟ)');
+                }
+            }
+        })
+    }
+</script>

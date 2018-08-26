@@ -27,16 +27,17 @@
                             権限： {$user_detail.user_right}
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a href="index.php?op=post_list" class="dropdown-item">回到主頁</a>
-                        <a href="user.php?op=user_form&user_sn={$user_detail.user_sn}" class="dropdown-item">修改資料</a>
+                        <a href="index.php?op=post_list" class="dropdown-item" style="color: rgb(0, 105, 217);">回到主頁</a>
+                        <a href="user.php?op=user_form&user_sn={$user_detail.user_sn}" class="dropdown-item" style="color: rgb(0, 105, 217);">修改資料</a>
                         {if $is_admin}
                             <div class="dropdown-divider"></div>
-                            <a href="user.php?op=user_list" class="dropdown-item">使用者列表</a>
-                            <a href="post.php?op=post_create" class="dropdown-item">發布文章</a>
+                            <a href="user.php?op=user_list" class="dropdown-item" style="color: rgb(33, 136, 56);">使用者列表</a>
+                            <a href="post.php?op=post_create" class="dropdown-item" style="color: rgb(33, 136, 56);">發布文章</a>
+                            <a href="tag.php?op=tag_list" class="dropdown-item" style="color: rgb(33, 136, 56)">類別總表</a>
                         {/if}
                         {if $is_top}
                             <div class="dropdown-divider"></div>
-                            <a href="webset.php?op=web_setting" class="dropdown-item">管理網站</a>
+                            <a href="webset.php?op=web_setting" class="dropdown-item" style="color: rgb(176, 8, 218);">管理網站</a>
                         {/if}
                         <div class="dropdown-divider"></div>
                         <a href="user.php?op=user_logout" class="dropdown-item" style="color: red;">登出</a>
@@ -76,6 +77,8 @@
                             {include file='post_display.html'}
                         {else if $op=='post_form'}
                             {include file='post_form.html'}
+                        {else if $op=='add_tag'}
+                            {include file='add_tag.html'}
                         {else if $op=='cmt_form'}
                             {include file='cmt_form.html'}
                         {else if $op=="search_result"}
@@ -84,6 +87,8 @@
                             {include file='web_setting.html'}
                         {else if $op=="webset_bg"}
                             {include file="webset_bg.html"}
+                        {else if $op=='tag_list'}
+                            {include file='tag_list.html'}
                         {/if}
                     </div>
                 {/if}
@@ -105,12 +110,18 @@
     </body>
     <script async src="plugin/live2d/waifu-tips.js"></script>
     <script src="plugin/live2d/live2d.js"></script>
-    <!-- <script>
+    <script>
         loadlive2d("live2d", "plugin/Pio/model.json");
         $("#fa-times").click(function() {
             $(".waifu").css("display", "none");
         });
-    </script> -->
+        $('.waifu').mouseover(function() {
+            $('.waifu-tools').css('display', 'block');
+        });
+        $('.waifu').mouseout(function() {
+            $('.waifu-tools').css('display', 'none');
+        });
+    </script>
     <script>
         $(function () {
             $("[data-toggle='tooltip']").tooltip();
