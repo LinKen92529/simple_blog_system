@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-25 02:49:41
+/* Smarty version 3.1.32, created on 2018-08-27 03:00:15
   from 'D:\UniServerZ\www\yukino\templates\post_list.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b80b5b5e2a8f6_18746389',
+  'unifunc' => 'content_5b835b2f4a2639_27261925',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ef37de82cfad9eb2413c2b858c79e2ba6d01cf6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_list.html',
-      1 => 1535161294,
+      1 => 1535335194,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b80b5b5e2a8f6_18746389 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b835b2f4a2639_27261925 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row" style="align-items: center;justify-content: center;">
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['all_post']->value, 'post');
@@ -58,5 +58,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    <div>
+        <p class="text-primary">共有<?php echo $_smarty_tpl->tpl_vars['total']->value;?>
+篇文章</p>
+        <?php echo $_smarty_tpl->tpl_vars['bar']->value;?>
+
+    </div>
 </div><?php }
 }

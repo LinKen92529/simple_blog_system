@@ -70,8 +70,13 @@ function user_detail($user_sn, $token) {
 }
 
 function post_list() {
+    include_once 'plugin/PageBar.php';
     global $mysqli, $smarty;
     $sql = "SELECT * FROM `post` ORDER BY `post_sn` DESC";
+    $PageBar = getPageBar($sql, 2, 10);
+    $bar     = $PageBar['bar'];
+    $sql     = $PageBar['sql'];
+    $total   = $PageBar['total'];
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $i = 0;
     while ($post = $result->fetch_assoc()) {
@@ -93,6 +98,8 @@ function post_list() {
         $i++;
     }
     $smarty->assign("all_post", $all_post);
+    $smarty->assign('total', $total);
+    $smarty->assign('bar', $bar);
 }
 
 function latest_post() {
