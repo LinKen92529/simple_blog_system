@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-27 10:42:03
+/* Smarty version 3.1.32, created on 2018-08-27 14:27:44
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b83c76b53f841_60320699',
+  'unifunc' => 'content_5b83fc50062b17_78529057',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1535362920,
+      1 => 1535376450,
       2 => 'file',
     ),
   ),
@@ -36,7 +36,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:tag_list.html' => 1,
   ),
 ),false)) {
-function content_5b83c76b53f841_60320699 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b83fc50062b17_78529057 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -174,9 +174,6 @@ function content_5b83c76b53f841_60320699 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="col-md-2">TFcis20 Note Web</div>
             </div>
         </div>
-        <!-- <div class="anone" style="display: none;">
-            <canvas width="1519" height="728" id="anone" style="pointer-events: none;position: fixed; z-index: 9999; bottom: 0px; left: 0px;" hidden="true"></canvas>
-        </div> -->
     </body>
     <?php echo '<script'; ?>
  async src="plugin/live2d/waifu-tips.js"><?php echo '</script'; ?>
@@ -209,21 +206,94 @@ function content_5b83c76b53f841_60320699 (Smarty_Internal_Template $_smarty_tpl)
 >
     <?php echo '<script'; ?>
 >
+        // var first = second = third = forth = fifth = sixth = seventh = eighth = ninth = tenth = eleven = twelve = false;
+        var target = 0;
         $(window).keydown(function(event) {
-            if (event.which == 113) {
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = 'plugin/anone.js';
-                $('head').append(script);
-            } else if (event.which == 119) {
-                $(".anone").css("display", "block");
-                d = document; 
-                s = d.createElement('script'); 
-                s.src = 'plugin/anone.js'; 
-                b = d.getElementsByTagName('body')[0]; 
-                b.appendChild(s);
+            var key = event.which;
+            var judge = false;
+            if (target == 12) {
+                anone();
+            } else {
+                switch (key) {
+                    case 38:
+                        if (target == 0) {
+                            target = 1;
+                        } else if (target == 1) {
+                            target = 2;
+                        } else {
+                            target = 0;
+                        }
+                        break;
+
+                    case 40:
+                        if (target == 2) {
+                            target = 3;
+                        } else if (target == 3) {
+                            target = 4;
+                        } else {
+                            target = 0;
+                        }
+                        break;
+
+                    case 37:
+                        if (target == 4) {
+                            target = 5;
+                        } else if (target == 6) {
+                            target = 7;
+                        } else {
+                            target = 0;
+                        }
+                        break;
+
+                    case 39:
+                        if (target == 5) {
+                            target = 6;
+                        } else if (target == 7) {
+                            target = 8;
+                        } else {
+                            target = 0;
+                        }
+                        break;
+
+                    case 66:
+                            if (target == 8) {
+                                target = 9;
+                            } else if (target == 10) {
+                                target = 11;
+                            } else if (target < 12) {
+                                target = 0;
+                            }
+                            break;
+
+                    case 65:
+                        if (target == 9) {
+                            target = 10;
+                        } else if (target == 11) {
+                            target = 12;
+                            anone();
+                        } else if (target < 12) {
+                            target = 0;
+                        } else if (target == 12) {
+                            anone();
+                        }
+                        break;
+                    
+                    default:
+                        target = 0;
+                        break;
+                }
             }
-        })
+            console.log(target);
+            console.log(key);
+        });
+        function anone () {
+            $(".anone").css("display", "block");
+            d = document; 
+            s = d.createElement('script'); 
+            s.src = 'plugin/anone.js'; 
+            b = d.getElementsByTagName('body')[0]; 
+            b.appendChild(s);
+        }
     <?php echo '</script'; ?>
 >
 </html><?php }

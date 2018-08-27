@@ -87,8 +87,6 @@ function post_list() {
         $i++;
     }
     $smarty->assign("all_post", $all_post);
-    $smarty->assign('total', $total);
-    $smarty->assign('bar', $bar);
 }
 function latest_post() {
     global $mysqli, $smarty;
