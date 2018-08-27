@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 24, 2018 at 12:45 PM
+-- Generation Time: Aug 27, 2018 at 01:53 AM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.1
 
@@ -46,8 +46,19 @@ CREATE TABLE `post` (
   `post_date` datetime NOT NULL COMMENT '發布時間',
   `post_owner` varchar(255) NOT NULL COMMENT '文章作者',
   `post_counter` varchar(255) NOT NULL COMMENT '瀏覽人數',
-  `post_tag` varchar(255) NOT NULL COMMENT '文章標籤'
+  `post_tag` varchar(255) NOT NULL COMMENT '文章標籤',
+  `tag_name` varchar(255) NOT NULL COMMENT '標籤名稱'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `tag`
+--
+
+CREATE TABLE `tag` (
+  `tag_sn` mediumint(8) NOT NULL COMMENT '標籤編號',
+  `tag_name` varchar(255) NOT NULL COMMENT '標籤名稱'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Table structure for table `users`
@@ -79,6 +90,12 @@ ALTER TABLE `post`
   ADD PRIMARY KEY (`post_sn`);
 
 --
+-- Indexes for table `tag`
+--
+ALTER TABLE `tag`
+  ADD PRIMARY KEY (`tag_sn`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -92,17 +109,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cmt`
 --
 ALTER TABLE `cmt`
-  MODIFY `cmt_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '留言編號', AUTO_INCREMENT=0;
+  MODIFY `cmt_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '留言編號', AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=0;
+  MODIFY `post_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=1;
+--
+-- AUTO_INCREMENT for table `tag`
+--
+ALTER TABLE `tag`
+  MODIFY `tag_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '標籤編號', AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_sn` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '使用者編號', AUTO_INCREMENT=0;
+  MODIFY `user_sn` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '使用者編號', AUTO_INCREMENT=1;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -121,10 +121,12 @@
         $('.waifu').mouseout(function() {
             $('.waifu-tools').css('display', 'none');
         });
-    </script>
-    <script>
         $(function () {
             $("[data-toggle='tooltip']").tooltip();
         });
+    </script>
+    <script>
+        var height = $(window).height();
+        $(".container").css("min-height", height);
     </script>
 </html>
