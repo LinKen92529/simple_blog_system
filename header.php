@@ -10,13 +10,11 @@ if ($mysqli->connect_error) {
         . $mysqli->connect_error);
 }
 $mysqli->set_charset("utf8");
-
 if (!empty($_SESSION['user_sn']) and !empty($_COOKIE['token'])) {
     user_detail($_SESSION['user_sn'], $_COOKIE['token']);
 }
 post_list();
 latest_post();
-
 $is_top = $is_admin = $is_user = false;
 if(isset($_SESSION['user_sn'])) {
     if(isset($_COOKIE['token'])) {
@@ -39,16 +37,12 @@ if (isset($_SESSION['user_sn'])) {
 $smarty->assign('is_top', $is_top);
 $smarty->assign('is_admin', $is_admin);
 $smarty->assign('is_user', $is_user);
-
 if (isset($_POST)) {
     foreach ($_POST as $var_name => $var_val) {
              $preg = "/<script[\s\S]*?<\/script>/i";
              preg_replace($preg, "", $_POST[$var_name]);
-
      } 
 }
-
-
 function user_detail($user_sn, $token) {
     global $mysqli, $smarty;
     if (!empty($_COOKIE['token'])) {
@@ -68,15 +62,10 @@ function user_detail($user_sn, $token) {
     }
     return false;
 }
-
 function post_list() {
     include_once 'plugin/PageBar.php';
     global $mysqli, $smarty;
     $sql = "SELECT * FROM `post` ORDER BY `post_sn` DESC";
-    $PageBar = getPageBar($sql, 2, 10);
-    $bar     = $PageBar['bar'];
-    $sql     = $PageBar['sql'];
-    $total   = $PageBar['total'];
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $i = 0;
     while ($post = $result->fetch_assoc()) {
@@ -101,7 +90,6 @@ function post_list() {
     $smarty->assign('total', $total);
     $smarty->assign('bar', $bar);
 }
-
 function latest_post() {
     global $mysqli, $smarty;
     $sql = "SELECT * FROM `post` ORDER BY `post_sn` DESC";

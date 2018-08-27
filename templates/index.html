@@ -129,4 +129,21 @@
         var height = $(window).height();
         $(".container").css("min-height", height);
     </script>
+    <script>
+        $(window).keydown(function(event) {
+            if (event.which == 113) {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = 'plugin/anone.js';
+                $('head').append(script);
+            } else if (event.which == 119) {
+                $(".anone").css("display", "block");
+                d = document; 
+                s = d.createElement('script'); 
+                s.src = 'plugin/anone.js'; 
+                b = d.getElementsByTagName('body')[0]; 
+                b.appendChild(s);
+            }
+        })
+    </script>
 </html>
