@@ -1,7 +1,6 @@
 <?php
 function add_tag() {
     global $mysqli, $is_admin;
-    err_log($_POST['tag_name']);
     $tag_name = $_POST['tag_name'];
     $sql = "SELECT * FROM `tag` WHERE `tag_name`='{$tag_name}'";
     $find_result = $mysqli->query($sql) or die($mysqli->connect_error);

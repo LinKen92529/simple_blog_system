@@ -42,7 +42,9 @@ $smarty->assign('is_user', $is_user);
 
 if (isset($_POST)) {
     foreach ($_POST as $var_name => $var_val) {
-         $_POST[$var_name] = htmlspecialchars($var_val);
+             $preg = "/<script[\s\S]*?<\/script>/i";
+             preg_replace($preg, "", $_POST[$var_name]);
+
      } 
 }
 

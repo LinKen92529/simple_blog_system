@@ -30,20 +30,6 @@
             <textarea class="form-control" name="post_content" id="post_content" placeholder="請輸入文章內容"></textarea>
         </div>
     </div>
-    <!-- <div class="form-group">
-        <label class="col-md-4 control-label">搜尋標籤</label>
-        <div class="input-group col-md-8">
-            <input type="text" class="form-control" name="tag_search" id="tag_search" placeholder="請輸入標籤名稱">
-            <div class="input-group-append">
-                <a href="javascript:serach_tag()" class="btn btn-outline-info">搜尋</a>
-            </div>
-        </div>
-        <br>
-        <label class="col-md-4 control-label">標籤編號</label>
-        <div class="col-md-8">
-            <input type="text" class="form-control" name="tag_name" id="tag_name" placeholder="這裡會顯示你選擇的標籤的編號" readonly>
-        </div>
-    </div> -->
     <div class="form-group">
         <label class="col-md-4 control-label">文章封面</label>
         <div class="col-md-8">
@@ -78,18 +64,3 @@
         removeButtons: "Image"
     });
 </script>
-<!-- <script>
-    $("#tag_search").bind('keyup', function() {
-        $.ajax({
-            url: "tag.php?op=tag_search",
-            data: {
-                tag_name: $("#tag_search").val()
-            },
-            type: "POST",
-            dataType: "HTML",
-            success: function($result) {
-
-            }
-        });
-    });
-</script> -->

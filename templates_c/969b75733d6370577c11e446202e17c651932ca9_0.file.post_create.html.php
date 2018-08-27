@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-26 10:18:37
+/* Smarty version 3.1.32, created on 2018-08-26 17:05:43
   from 'D:\UniServerZ\www\yukino\templates\post_create.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b82706deac139_32332336',
+  'unifunc' => 'content_5b82cfd750e1e7_96303028',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '969b75733d6370577c11e446202e17c651932ca9' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_create.html',
-      1 => 1535275114,
+      1 => 1535299538,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b82706deac139_32332336 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b82cfd750e1e7_96303028 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
     $(document).ready(function () {
@@ -58,20 +58,6 @@ echo '<script'; ?>
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-4 control-label">搜尋標籤</label>
-        <div class="input-group col-md-8">
-            <input type="text" class="form-control" name="tag_search" id="tag_search" placeholder="請輸入標籤名稱">
-            <div class="input-group-append">
-                <a href="javascript:serach_tag()" class="btn btn-outline-info">搜尋</a>
-            </div>
-        </div>
-        <br>
-        <label class="col-md-4 control-label">標籤內容</label>
-        <div class="col-md-8">
-            <input type="text" class="form-control" name="tag_name" id="tag_name" placeholder="這裡會顯示你選擇的標籤的編號" readonly>
-        </div>
-    </div>
-    <div class="form-group">
         <label class="col-md-4 control-label">文章封面</label>
         <div class="col-md-8">
             <input type="file" name="post_pic" id="post_pic" accept="image/gif, image/jpeg, image/jpg, image/png">
@@ -81,12 +67,12 @@ echo '<script'; ?>
         <div class="col-md-6">
             <img src="img/normal_get_pic.jpg" alt="post_img" id="post_img" class="img-thumbnail">
         </div>
-    <!-- <div class="form-group">
+    <div class="form-group">
         <label class="col-md-4 control-label">文章標籤</label>
         <div class="col-md-8">
             <input type="text" class="form-control" id="post_tag" name="post_tag"> 
         </div>
-    </div> -->
+    </div>
     <br>
     
     </div>

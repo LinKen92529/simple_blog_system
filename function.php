@@ -39,7 +39,6 @@ function err_log($text) {
 
 #save pic
 function save_pic($pic_path, $pic_name, $file) {
-    err_log("test");
     include_once "plugin/upload/class.upload.php";
     $pic = new Upload($_FILE["$file"], 'zh_TW');
     if ($pic->uploaded) {
@@ -52,11 +51,9 @@ function save_pic($pic_path, $pic_name, $file) {
         $pic->image_ratio_crop   = true;
         $pic->Process("{$pic_path}");
         if ($pic->processed) {
-            err_log("testtt");
             $pic->Clean();
-            err_log("testt");
         } else {
-            err_log('error : ' . $pic->error);
+            die('error : ' . $pic->error);
         }
     }
 }

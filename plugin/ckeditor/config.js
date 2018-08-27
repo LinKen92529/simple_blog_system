@@ -7,6 +7,6 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
-	config.extraPlugins = 'prism';
-	config.codeSnippet_theme = 'monokai_sublime';
+	config.extraPlugins = "lineutils,widget,codesnippet,prism";
+	// config.codeSnippet_theme = 'monokai_sublime';
 };

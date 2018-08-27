@@ -8,14 +8,12 @@ function delete_tag() {
     $sql = "SELECT * FROM `tag` WHERE `tag_sn`='{$tag_sn}'";
     $find_result = $mysqli->query($sql) or die($mysqli->connect_error);
     if ($tag = $find_result->fetch_assoc() and $tag != '') {
-        err_log("true");
         $sql = "DELETE FROM `tag` WHERE `tag_sn`='{$tag_sn}'";
         $mysqli->query($sql) or die($mysqli->connect_error);
         $result = "true";
         echo $result;
         return;
     } else {
-        err_log("empty");
         $result = "empty";
         echo $result;
     }
