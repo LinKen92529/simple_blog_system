@@ -31,6 +31,10 @@ switch ($op) {
         header("location:post.php?op=post_display&post_sn={$post_sn}");
         break;
 
+    case 'my_post':
+        my_post();
+        break;
+
     case 'delete_post':
         delete_post($post_sn);
         header("location:index.php");

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-27 14:27:44
+/* Smarty version 3.1.32, created on 2018-08-27 17:08:57
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b83fc50062b17_78529057',
+  'unifunc' => 'content_5b842219064723_17979358',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1535376450,
+      1 => 1535386134,
       2 => 'file',
     ),
   ),
@@ -25,6 +25,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:user_form.html' => 1,
     'file:user_list.html' => 1,
     'file:user_login_page.html' => 1,
+    'file:my_post.html' => 1,
     'file:post_create.html' => 1,
     'file:post_display.html' => 1,
     'file:post_form.html' => 1,
@@ -36,7 +37,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:tag_list.html' => 1,
   ),
 ),false)) {
-function content_5b83fc50062b17_78529057 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b842219064723_17979358 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -82,9 +83,11 @@ function content_5b83fc50062b17_78529057 (Smarty_Internal_Template $_smarty_tpl)
 " class="dropdown-item" style="color: rgb(0, 105, 217);">修改資料</a>
                         <?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
                             <div class="dropdown-divider"></div>
-                            <a href="user.php?op=user_list" class="dropdown-item" style="color: rgb(33, 136, 56);">使用者列表</a>
-                            <a href="post.php?op=post_create" class="dropdown-item" style="color: rgb(33, 136, 56);">發布文章</a>
-                            <a href="tag.php?op=tag_list" class="dropdown-item" style="color: rgb(33, 136, 56)">類別總表</a>
+                            <a href="user.php?op=user_list" class="dropdown-item" style="color: rgb(28, 224, 71);">使用者列表</a>
+                            <a href="post.php?op=post_create" class="dropdown-item" style="color: rgb(28, 224, 71);">發布文章</a>
+                            <a href="tag.php?op=tag_list" class="dropdown-item" style="color: rgb(28, 224, 71);">類別總表</a>
+                            <a href="post.php?op=my_post&user_sn=<?php echo $_smarty_tpl->tpl_vars['now_user_sn']->value;?>
+" class="dropdown-item" style="color: rgb(28, 224, 71);">我的文章</a>
                         <?php }?>
                         <?php if ($_smarty_tpl->tpl_vars['is_top']->value) {?>
                             <div class="dropdown-divider"></div>
@@ -128,6 +131,9 @@ function content_5b83fc50062b17_78529057 (Smarty_Internal_Template $_smarty_tpl)
 ?>
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'user_login_page') {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:user_login_page.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "my_post") {?>
+                            <?php $_smarty_tpl->_subTemplateRender('file:my_post.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == "post_create") {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:post_create.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -206,7 +212,6 @@ function content_5b83fc50062b17_78529057 (Smarty_Internal_Template $_smarty_tpl)
 >
     <?php echo '<script'; ?>
 >
-        // var first = second = third = forth = fifth = sixth = seventh = eighth = ninth = tenth = eleven = twelve = false;
         var target = 0;
         $(window).keydown(function(event) {
             var key = event.which;

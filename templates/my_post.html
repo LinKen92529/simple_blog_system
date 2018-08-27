@@ -1,0 +1,24 @@
+{if isset($all_post) and $all_post != ''}
+    {if $is_admin}
+        <h1>我的文章</h1>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>文章編號</th>
+                    <th>文章名稱</th>
+                    <th>發布日期</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach from=$all_post item=post}
+                    <tr>
+                        <th scope="row"><a href="post.php?op=display_post&post_sn={$post.post_sn}">{$post.post_sn}</a></th>
+                        <td>{$post.post_title}</td>
+                        <td>{$post.post_date}</td>
+                    </tr>
+                {/foreach}
+            </tbody>
+        </table>
+    {/if}
+{/if}

@@ -31,9 +31,10 @@
                         <a href="user.php?op=user_form&user_sn={$user_detail.user_sn}" class="dropdown-item" style="color: rgb(0, 105, 217);">修改資料</a>
                         {if $is_admin}
                             <div class="dropdown-divider"></div>
-                            <a href="user.php?op=user_list" class="dropdown-item" style="color: rgb(33, 136, 56);">使用者列表</a>
-                            <a href="post.php?op=post_create" class="dropdown-item" style="color: rgb(33, 136, 56);">發布文章</a>
-                            <a href="tag.php?op=tag_list" class="dropdown-item" style="color: rgb(33, 136, 56)">類別總表</a>
+                            <a href="user.php?op=user_list" class="dropdown-item" style="color: rgb(28, 224, 71);">使用者列表</a>
+                            <a href="post.php?op=post_create" class="dropdown-item" style="color: rgb(28, 224, 71);">發布文章</a>
+                            <a href="tag.php?op=tag_list" class="dropdown-item" style="color: rgb(28, 224, 71);">類別總表</a>
+                            <a href="post.php?op=my_post&user_sn={$now_user_sn}" class="dropdown-item" style="color: rgb(28, 224, 71);">我的文章</a>
                         {/if}
                         {if $is_top}
                             <div class="dropdown-divider"></div>
@@ -71,6 +72,8 @@
                             {include file='user_list.html'}
                         {else if $op=='user_login_page'}
                             {include file='user_login_page.html'}
+                        {else if $op=="my_post"}
+                            {include file='my_post.html'}
                         {else if $op=="post_create"}
                             {include file='post_create.html'}
                         {else if $op=='post_display'}
