@@ -10,7 +10,7 @@
         <br>
         <label class="col-md-4 control-label">標籤編號</label>
         <div class="col-md-8">
-            <input type="text" class="form-control" name="tag_names" id="tag_names" placeholder="這裡會顯示你選擇的標籤的編號" readonly>
+            <input type="text" class="form-control" name="tag_choice" id="tag_choice" placeholder="這裡會顯示你選擇的標籤的編號" readonly>
         </div>
     </div>
     <br>
@@ -117,15 +117,15 @@
         })
     }
     function insert_tag(tag_sn) {
-        $("#tag_names").val($("#tag_names").val() + tag_sn + ';');
+        $("#tag_choice").val($("#tag_choice").val() + tag_sn + ';');
         $("#insert_" + tag_sn).css("display", "none");
         $("#remove_" + tag_sn).css("display", "block");
     }
     function remove_tag(tag_sn) {
-        var target = $("#tag_names").val();
+        var target = $("#tag_choice").val();
         remove_target = new RegExp(tag_sn + ';' );
         target = target.replace(remove_target, "");
-        $("#tag_names").val(target);
+        $("#tag_choice").val(target);
         $("#insert_" + tag_sn).css("display", "block");
         $("#remove_" + tag_sn).css("display", "none");
     }
