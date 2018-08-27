@@ -69,7 +69,16 @@
                 $add_tag_result = $result.charAt(0);
                 var string = $result.split('_', 3);
                 if ($add_tag_result == 'r') {
-                    alert('重複標籤><');
+                    alert('重複標籤zzz');
+                } else if ($add_tag_result == 't') {
+                    $("#locate").after("<tr class=\"arashi\" id=\"tag_ " + string[1] +"\" data-index=\"" + string[2] +"\"><th scope=\"row\">" + string[1] +"</th><td><input type=\"text\" name=\"" + string[2] + "\" id=\"" + string[1] +"\" placeholder=\"請輸入標籤名稱\" value=\"" + string[2] + "\"></td><td class=\"row\">&nbsp;&nbsp;&nbsp;<a href=\"javascript:update_tag('" + string[1] + "')\" style=\"color: rgb(48, 211, 240);\"><i class=\"fas fa-edit\">編輯</i></a>&nbsp;<a href=\"javascript:delete_tag('" + string[1] +"')\" style=\"color: red;\"><i class=\"fas fa-backspace\">刪除</i></a>&nbsp;<a href=\"javascript:insert_tag('" + string[1] + "')\" id=\"insert_" + string[1] + "\" style=\"color:rgb(72, 230, 72);display: block;\"><i class=\"fas fa-plus-circle\">新增</i></a>&nbsp;<a href=\"javascript:remove_tag('" + string[1] +"')\" id=\"remove_" + string[1] + "\" style=\"color: rgb(224, 52, 224);display: none;\"><i class=\"fas fa-minus-circle\">移除</i></a></td></tr>");
+                }
+            },
+            error: function(jqXHR) {
+                $add_tag_result = jqXHR.responseText.charAt(0);
+                var string = jqXHR.responseText.split('_', 3);
+                if ($add_tag_result == 'r') {
+                    alert('重複標籤zzzz');
                 } else if ($add_tag_result == 't') {
                     $("#locate").after("<tr class=\"arashi\" id=\"tag_ " + string[1] +"\" data-index=\"" + string[2] +"\"><th scope=\"row\">" + string[1] +"</th><td><input type=\"text\" name=\"" + string[2] + "\" id=\"" + string[1] +"\" placeholder=\"請輸入標籤名稱\" value=\"" + string[2] + "\"></td><td class=\"row\">&nbsp;&nbsp;&nbsp;<a href=\"javascript:update_tag('" + string[1] + "')\" style=\"color: rgb(48, 211, 240);\"><i class=\"fas fa-edit\">編輯</i></a>&nbsp;<a href=\"javascript:delete_tag('" + string[1] +"')\" style=\"color: red;\"><i class=\"fas fa-backspace\">刪除</i></a> </td></tr>");
                 }
