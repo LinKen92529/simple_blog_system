@@ -18,5 +18,5 @@ function insert_cmt($post_sn) {
     '{$cmt_date}')";
     $mysqli->query($sql) or die($mysqli->connect_error);
     $cmt_sn = $mysqli->insert_id;
-    return true;
+    return $cmt_sn;
 }

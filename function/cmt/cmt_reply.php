@@ -17,5 +17,6 @@ function cmt_reply($cmt_sn) {
     '{$cmt_sn}',
     '{$cmt_date}')";
     $mysqli->query($sql) or die($mysqli->connect_error);
-    $mysqli->insert_id;
+    $reply_sn = $mysqli->insert_id;
+    return $reply_sn;
 }

@@ -7,8 +7,8 @@ $cmt_sn  = isset($_REQUEST['cmt_sn']) ? my_filter($_REQUEST['cmt_sn'], "int") : 
 
 switch ($op) {
     case 'insert_cmt':
-        insert_cmt($post_sn);
-        header("location:post.php?op=post_display&post_sn={$post_sn}");
+        $cmt_sn  = insert_cmt($post_sn);
+        header("location:post.php?op=post_display&post_sn={$post_sn}&#{$cmt_sn}");
         break;
 
     case 'delete_cmt':
@@ -18,7 +18,7 @@ switch ($op) {
 
     case 'update_cmt':
         update_cmt($cmt_sn);
-        header("location:post.php?op=post_display&post_sn={$post_sn}");
+        header("location:post.php?op=post_display&post_sn={$post_sn}&#{$cmt_sn}");
         break;
 
     case 'cmt_form':
@@ -26,8 +26,8 @@ switch ($op) {
         break;
 
     case 'cmt_reply':
-        cmt_reply($cmt_sn);
-        header("location:post.php?op=post_display&post_sn={$post_sn}");
+        $reply_sn = cmt_reply($cmt_sn);
+        header("location:post.php?op=post_display&post_sn={$post_sn}&#{$reply_sn}");
         break;
     
     default:

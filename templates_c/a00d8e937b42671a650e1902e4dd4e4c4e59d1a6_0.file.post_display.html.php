@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-28 09:36:23
+/* Smarty version 3.1.32, created on 2018-08-28 14:50:04
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b850987975139_15249358',
+  'unifunc' => 'content_5b85530c1e4681_44735362',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1535445334,
+      1 => 1535464200,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b850987975139_15249358 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b85530c1e4681_44735362 (Smarty_Internal_Template $_smarty_tpl) {
 ?><link rel="stylesheet" href="plugin/prism/prism.css">
 <?php echo '<script'; ?>
  src="plugin/prism/prism.js"><?php echo '</script'; ?>
@@ -123,7 +123,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cmt']->value) {
                 <br>
                 <?php echo $_smarty_tpl->tpl_vars['cmt']->value['user_name'];?>
 說：
-                <div style="word-wrap: break-word;"><?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_content'];?>
+                <div style="word-wrap: break-word;" id="cmt_<?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_sn'];?>
+"><?php echo $_smarty_tpl->tpl_vars['cmt']->value['cmt_content'];?>
 </div>
             </div>
             <div class="col-md-3">
@@ -173,7 +174,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['reply']->value) {
                         <br>
                         <?php echo $_smarty_tpl->tpl_vars['reply']->value['user_name'];?>
 回覆說：
-                        <div style="word-wrap: break-word;"><?php echo $_smarty_tpl->tpl_vars['reply']->value['cmt_content'];?>
+                        <div style="word-wrap: break-word;" id="cmt_<?php echo $_smarty_tpl->tpl_vars['reply']->value['cmt_sn'];?>
+"><?php echo $_smarty_tpl->tpl_vars['reply']->value['cmt_content'];?>
 </div>
                     </div>
                     <div class="col-md-3">
@@ -273,6 +275,18 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
     }
     function toggle(cmt_sn) {
         $("#" + cmt_sn).toggle();
+    }
+<?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+    place = location.hash;
+    console.log(place);
+    if (place != '') {
+        console.log("test");
+        target = place.replace("#", '');
+        var target_top = $("#cmt_" + target).offset().top;
+        $('html, body').scrollTop(target_top);
     }
 <?php echo '</script'; ?>
 ><?php }
