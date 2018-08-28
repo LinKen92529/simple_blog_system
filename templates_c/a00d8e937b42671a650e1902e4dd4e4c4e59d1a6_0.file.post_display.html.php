@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-27 02:42:59
+/* Smarty version 3.1.32, created on 2018-08-28 09:36:23
   from 'D:\UniServerZ\www\yukino\templates\post_display.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b8357231ce107_79530791',
+  'unifunc' => 'content_5b850987975139_15249358',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a00d8e937b42671a650e1902e4dd4e4c4e59d1a6' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\post_display.html',
-      1 => 1535334176,
+      1 => 1535445334,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b8357231ce107_79530791 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b850987975139_15249358 (Smarty_Internal_Template $_smarty_tpl) {
 ?><link rel="stylesheet" href="plugin/prism/prism.css">
 <?php echo '<script'; ?>
  src="plugin/prism/prism.js"><?php echo '</script'; ?>

@@ -4,7 +4,8 @@ function post_display($post_sn) {
     $sql = "SELECT * FROM `post` WHERE `post_sn`='{$post_sn}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $post = $result->fetch_assoc();
-    $post['pic'] = get_pic_path("./uploads/post/{$post_sn}/normal_post_pic.png", "./img/normal_get_pic.jpg");
+    $img_sn = rand(1, 27);
+    $post['pic'] = get_pic_path("./uploads/post/{$post_sn}/normal_post_pic.png", "./img/default_post_img/{$img_sn}.png");
     //select post tag
     $each_tag = explode(";", $post['post_tag']);
     $i = 0;
@@ -28,9 +29,6 @@ function post_display($post_sn) {
         $post['post_owner'] = $user['user_name'];
     } else {
         $post['post_owner'] = "不明";
-    }
-    if (!file_exists("uploads/post/{$post_sn}/{$post_sn}.html")) {
-        copy("templates/default.html", "uploads/post/{$post_sn}/{$post_sn}.html");
     }
     $sql = "SELECT * FROM `cmt` WHERE `post_sn`='{$post_sn}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
