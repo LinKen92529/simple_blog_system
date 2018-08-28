@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-27 17:08:57
+/* Smarty version 3.1.32, created on 2018-08-28 05:40:59
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b842219064723_17979358',
+  'unifunc' => 'content_5b84d25ba73369_03165482',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1535386134,
+      1 => 1535431254,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:tag_list.html' => 1,
   ),
 ),false)) {
-function content_5b842219064723_17979358 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b84d25ba73369_03165482 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -106,7 +106,7 @@ function content_5b842219064723_17979358 (Smarty_Internal_Template $_smarty_tpl)
         <div class="container">
             <div class="col-md-12">
                 <?php if ($_smarty_tpl->tpl_vars['op']->value == 'post_list') {?>
-                    <div class="col-md-12" style="margin-top: 20px;">
+                    <div class="col-md-12" style="margin-top: 20px;display: flex;">
                         <?php $_smarty_tpl->_subTemplateRender('file:post_list.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                     </div>
