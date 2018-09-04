@@ -1,0 +1,29 @@
+{if isset($class_post)}
+    <div class="row" style="align-items: center;justify-content: center;">
+        {foreach from=$class_post item=post}
+            <div class="col-md-3" style="background-color: rgba(0, 0, 0, 0.7);margin-bottom: 20px;padding: 20px;margin-right: 20px;">
+                <div class="col-md-12">
+                    <a href="post.php?op=post_display&post_sn={$post.post_sn}"><h4 style="font-style: oblique;">{$post.post_title}</h4></a>
+                </div>
+                <div class="col-md-12">
+                    <center>
+                        <a href="post.php?op=post_display&post_sn={$post.post_sn}">
+                            <img src="{$post.pic}" alt="{$post.post_sn}" class="img-thumbnail">
+                        </a>
+                    </center>
+                </div>
+                <br>
+                <div class="col-md-12" style="color: greenyellow">
+                    <div class="row">
+                        <i class="fas fa-clock">{$post.post_date}</i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="fas fa-users">瀏覽人數：{$post.post_counter}</i>
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+        <br>
+    </div>
+{else}
+    There is nothing here
+{/if}

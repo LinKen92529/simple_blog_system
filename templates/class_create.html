@@ -1,0 +1,35 @@
+{if $is_admin}
+    <h1>創建類別</h1>
+    <form action="class.php" method="POST" role="form">
+        <div class="form-group">
+            <label class="col-md-4">類別名稱</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" name="class_name" id="class_name" placeholder="請輸入類別名稱">
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <label class="col-md-4">類別介紹</label>
+            <div class="col-md-12">
+                <textarea class="form-control" name="class_content" id="class_content" placeholder="請輸入類別介紹"></textarea>
+            </div>
+        </div> -->
+        <div class="form-group">
+            <label class="col-md-4">預設文章</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" name="default_post" id="default_post" placeholder="請輸入預設文章編號,可留空">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                <input type="hidden" name="op" value="insert_class">
+                <button type="submit" class="btn btn-block btn-primary">新增</button>
+            </div>
+        </div>
+    </form>
+    <script src="plugin/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("class_content", {
+            removeButtons: "Image"
+        })
+    </script>
+{/if}

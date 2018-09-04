@@ -1,8 +1,7 @@
 <?php
 function delete_user($user_sn) {
-    global $mysqli, $is_admin;
-    
-    if ($is_top) {
+    global $mysqli, $is_admin; 
+    if ($is_admin) {
         $sql = "SELECT * FROM `users` WHERE `user_sn`='{$user_sn}'";
         $result = $mysqli->query($sql) or die($mysqli->connect_error);
         if ($user = $result->fetch_assoc()) {

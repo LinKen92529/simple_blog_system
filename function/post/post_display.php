@@ -6,21 +6,8 @@ function post_display($post_sn) {
     $post = $result->fetch_assoc();
     $img_sn = rand(1, 27);
     $post['pic'] = get_pic_path("./uploads/post/{$post_sn}/normal_post_pic.png", "./img/default_post_img/{$img_sn}.png");
-    //select post tag
-    $each_tag = explode(";", $post['post_tag']);
-    $i = 0;
-    foreach ($each_tag as $tag_sn) {
-        $sql  = "SELECT * FROM `tag` WHERE `tag_sn`='{$tag_sn}'";
-        $result = $mysqli->query($sql) or die($mysqli->connect_error);
-        $tag = $result->fetch_assoc();
-        if (!empty($tag)) {
-            $post['tag'][$i] = $tag['tag_name'];
-            $i++;
-        }
-    }
-    if ($i == 0) {
-        $post['tag'][0] = "沒有標籤喔";
-    }
+    //explode tag
+    $post['tag'] = explode(";", $post['post_tag']);
     $sql = "SELECT * FROM `users` WHERE `user_sn`='{$post['post_owner']}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $user = $result->fetch_assoc();

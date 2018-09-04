@@ -1,24 +1,25 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-28 05:40:59
+/* Smarty version 3.1.32, created on 2018-09-02 14:31:41
   from 'D:\UniServerZ\www\yukino\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b84d25ba73369_03165482',
+  'unifunc' => 'content_5b8be63d0b2727_23270251',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c18bcdd5d74f16e2ded127960ba86bfc0ea5dd2' => 
     array (
       0 => 'D:\\UniServerZ\\www\\yukino\\templates\\index.html',
-      1 => 1535431254,
+      1 => 1535895097,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:post_list.html' => 1,
+    'file:class_display.html' => 1,
     'file:find_tag.html' => 1,
     'file:history.html' => 1,
     'file:user_register.html' => 1,
@@ -35,9 +36,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:web_setting.html' => 1,
     'file:webset_bg.html' => 1,
     'file:tag_list.html' => 1,
+    'file:class_create.html' => 1,
+    'file:class_list.html' => 1,
+    'file:class_function.html' => 1,
   ),
 ),false)) {
-function content_5b84d25ba73369_03165482 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b8be63d0b2727_23270251 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -61,7 +65,14 @@ function content_5b84d25ba73369_03165482 (Smarty_Internal_Template $_smarty_tpl)
     </head>
     <body>
         <nav class="navbar navbar-dark" id="head_pill" style="margin-bottom:20px;">
-            <a class="navbar-brand" href="index.php" id="home">ARASIのストーリー</a>
+            <div class="collaspe navbar-collsape row">
+                <a class="navbar-brand" href="index.php" id="home">TFcisNoteWebSite</a>
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="nav_item active">
+                        <a class="nav-link" href="class.php?op=class_list">類別類表</a>
+                    </li>
+                </ul>
+            </div>
             <?php if ($_smarty_tpl->tpl_vars['is_user']->value) {?>
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,9 +96,10 @@ function content_5b84d25ba73369_03165482 (Smarty_Internal_Template $_smarty_tpl)
                             <div class="dropdown-divider"></div>
                             <a href="user.php?op=user_list" class="dropdown-item" style="color: rgb(28, 224, 71);">使用者列表</a>
                             <a href="post.php?op=post_create" class="dropdown-item" style="color: rgb(28, 224, 71);">發布文章</a>
-                            <a href="tag.php?op=tag_list" class="dropdown-item" style="color: rgb(28, 224, 71);">類別總表</a>
                             <a href="post.php?op=my_post&user_sn=<?php echo $_smarty_tpl->tpl_vars['now_user_sn']->value;?>
 " class="dropdown-item" style="color: rgb(28, 224, 71);">我的文章</a>
+                            <a href="class.php?op=class_create" class="dropdown-item" style="color: rgb(28, 224, 71);">新增類別</a>
+                            <a href="class.php?op=class_function" class="dropdown-item" style="color: rgb(28, 224, 71)">修改類別</a>
                         <?php }?>
                         <?php if ($_smarty_tpl->tpl_vars['is_top']->value) {?>
                             <div class="dropdown-divider"></div>
@@ -108,6 +120,11 @@ function content_5b84d25ba73369_03165482 (Smarty_Internal_Template $_smarty_tpl)
                 <?php if ($_smarty_tpl->tpl_vars['op']->value == 'post_list') {?>
                     <div class="col-md-12" style="margin-top: 20px;display: flex;">
                         <?php $_smarty_tpl->_subTemplateRender('file:post_list.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                    </div>
+                <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'class_display') {?>
+                    <div class="col-md-12" style="margin-top: 20px;display: flex;">
+                        <?php $_smarty_tpl->_subTemplateRender('file:class_display.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                     </div>
                 <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'find_tag') {?>
@@ -161,6 +178,15 @@ function content_5b84d25ba73369_03165482 (Smarty_Internal_Template $_smarty_tpl)
 ?>
                         <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'tag_list') {?>
                             <?php $_smarty_tpl->_subTemplateRender('file:tag_list.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'class_create') {?>
+                            <?php $_smarty_tpl->_subTemplateRender('file:class_create.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'class_list') {?>
+                            <?php $_smarty_tpl->_subTemplateRender('file:class_list.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+                        <?php } elseif ($_smarty_tpl->tpl_vars['op']->value == 'class_function') {?>
+                            <?php $_smarty_tpl->_subTemplateRender('file:class_function.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
                         <?php }?>
                     </div>

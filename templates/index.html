@@ -14,7 +14,14 @@
     </head>
     <body>
         <nav class="navbar navbar-dark" id="head_pill" style="margin-bottom:20px;">
-            <a class="navbar-brand" href="index.php" id="home">ARASIのストーリー</a>
+            <div class="collaspe navbar-collsape row">
+                <a class="navbar-brand" href="index.php" id="home">TFcisNoteWebSite</a>
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="nav_item active">
+                        <a class="nav-link" href="class.php?op=class_list">類別類表</a>
+                    </li>
+                </ul>
+            </div>
             {if $is_user}
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,8 +40,9 @@
                             <div class="dropdown-divider"></div>
                             <a href="user.php?op=user_list" class="dropdown-item" style="color: rgb(28, 224, 71);">使用者列表</a>
                             <a href="post.php?op=post_create" class="dropdown-item" style="color: rgb(28, 224, 71);">發布文章</a>
-                            <a href="tag.php?op=tag_list" class="dropdown-item" style="color: rgb(28, 224, 71);">類別總表</a>
                             <a href="post.php?op=my_post&user_sn={$now_user_sn}" class="dropdown-item" style="color: rgb(28, 224, 71);">我的文章</a>
+                            <a href="class.php?op=class_create" class="dropdown-item" style="color: rgb(28, 224, 71);">新增類別</a>
+                            <a href="class.php?op=class_function" class="dropdown-item" style="color: rgb(28, 224, 71)">修改類別</a>
                         {/if}
                         {if $is_top}
                             <div class="dropdown-divider"></div>
@@ -55,6 +63,10 @@
                 {if $op=='post_list'}
                     <div class="col-md-12" style="margin-top: 20px;display: flex;">
                         {include file='post_list.html'}
+                    </div>
+                {else if $op=='class_display'}
+                    <div class="col-md-12" style="margin-top: 20px;display: flex;">
+                        {include file='class_display.html'}
                     </div>
                 {else if $op=='find_tag'}
                     <div class="col-md-12" style="margin-top: 20px">
@@ -92,6 +104,12 @@
                             {include file="webset_bg.html"}
                         {else if $op=='tag_list'}
                             {include file='tag_list.html'}
+                        {else if $op=='class_create'}
+                            {include file='class_create.html'}
+                        {else if $op=='class_list'}
+                            {include file='class_list.html'}
+                        {else if $op=='class_function'}
+                            {include file='class_function.html'}
                         {/if}
                     </div>
                 {/if}

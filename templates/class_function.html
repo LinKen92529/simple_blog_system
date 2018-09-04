@@ -1,0 +1,100 @@
+<h1>修改類別</h1>
+{if isset($class_function) and $class_function != ''}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>類別編號</th>
+                <th>類別名稱</th>
+                <th>功能函數</th>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach from=$class_function item=class}
+                <tr>
+                    <th scope="row"><a href="class.php?op=class_display&class_sn={$class.class_sn}">{$class.class_sn}</a></th>
+                    <td><input type="text" class="form-control" name="class_name" id="class_name_{$class.class_sn}" placeholder="請輸入類別名稱" value="{$class.class_name}"></td>
+                    <td class="row">
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="javascript:class_update('{$class.class_sn}')" style="color: rgb(48, 211, 240);display: block;"><i class="fas fa-edit">更新</i></a>
+                        &nbsp;&nbsp;&nbsp;
+                        {if $class.class_display == 'enable'}
+                            <a href="javascript:class_enable('{$class.class_sn}')" id="enable_{$class.class_sn}" style="color: rgb(20, 221, 20);display: none;"><i class="fas fa-plus-circle">顯示</i></a>
+                            <a href="javascript:class_disable('{$class.class_sn}')" id="disable_{$class.class_sn}" style="color: red;display: block;"><i class="fas fa-minus-circle">隱藏</i></a>
+                        {else}
+                            <a href="javascript:class_enable('{$class.class_sn}')" id="enable_{$class.class_sn}" style="color: rgb(20, 221, 20);display: block;"><i class="fas fa-plus-circle">顯示</i></a>
+                            <a href="javascript:class_disable('{$class.class_sn}')" id="disable_{$class.class_sn}" style="color: red;display: none;"><i class="fas fa-minus-circle">隱藏</i></a>
+                        {/if}
+                    </td>
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
+{/if}
+<script>
+    function class_disable(class_sn) {
+        $("#enable_" + class_sn).css("display", "block");
+        $("#disable_" + class_sn).css("display", "none");
+        $.ajax({
+            url: "class.php?op=class_status",
+            type: "POST",   
+            data: {
+                class_sn: class_sn,
+                class_status: 'disable'
+            },
+            dataType: "HTML",
+            success: function($result){
+                $change_result = $result.charAt(0);
+                if ($change_result == 'p') {
+                    alert("What are u doing｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡");
+                } else if ($change_result == 'n') {
+                    alert("變數錯誤請尋找工具人幫忙解決(灬ºωº灬)");
+                }
+            }
+        })
+    }
+    function class_enable(class_sn) {
+        $("#enable_" + class_sn).css("display", "none");
+        $("#disable_" + class_sn).css("display", "block");
+        $.ajax({
+            url: "class.php?op=class_status",
+            type: "POST",
+            data: {
+                class_sn: class_sn,
+                class_status: 'enable'
+            },
+            dataType: "HTML",
+            success: function($result) {
+                $change_result = $result.charAt(0);
+                if ($change_result == 'p') {
+                    alert("What are u doing｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡");
+                } else if ($change_result == 'n') {
+                    alert("變數錯誤請尋找工具人幫忙解決(灬ºωº灬)");
+                }
+            }
+        })
+    }
+    function class_update(class_sn) {
+        var class_name_val = $("#class_name_" + class_sn).val()
+        if (class_name_val == '') {
+            alert("在空白啊(ㅅ˘ㅂ˘)");
+            return;
+        }
+        $.ajax({
+            url: "class.php?op=class_update",
+            type: "POST",
+            data: {
+                class_sn: class_sn,
+                class_name: class_name_val 
+            },
+            dataType: "HTML",
+            success: function($result) {
+                $update_result = $result.charAt(0);
+                if ($update_result == 's') {
+                    alert("成功更新");
+                } else {
+                    alert("更新失敗");
+                }
+            }
+        })
+    }
+</script>

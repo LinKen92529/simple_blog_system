@@ -62,6 +62,7 @@ function user_detail($user_sn, $token) {
     }
     return false;
 }
+    
 function post_list() {
     include_once 'plugin/PageBar.php';
     global $mysqli, $smarty;

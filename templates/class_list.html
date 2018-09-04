@@ -1,0 +1,19 @@
+<h1>類別列表</h1>
+{if isset($all_class) and $all_class != ''}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>類別編號</th>
+                <th>類別名稱</th>
+            </tr>
+        </thead>
+        {foreach from=$all_class item=class}
+            <tbody>
+                <tr>
+                    <th scope="row"><a href="class.php?op=class_display&class_sn={$class.class_sn}">{$class.class_sn}</a></th>
+                    <td>{$class.class_name}</td>
+                </tr>
+            </tbody>
+        {/foreach}
+    </table>
+{/if}
