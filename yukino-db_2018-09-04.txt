@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 27, 2018 at 01:53 AM
+-- Generation Time: Sep 04, 2018 at 04:14 AM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.1
 
@@ -23,6 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `class`
+--
+
+CREATE TABLE `class` (
+  `class_sn` mediumint(8) NOT NULL COMMENT '分類編號',
+  `class_name` varchar(255) NOT NULL COMMENT '分類名稱',
+  `class_content` varchar(255) NOT NULL COMMENT '分類介紹',
+  `class_display` varchar(255) NOT NULL COMMENT '分類識別'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cmt`
 --
 
@@ -34,6 +47,8 @@ CREATE TABLE `cmt` (
   `reply_sn` varchar(255) NOT NULL COMMENT '回覆編號',
   `cmt_date` datetime NOT NULL COMMENT '留言時間'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `post`
@@ -47,18 +62,11 @@ CREATE TABLE `post` (
   `post_owner` varchar(255) NOT NULL COMMENT '文章作者',
   `post_counter` varchar(255) NOT NULL COMMENT '瀏覽人數',
   `post_tag` varchar(255) NOT NULL COMMENT '文章標籤',
-  `tag_name` varchar(255) NOT NULL COMMENT '標籤名稱'
+  `tag_name` varchar(255) NOT NULL COMMENT '標籤名稱',
+  `class_sn` varchar(255) NOT NULL COMMENT 'zp xo41u0 ck4'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `tag`
---
-
-CREATE TABLE `tag` (
-  `tag_sn` mediumint(8) NOT NULL COMMENT '標籤編號',
-  `tag_name` varchar(255) NOT NULL COMMENT '標籤名稱'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
@@ -78,6 +86,12 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `class`
+--
+ALTER TABLE `class`
+  ADD PRIMARY KEY (`class_sn`);
+
+--
 -- Indexes for table `cmt`
 --
 ALTER TABLE `cmt`
@@ -90,12 +104,6 @@ ALTER TABLE `post`
   ADD PRIMARY KEY (`post_sn`);
 
 --
--- Indexes for table `tag`
---
-ALTER TABLE `tag`
-  ADD PRIMARY KEY (`tag_sn`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -106,25 +114,25 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `class`
+--
+ALTER TABLE `class`
+  MODIFY `class_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '分類編號', AUTO_INCREMENT=0;
+--
 -- AUTO_INCREMENT for table `cmt`
 --
 ALTER TABLE `cmt`
-  MODIFY `cmt_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '留言編號', AUTO_INCREMENT=1;
+  MODIFY `cmt_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '留言編號', AUTO_INCREMENT=0;
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=1;
---
--- AUTO_INCREMENT for table `tag`
---
-ALTER TABLE `tag`
-  MODIFY `tag_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '標籤編號', AUTO_INCREMENT=1;
+  MODIFY `post_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=0;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_sn` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '使用者編號', AUTO_INCREMENT=1;
+  MODIFY `user_sn` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '使用者編號', AUTO_INCREMENT=0;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
