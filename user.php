@@ -1,5 +1,6 @@
 <?php
 require_once 'header.php';
+require_once "plugin/spyc/Spyc.php";
 require_folder('./function/users/');
 
 $op      = isset($_REQUEST['op']) ? my_filter($_REQUEST['op'], "string") : '';

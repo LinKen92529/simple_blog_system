@@ -1,18 +1,15 @@
-<?php
-$test = [];
-$test['test1'] = 'test';
-$test['test2'] = '<script>testqqqqqqqqqqq</script>';
-$test['test3'] = '<script>testqqqqqqqqqqq</script>';
-$test['test4'] = '<script>testqqqqqqqqqqq</script>';
-$test['test5'] = '<script>testqqqqqqqqqqq</script>';
-$test['test6'] = '<script>testqqqqqqqqqqq</script>';
-$test['test7'] = '<script>testqqqqqqqqqqq</script>';
-$test['test8'] = '<script>testqqqqqqqqqqq</script>';
-if (isset($test)) {
-    foreach ($test as $var_name => $var_val) {
-             $preg = "/<script[\s\S]*?<\/script>/i";
-             $newstr = preg_replace($preg, "", $test[$var_name]);
-             echo $newstr;
+ <?php
+require_once "plugin/spyc/Spyc.php";
+$user_id = "test";
+$user_pw = "ttest";
+$$array = [];
+    $array["name"] = "con_test";
+    $array['description'] = "Contest to CMS";
+    $array['tasks'] = array('batch', 'batch_file', 'batch_compartor', 'batchgrader', 'communication', 'communicationtwoways', 'outputonly', 'outputonlycomparator', 'batchwithoutgen');
+    $array['users'] = array(
+        array("username" => $user_id, "upassword"  =>$user_pw, "ip" => "null")
+    );
+    $array['token_mdoe'] = "infinite";
 
-     } 
-}
+$yaml = Spyc::YAMLDump($array,4,60);
+echo $yaml;

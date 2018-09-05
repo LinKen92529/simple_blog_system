@@ -8,6 +8,7 @@ $class_sn = isset($_REQUEST['class_sn']) ? my_filter($_REQUEST['class_sn'], "int
 switch ($op) {
     case 'insert_class':
         insert_class();
+        header("location:class.php?op=class_list");
         break;
 
     case 'class_list':

@@ -1,72 +1,6 @@
-<script src="plugin/jquery.validate.min.js"></script>
-<script src="plugin/jquery.js"></script>\
-<script>
-    var id = false;
-    var email = false
-    var test = 0;
-    $(document).ready(function() {
-        $("#user_register").validate();
-        $("#user_id").blur(function() {
-            $.ajax({
-                url: "user.php?op=user_id_judge",
-                data: {
-                    user_id: $("#user_id").val()
-                },
-                type: "POST",
-                dataType: "HTML",
-                success: function($id_judge) {
-                    var result = $id_judge.charAt(0);
-                    if (result == "t") {
-                        var rlt = "帳號可使用(´Ａ｀。)";
-                        id = true;
-                        if (email) {
-                            $("#submit_btn").prop("disabled", false);
-                        }
-                    } else if (result=="f") {
-                        var rlt = "帳號已被別人搶先註冊過了喔( ˘･з･)";
-                        id = false;
-                    }
-                    $("#uid_judge_result").html(rlt);
-                }
-            });
-        });
-        $("#email_judge_btn").click(function(){
-            if ($("#user_email").val() == '') {
-                $("#user_email_judge_result").html("看起來似乎是空白的(ﾉ>ω<)ﾉ");
-                return;
-            }
-            $.ajax({
-                url: "user.php?op=user_email_judge",
-                data: {
-                    user_email: $("#user_email").val()
-                },
-                type: "POST",
-                dataType: "HTML",
-                success: function($email_judge) {
-                    var result = $email_judge.charAt(0);
-                    if (result == "t") {
-                        var email_rlt = "信箱可使用(*‘ v`*)";
-                        email = true;
-                        if (id) {
-                            $("#submit_btn").prop("disabled", false);
-                        }
-                    } else if (result=="f") {
-                        var email_rlt = "信箱已被槍先註冊了(*´艸`*)";
-                        email = false;
-                    } else if (result=="e") {
-                        var email_rlt = "信箱格式錯誤ξ( ✿＞◡❛)▄︻▇▇〓▄︻┻┳═一";
-                        email = false;
-                    }
-                    $("#user_email_judge_result").html(email_rlt);
-                }
-            });
-        });
-    });
-</script>
-<br>
 <h3>使用者註冊</h3>
 <br>
-<form  action="user.php" id="user_register" method="post" class="form-horizontal" enctype="multipart/form-data">
+<form  action="user.php" id="user_register" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label class="col-md-4 col-form-label" for="user_name">使用者名稱：</label>
         <div class="col-md-8">
@@ -96,6 +30,11 @@
             <span id="user_email_judge_result"></span>
         </div>
     </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="cms_register" id="cms_register" value="true">
+        <label class="form-check-label" for="cms_register">註冊CMS</label>
+    </div>
+    <br />
     <div class="form-group">
         <div class="col-md-6">
             <input type="hidden" name="op" value="insert_user">
@@ -103,3 +42,68 @@
         </div>
     </div>
 </form>
+<script src="plugin/jquery.validate.min.js"></script>
+<script src="plugin/jquery.js"></script>
+<script>
+    var id = false;
+    var email = false
+    var test = 0;
+    $(document).ready(function () {
+        $("#user_register").validate();
+        $("#user_id").blur(function () {
+            $.ajax({
+                url: "user.php?op=user_id_judge",
+                data: {
+                    user_id: $("#user_id").val()
+                },
+                type: "POST",
+                dataType: "HTML",
+                success: function ($id_judge) {
+                    var result = $id_judge.charAt(0);
+                    if (result == "t") {
+                        var rlt = "帳號可使用(´Ａ｀。)";
+                        id = true;
+                        if (email) {
+                            $("#submit_btn").prop("disabled", false);
+                        }
+                    } else if (result == "f") {
+                        var rlt = "帳號已被別人搶先註冊過了喔( ˘･з･)";
+                        id = false;
+                    }
+                    $("#uid_judge_result").html(rlt);
+                }
+            });
+        });
+        $("#email_judge_btn").click(function () {
+            if ($("#user_email").val() == '') {
+                $("#user_email_judge_result").html("看起來似乎是空白的(ﾉ>ω<)ﾉ");
+                return;
+            }
+            $.ajax({
+                url: "user.php?op=user_email_judge",
+                data: {
+                    user_email: $("#user_email").val()
+                },
+                type: "POST",
+                dataType: "HTML",
+                success: function ($email_judge) {
+                    var result = $email_judge.charAt(0);
+                    if (result == "t") {
+                        var email_rlt = "信箱可使用(*‘ v`*)";
+                        email = true;
+                        if (id) {
+                            $("#submit_btn").prop("disabled", false);
+                        }
+                    } else if (result == "f") {
+                        var email_rlt = "信箱已被槍先註冊了(*´艸`*)";
+                        email = false;
+                    } else if (result == "e") {
+                        var email_rlt = "信箱格式錯誤ξ( ✿＞◡❛)▄︻▇▇〓▄︻┻┳═一";
+                        email = false;
+                    }
+                    $("#user_email_judge_result").html(email_rlt);
+                }
+            });
+        });
+    });
+</script>
