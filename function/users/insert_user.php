@@ -54,8 +54,8 @@ function insert_user() {
     $_SESSION['token'] = password_hash(date("Y-m-d H:i:s"), PASSWORD_DEFAULT);
     setcookie("token", $_SESSION['token'], time()+2160000);
     mkdir("./uploads/users/{$user_sn}", 0777);
-    if (isset($_POST['cms_register'])) {
-        cms_register($user_id, $_POST['user_pw'], $user_sn);
-    }
+    // if (isset($_POST['cms_register'])) {
+    //     cms_register($user_id, $_POST['user_pw'], $user_sn);
+    // }
     return $user_sn;
 }

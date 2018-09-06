@@ -6,8 +6,8 @@ function cms_register($user_id, $user_pw, $user_sn) {
     $array['tasks'] = array('batch', 'batch_file', 'batch_compartor', 'batchgrader', 'communication', 'communicationtwoways', 'outputonly', 'outputonlycomparator', 'batchwithoutgen');
     $array['users'] = array(
         array(
-            "username" => $user_id,
-            "upassword"  =>$user_pw,
+            "username" => "$user_id",
+            "upassword"  => "$user_pw",
             "ip" => "null"
         )
     );
