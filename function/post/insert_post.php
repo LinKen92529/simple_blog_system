@@ -8,17 +8,24 @@ function insert_post() {
     $post_content = $mysqli->real_escape_string($_POST['post_content']);
     $post_date = date("Y-m-d H:i:s");
     $post_tag = $mysqli->real_escape_string($_POST['post_tag']);
+    if (isset($_POST['class_sn'])) {
+        $class_sn = $mysqli->real_escape_string($_POST['class_sn']);
+    } else {
+        $class_sn = "0";
+    }
     $sql = "INSERT INTO `post` (`post_title`,
     `post_content`,
     `post_date`,
     `post_owner`,
     `post_counter`,
-    `post_tag`,) VALUES ('{$post_title}',
+    `post_tag`,
+    `class_sn`) VALUES ('{$post_title}',
     '{$post_content}',
     '{$post_date}',
     '{$_SESSION['user_sn']}',
     '0',
-    '{$post_tag}')";
+    '{$post_tag}',
+    '{$class_sn}')";
     $mysqli->query($sql) or die(mysqli_error($mysqli));
     $post_sn = $mysqli->insert_id;
     save_post_pic($post_sn);

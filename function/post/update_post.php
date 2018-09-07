@@ -10,21 +10,19 @@ function update_post($post_sn) {
     $post_title = $mysqli->real_escape_string($_POST['post_title']);
     $post_content = $mysqli->real_escape_string($_POST['post_content']);
     $post_tag = $mysqli->real_escape_string($_POST['post_tag']);
-    $each_tag = explode(";", $post_tag);
-    $tag_name = '';
-    foreach ($each_tag as $tag_sn) {
-        $sql  = "SELECT * FROM `tag` WHERE `tag_sn`='{$tag_sn}'";
-        $result = $mysqli->query($sql) or die($mysqli->connect_error);
-        $tag = $result->fetch_assoc();
-        if (!empty($tag)) {
-            $tag_name = $tag_name . $tag['tag_name'] . ";";
-        }
+    if (isset($_POST['class_sn'])) {
+        $class_sn = $mysqli->real_escape_string($_POST['class_sn']);
+        $class_sn_sql = "`class_sn`='{$class_sn}',";
+    } else {
+        $class_sn_sql = '';
     }
     $sql = "UPDATE `post` SET
     `post_title`='{$post_title}',
+    {$class_sn_sql}
     `post_content`='{$post_content}',
     `post_tag`='{$post_tag}'
     WHERE `post_sn`='{$post_sn}'";
+    err_log($sql);
     if ($mysqli->query($sql)) {
         save_post_pic($post_sn);
     } else {

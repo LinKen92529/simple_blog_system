@@ -2,9 +2,10 @@
 require_once "header.php";
 require_folder("./function/post/");
 
-$op      = isset($_REQUEST['op']) ? my_filter($_REQUEST['op'], "string") : '';
-$post_sn = isset($_REQUEST['post_sn']) ? my_filter($_REQUEST['post_sn'], "int") : 0;
-$keyword = isset($_REQUEST['keyword']) ? my_filter($_REQUEST['keyword'], "string") : '';
+$op       = isset($_REQUEST['op']) ? my_filter($_REQUEST['op'], "string") : '';
+$post_sn  = isset($_REQUEST['post_sn']) ? my_filter($_REQUEST['post_sn'], "int") : 0;
+$class_sn = isset($_REQUEST['class_sn']) ? my_filter($_REQUEST['class_sn'], "int") : 0;
+$keyword  = isset($_REQUEST['keyword']) ? my_filter($_REQUEST['keyword'], "string") : '';
 
 switch ($op) {
     case 'insert_post':
@@ -46,6 +47,10 @@ switch ($op) {
 
     case 'search_result':
         search_result($keyword);
+        break;
+
+    case 'upload_class_sn':
+        upload_class_sn($post_sn, $class_sn);
         break;
     
     default:

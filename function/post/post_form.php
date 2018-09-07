@@ -10,6 +10,7 @@ function post_form($post_sn) {
     if(empty($post)) {
         return false;
     }
-    $post['pic'] = get_pic_path("uploads/post/{$post_sn}/normal_post_pic.png", "img/normal_get_pic.jpg");
+    $img_sn = rand(1, 27);
+    $post['pic'] = get_pic_path("uploads/post/{$post_sn}/normal_post_pic.png", "./img/default_post_img/{$img_sn}.png");
     $smarty->assign("post", $post);
 }

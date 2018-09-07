@@ -38,7 +38,13 @@
         <br>
         <label class="col-md-2 control-label">圖片預覽</label>
         <div class="col-md-6">
-            <img src="uploads/post/{$post.post_sn}/normal_post_pic.png" alt="post_img" id="post_img" class="img-thumbnail">
+            <img src="{$post.pic}" alt="post_img" id="post_img" class="img-thumbnail">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2">分類編號</label>
+        <div class="col-md-8">
+            <input type="text" class="form-control" name="class_sn" id="class_sn" placeholder="請輸入類別編號,可留空">
         </div>
     </div>
     <div class="form-group">

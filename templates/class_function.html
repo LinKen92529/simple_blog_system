@@ -3,16 +3,16 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>類別編號</th>
                 <th>類別名稱</th>
+                <th>添加文章</th>
                 <th>功能函數</th>
             </tr>
         </thead>
         <tbody>
             {foreach from=$class_function item=class}
                 <tr>
-                    <th scope="row"><a href="class.php?op=class_display&class_sn={$class.class_sn}">{$class.class_sn}</a></th>
                     <td><input type="text" class="form-control" name="class_name" id="class_name_{$class.class_sn}" placeholder="請輸入類別名稱" value="{$class.class_name}"></td>
+                    <td><input type="text" class="form-control" name="post_sn_{$class.class_sn}" id="post_sn_{$class.class_sn}" placeholder="請輸入文章編號"></td>
                     <td class="row">
                         &nbsp;&nbsp;&nbsp;
                         <a href="javascript:class_update('{$class.class_sn}')" style="color: rgb(48, 211, 240);display: block;"><i class="fas fa-edit">更新</i></a>
@@ -24,6 +24,8 @@
                             <a href="javascript:class_enable('{$class.class_sn}')" id="enable_{$class.class_sn}" style="color: rgb(20, 221, 20);display: block;"><i class="fas fa-plus-circle">顯示</i></a>
                             <a href="javascript:class_disable('{$class.class_sn}')" id="disable_{$class.class_sn}" style="color: red;display: none;"><i class="fas fa-minus-circle">隱藏</i></a>
                         {/if}
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="javascript:add_post('{$class.class_sn}')" id="add_post" style="color:rgb(250, 108, 250)"><i class="fas fa-plus">添加</i></a>
                     </td>
                 </tr>
             {/foreach}
@@ -96,5 +98,25 @@
                 }
             }
         })
+    }
+    function add_post(class_sn) {
+        var post_sn = $("#post_sn_" + class_sn).val();
+        var each_post_sn = post_sn.split(';');
+        each_post_sn.forEach(
+            function upload(value) {
+                $.ajax({
+                    url: "post.php?op=upload_class_sn",
+                    type: "POST",
+                    data: {
+                        post_sn: value,
+                        class_sn: class_sn
+                    },
+                    dataType: "HTML",
+                    success: function($result) {
+                        alert('success');
+                    }
+                })
+            }
+        )
     }
 </script>
