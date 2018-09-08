@@ -9,7 +9,7 @@ $keyword  = isset($_REQUEST['keyword']) ? my_filter($_REQUEST['keyword'], "strin
 
 switch ($op) {
     case 'insert_post':
-        if(insert_post()) {
+        if(insert_post($class_sn)) {
             header("location:{$_SERVER['PHP_SELF']}");
         } else {
             header("location:index.php");
