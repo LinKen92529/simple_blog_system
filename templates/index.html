@@ -13,12 +13,15 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-dark" id="head_pill" style="margin-bottom:20px;">
-            <div class="collaspe navbar-collsape row">
-                <a class="navbar-brand" href="index.php" id="home">TFcisNoteWebSite</a>
+        <nav class="navbar navbar-expand-lg navbar-dark" id="head_pill" style="margin-bottom:20px;">
+            <a class="navbar-brand" href="index.php" id="home">TFcisNoteWebSite</a>
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="nav_item active">
+                    <li class="nav-item active">
                         <a class="nav-link" href="class.php?op=class_list">類別類表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?op=history">更新歷史</a>
                     </li>
                 </ul>
             </div>
@@ -141,8 +144,14 @@
     <script async src="plugin/live2d/waifu-tips.js"></script>
     <script src="plugin/live2d/live2d.js"></script>
     <script>
-        loadlive2d("live2d", "plugin/Pio/model.json");
+        var page_cookie = document.cookie;
+        if (page_cookie.match('live2d_close') == null) {
+            loadlive2d("live2d", "plugin/Pio/model.json");
+        } else {
+            $(".waifu").css("display", "none");
+        }
         $("#fa-times").click(function() {
+            document.cookie = "live2d_close=true;path=/";
             $(".waifu").css("display", "none");
         });
         $('.waifu').mouseover(function() {
@@ -236,8 +245,6 @@
                         break;
                 }
             }
-            console.log(target);
-            console.log(key);
         });
         function anone () {
             $(".anone").css("display", "block");

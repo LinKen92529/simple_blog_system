@@ -13,6 +13,9 @@ switch ($op) {
     case 'webset_bg':
         break;
 
+    case 'history':
+        break;
+
     default:
         $op = "post_list";
         break;
