@@ -12,16 +12,36 @@
             <input type="password" class="form-control" name="user_pw" id="user_pw" placeholder="請輸入密碼">
         </div>
     </div>
+    <span id="login_result"></span>
     <br>
     <div class="form-group">
         <div class="row">
             <div class="col-md-2">
                 <input type="hidden" name="op" value="user_login">
-                <button type="submit" class="btn btn-block btn-warning">登入</button>
+                <a href="javascript:user_login()" class="btn btn-block btn-warning">登入</a>
             </div>
         </div>
     </div>
 </form>
-{if isset({$login_error})} 
-    <p class="text-danger">帳號OR密碼錯誤</p>
-{/if}
+<script>
+    function user_login() {
+        $.ajax({
+            url: "user.php?op=user_login",
+            type: "POST",
+            data: {
+                user_id: $("#user_id").val(),
+                user_pw: $("#user_pw").val()
+            },
+            dataType: "HTML",
+            success: function($login_result) {
+                $result = $login_result.charAt(0);
+                if ($result == 's') {
+                    $("#login_result").html("<p class='text-success'>login successful</p>")
+                    document.location.href="index.php";
+                } else {
+                    $("#login_result").html("<p class='text-danger'>login faild</p>")
+                }
+            }
+        })
+    }
+</script>

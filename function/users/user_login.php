@@ -5,6 +5,8 @@ function user_login($user_id) {
         die("請輸入帳號,以免他跟你空空的大腦一樣(ﾒﾟДﾟ)ﾒ");
         return false;
     }
+    err_log($user_id);
+    err_log($_POST['user_pw']);
     $sql    = "SELECT * FROM `users` WHERE `user_id`='{$user_id}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $user   = $result->fetch_assoc();

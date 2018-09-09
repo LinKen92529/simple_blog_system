@@ -1,6 +1,5 @@
 <?php
 require_once 'header.php';
-require_once "plugin/spyc/Spyc.php";
 require_folder('./function/users/');
 
 $op      = isset($_REQUEST['op']) ? my_filter($_REQUEST['op'], "string") : '';
@@ -31,9 +30,11 @@ switch ($op) {
     case 'user_login':
         $user_login = user_login($user_id);
         if ($user_login) {
-            header("location:index.php?op=post_list");
+            $result = 's';
+            echo $result;
         } else {
-            header("location:user.php?op=user_login_page&error=login_error");
+            $result = 'f';
+            echo $result;
         }
         break;
 
