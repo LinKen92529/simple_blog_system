@@ -7,7 +7,7 @@
     {if $is_top or isset($now_user_sn) and $now_user_sn == $post.user_sn}
         <div class="col-md-2">
             <div class="dropdown show">
-                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     功能選單
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -85,8 +85,15 @@
             </div>
             <div class="col-md-3">
                 {if $is_admin or isset($now_user_sn) and $now_user_sn=={$cmt.user_sn}}
-                    <a href="javascript:delete_cmt('{$cmt.cmt_sn}', '{$post.post_sn}')" class="btn btn-sm btn-danger">刪除留言</a>
-                    <a href="cmt.php?op=cmt_form&cmt_sn={$cmt.cmt_sn}&post_sn={$post.post_sn}" class="btn btn-sm btn-info">編輯留言</a>
+                <div class="dropdown show">
+                    <a href="#" class="btn btn-secondary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        功能表
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="javascript:delete_cmt('{$cmt.cmt_sn}', '{$post.post_sn}')" class="dropdown-item">刪除留言</a>
+                        <a href="cmt.php?op=cmt_form&cmt_sn={$cmt.cmt_sn}&post_sn={$post.post_sn}" class="dropdown-item">編輯留言</a>
+                    </div>
+                </div>
                 {/if}
                 <div>
                     <br>
@@ -116,8 +123,15 @@
                     </div>
                     <div class="col-md-3">
                         {if $is_top or isset($now_user_sn) and $now_user_sn=={$reply.user_sn}}
-                            <a href="javascript:delete_cmt('{$reply.cmt_sn}', '{$post.post_sn}')" class="btn btn-sm btn-danger">刪除留言</a>
-                            <a href="cmt.php?op=cmt_form&cmt_sn={$reply.cmt_sn}&post_sn={$post.post_sn}" class="btn btn-sm btn-info">編輯留言</a>
+                            <div class="dropdown show">
+                                <a href="#" class="btn btn-secondary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    功能表
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="javascript:delete_cmt('{$cmt.cmt_sn}', '{$post.post_sn}')" class="dropdown-item">刪除留言</a>
+                                    <a href="cmt.php?op=cmt_form&cmt_sn={$cmt.cmt_sn}&post_sn={$post.post_sn}" class="dropdown-item">編輯留言</a>
+                                </div>
+                            </div>
                         {/if}
                     </div>
                 </div>
