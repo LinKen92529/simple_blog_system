@@ -1,3 +1,4 @@
+<script src="plugin/lazyload.min.js"></script>
 <div class="row" style="align-items: center;justify-content: center;">
     {foreach from=$all_post item=post}
         <div class="col-md-3" style="background-color: rgba(0, 0, 0, 0.7);margin-bottom: 20px;padding: 20px;margin-right: 20px;">
@@ -7,7 +8,7 @@
              <div class="col-md-12">
                 <center>
                     <a href="post.php?op=post_display&post_sn={$post.post_sn}">
-                        <img src="{$post.pic}" alt="{$post.post_sn}" class="img-thumbnail" id="preload_img">
+                        <img src="img/load.gif" alt="{$post.post_sn}" class="img-thumbnail lazyload" data-src="{$post.pic}">
                     </a>
                 </center>
             </div>
@@ -23,7 +24,10 @@
     {/foreach}
     <br>
 </div>
-<script type="text/javascript">
+<script>
+    $(".lazyload").lazyload();
+</script>
+<!-- <script type="text/javascript">
     GetRumdomStr = function () {
         var str = "";
         var maxNum = 10;
@@ -62,4 +66,4 @@
             }
         });
     });
-</script>
+</script> -->
