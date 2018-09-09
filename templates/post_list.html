@@ -23,3 +23,43 @@
     {/foreach}
     <br>
 </div>
+<script type="text/javascript">
+    GetRumdomStr = function () {
+        var str = "";
+        var maxNum = 10;
+        var minNum = 0;
+        var n = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+        for (var i = 1; i <= 50; i++) {
+            n = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+            str += n.toString();
+        }
+        return str;
+    };
+
+    $(document).ready(function () {
+        $('img').hide(); //先把所有圖片先隱藏
+        var ImgCount = $('img').length; //取得圖片的個數
+        $('img').each(function () {
+            var str = GetRumdomStr(); //請忽略,讓圖片加隨機亂數,視為模擬未曾下載過的圖片
+            var url = $(this).attr("src");
+            $(this).attr("src", url + "?" + str);
+
+            function ImageLoading() {
+                msg = "Image ID : " + this.id + "....done";
+                console.log(msg);
+                $('#msg').append("<div>" + msg + "</div>");
+                $(this).fadeIn(2000);
+                ImgCount--;
+                if (ImgCount === 0) {
+                    console.log("All images Loaded..");
+                }
+            }
+
+            if ($(this).complete) {
+                imageLoaded.call(this);
+            } else {
+                $(this).one('load', ImageLoading);
+            }
+        });
+    });
+</script>
