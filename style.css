@@ -71,7 +71,7 @@ hr {
   transform: translateY(0);
 }
 
-.preload_img {
+#preload_img {
   background-image: url(img/normal_get_pic.jpg);
 }
 
