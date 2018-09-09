@@ -1,12 +1,23 @@
 <link rel="stylesheet" href="plugin/prism/prism.css">
 <script src="plugin/prism/prism.js"></script>
-<h1>{$post.post_title}</h1>
-{if $is_top or isset($now_user_sn) and $now_user_sn == $post.user_sn}
-    <br>
-    <a href="post.php?op=post_form&post_sn={$post.post_sn}" class="btn btn-success">編輯文章</a>
-    <a href="javascript:delete_post('{$post.post_sn}')" class="btn btn-danger">刪除文章</a>
-    <br>
-{/if}
+<div class="row">
+    <div class="col-md-10">
+        <h1>{$post.post_title}</h1>
+    </div>
+    {if $is_top or isset($now_user_sn) and $now_user_sn == $post.user_sn}
+        <div class="col-md-2">
+            <div class="dropdown show">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    功能選單
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="post.php?op=post_form&post_sn={$post.post_sn}" class="dropdown-item">編輯文章</a>
+                    <a href="javascript:delete_post('{$post.post_sn}')" class="dropdown-item">刪除文章</a>
+                </div>
+            </div>
+        </div>
+    {/if}
+</div>
 <br>
 {if $post.post_content != ''}
     <div>{$post.post_content}</div>
