@@ -26,6 +26,15 @@
                     </li>
                 </ul>
             </div>
+            <form action="post.php" method="POST" role="form">
+                <div class="input-group">
+                    <input name="keyword" type="text" class="form-control" placeholder="請輸入關鍵字" style="background-color: rgba(0, 0, 0, 0.7);color: white;">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-warning" type="submit">搜尋</button>
+                    </span>
+                </div>
+            </form>
+            &nbsp;&nbsp;
             {if $is_user}
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
