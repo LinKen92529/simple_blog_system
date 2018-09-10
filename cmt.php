@@ -31,7 +31,6 @@ switch ($op) {
         break;
     
     default:
-        # code...
         break;
 }
 
