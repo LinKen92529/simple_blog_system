@@ -18,3 +18,9 @@
 [ 2018-09-09 17:35:59 ] e27676271
 [ 2018-09-10 00:19:55 ] arasi27676271
 [ 2018-09-10 00:19:55 ] e27676271
+[ 2018-09-10 06:50:40 ] UPDATE `post` SET
+    `post_title`='test9',
+    `class_sn`='',
+    `post_content`='<p>test9test9</p>\r\n',
+    `post_tag`='test9'
+    WHERE `post_sn`='10'
