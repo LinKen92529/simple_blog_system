@@ -28,7 +28,7 @@ switch ($op) {
         break;
 
     case 'update_post':
-        update_post($post_sn);
+        update_post($post_sn, $class_sn);
         header("location:post.php?op=post_display&post_sn={$post_sn}");
         break;
 

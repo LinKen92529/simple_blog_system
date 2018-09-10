@@ -19,7 +19,6 @@ function insert_post($class_sn) {
     $post_title = $mysqli->real_escape_string($_POST['post_title']);
     $post_date = date("Y-m-d H:i:s");
     $post_tag = $mysqli->real_escape_string($_POST['post_tag']);
-    err_log($class_sn);
     $sql = "INSERT INTO `post` (`post_title`,
     `post_content`,
     `post_date`,

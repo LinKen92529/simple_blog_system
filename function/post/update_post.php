@@ -1,5 +1,5 @@
 <?php
-function update_post($post_sn) {
+function update_post($post_sn, $class_sn) {
     global $mysqli, $is_top;
     $sql = "SELECT * FROM `post` WHERE `post_sn`='{$post_sn}'";
     $result = $mysqli->query($sql) or die(mysqli_error($mysqli));
@@ -18,17 +18,12 @@ function update_post($post_sn) {
     } else {
         die('在忙啦幹');
     }
+    $post_title = $mysqli->real_escape_string($_POST['post_title']);
+    $post_tag = $mysqli->real_escape_string($_POST['post_tag']);
     if (empty($class_sn)) {
         $class_sn = "0";
     }
-    $post_title = $mysqli->real_escape_string($_POST['post_title']);
-    $post_tag = $mysqli->real_escape_string($_POST['post_tag']);
-    if (isset($_POST['class_sn'])) {
-        $class_sn = $mysqli->real_escape_string($_POST['class_sn']);
-        $class_sn_sql = "`class_sn`='{$class_sn}',";
-    } else {
-        $class_sn_sql = '';
-    }
+    $class_sn_sql = "`class_sn`='{$class_sn}',";
     $sql = "UPDATE `post` SET
     `post_title`='{$post_title}',  
     {$class_sn_sql}
