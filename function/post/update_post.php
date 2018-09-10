@@ -18,6 +18,9 @@ function update_post($post_sn) {
     } else {
         die('在忙啦幹');
     }
+    if (empty($class_sn)) {
+        $class_sn = "0";
+    }
     $post_title = $mysqli->real_escape_string($_POST['post_title']);
     $post_tag = $mysqli->real_escape_string($_POST['post_tag']);
     if (isset($_POST['class_sn'])) {
