@@ -15,6 +15,8 @@
     });
 </script>
 <script src="plugin/ckeditor/ckeditor.js"></script>
+<link rel="stylesheet" href="plugin/mdeditor/dist/simplemde.min.css">
+<script src="plugin/mdeditor/dist/simplemde.min.js"></script>
 {if $is_admin}
 <h1>發布文章</h1>
 <form action="post.php" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
@@ -24,10 +26,20 @@
             <input type="text" class="form-control" name="post_title" id="post_id" placeholder="請輸入文章標題">
         </div>
     </div>
-    <div class="form-group">
+    <div class="col-md-3">
+        <a href="javascript:change_editor()" class="btn btn-block btn-primary">切換編輯器</a>
+    </div>
+    <br>
+    <div class="form-group" id="html_editor" style="display: block;">
         <label class="col-md-4 control-label">文章內容</label>
         <div class="col-md-12">
-            <textarea class="form-control" name="post_content" id="post_content" placeholder="請輸入文章內容"></textarea>
+            <textarea class="form-control" name="post_content_html" id="post_content_html" placeholder="請輸入文章內容"></textarea>
+        </div>
+    </div>
+    <div class="form-group" id="md_editor" style="display: none;">
+        <label class="col-md-4 control-label">文章內容</label>
+        <div class="col-md-12">
+            <textarea class="form-control" name="post_content_md" id="post_content_md" placeholder="請輸入文章內容"></textarea>
         </div>
     </div>
     <div class="form-group">
@@ -65,7 +77,18 @@
 你沒有權限喔=QwQ=
 {/if}
 <script>
-    CKEDITOR.replace("post_content", {
+    CKEDITOR.replace("post_content_html", {
         removeButtons: "Image"
     });
+</script>
+<script>
+    var simplemde = new SimpleMDE({
+        element: document.getElementById("post_content_md")
+    });
+</script>
+<script>
+    function change_editor() {
+        $("#html_editor").toggle();
+        $("#md_editor").toggle();
+    }
 </script>

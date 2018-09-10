@@ -3,6 +3,7 @@ session_start();
 require_once 'function.php';
 require_once 'config.php';
 require_once 'smarty/libs/Smarty.class.php';
+require_once 'plugin/Parsedown.php';
 $smarty = new Smarty;
 $mysqli = new mysqli(_DB_HOST, _DB_ID, _DB_PW, _DB_NAME);
 if ($mysqli->connect_error) {

@@ -1,7 +1,6 @@
 <?php
 function upload_class_sn($post_sn, $class_sn) {
     global $mysqli, $is_admin;
-    err_log("test");
     if (!$is_admin) {
        die("咕嚕靈波（●´∀｀）ノ♡"); 
     }

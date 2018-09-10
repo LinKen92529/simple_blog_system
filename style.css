@@ -71,6 +71,10 @@ hr {
   transform: translateY(0);
 }
 
+.editor-toolbar {
+  background-color: white;
+}
+
 @media (max-width: 768px) {
   .waifu {
     display: none;
