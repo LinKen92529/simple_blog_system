@@ -4,6 +4,7 @@ function cmt_reply($cmt_sn) {
     if (!$is_user) {
         die ('請先登入Σ(ﾟωﾟ)');
     }
+    $_POST['cmt_content'] = htmlspecialchars($_POST['cmt_content'], ENT_QUOTES);
     $cmt_content = $mysqli->real_escape_string($_POST['cmt_content']);
     $cmt_sn = $mysqli->real_escape_string($_POST['cmt_sn']);
     $cmt_date = date("Y-m-d H:i:s");
