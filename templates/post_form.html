@@ -26,20 +26,10 @@
             <input type="text" class="form-control" name="post_title" id="post_id" placeholder="請輸入文章標題" value="{$post.post_title}">
         </div>
     </div>
-    <div class="col-md-3">
-        <a href="javascript:change_editor()" class="btn btn-block btn-primary">切換編輯器</a>
-    </div>
-    <br>
-    <div class="form-group" id="html_editor" style="display: block;">
+    <div class="form-group">
         <label class="col-md-4 control-label">文章內容</label>
         <div class="col-md-12">
-            <textarea class="form-control" name="post_content_html" id="post_content_html" placeholder="請輸入文章內容">{$post.post_content}</textarea>
-        </div>
-    </div>
-    <div class="form-group" id="md_editor" style="display: none;">
-        <label class="col-md-4 control-label">文章內容</label>
-        <div class="col-md-12">
-            <textarea class="form-control" name="post_content_md" id="post_content_md" placeholder="請輸入文章內容">{$post.post_content}</textarea>
+            <textarea class="form-control" name="post_content" id="post_content" placeholder="請輸入文章內容">{$post.post_content}</textarea>
         </div>
     </div>
     <div class="form-group">
@@ -78,19 +68,7 @@
 你沒有權限喔=QwQ=
 {/if}
 <script>
-    CKEDITOR.replace("post_content_html", {
-        removeButtons: "Image",
-        codeSnippetGeshi_url: 'plugin/lib/colorize.php'
-    });
-</script>
-<script>
     var simplemde = new SimpleMDE({
-        element: document.getElementById("post_content_md")
+        element: document.getElementById("post_content")
     });
-</script>
-<script>
-    function change_editor() {
-        $("#html_editor").toggle();
-        $("#md_editor").toggle();
-    }
 </script>

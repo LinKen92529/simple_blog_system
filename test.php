@@ -1,6 +1,6 @@
 <?php
-include 'plugin/Parsedown.php';
-$text = "---
+$text = "
+---
 title: '[TOJ][365]G.大龍貓'
 date: 2017-12-26 20:50:14
 tags: TOJ
@@ -131,6 +131,8 @@ int main(){
     }
 }
 ```";
-$parsedown = new Parsedown;
-$parsedown->setMarkupEscaped(true);
-echo $parsedown->text($text);
+include 'plugin/Parsedown.php';
+    $parsedown = new Parsedown;
+    $parsedown->setMarkupEscaped(true);
+    $parsedown->setSafeMode(true);
+    echo $parsedown->text($text);

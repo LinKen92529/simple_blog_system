@@ -4,9 +4,13 @@ function post_display($post_sn) {
     $sql = "SELECT * FROM `post` WHERE `post_sn`='{$post_sn}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $post = $result->fetch_assoc();
+    //chang post content to html
+    $parsedown = new Parsedown;
+    $parsedown->setMarkupEscaped(true);
+    $parsedown->setSafeMode(true);
+    $post_content = $parsedown->text($post['post_content']);
+    $post['post_content'] = $post_content;
     $img_sn = rand(1, 27);
-    // $post['pic'] = get_pic_path("./uploads/post/{$post_sn}/normal_post_pic.png", "./img/default_post_img/{$img_sn}.png");
-    //explode tag
     $post['tag'] = explode(";", $post['post_tag']);
     $sql = "SELECT * FROM `users` WHERE `user_sn`='{$post['post_owner']}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
