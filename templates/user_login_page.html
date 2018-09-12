@@ -13,17 +13,14 @@
         </div>
     </div>
     <span id="login_result"></span>
-    <br>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-2">
-                <input type="hidden" name="op" value="user_login">
-                <a href="javascript:user_login()" class="btn btn-block btn-warning">登入</a>
-            </div>
-        </div>
-    </div>
 </form>
+<div class="col-md-2">
+    <button type="button" onclick="user_login()" class="btn btn-block btn-warning">登入</button>
+</div>
 <script>
+    $(window).keydown(function(event) {
+        if (event.which == 13) user_login();
+    })
     function user_login() {
         $.ajax({
             url: "user.php?op=user_login",
