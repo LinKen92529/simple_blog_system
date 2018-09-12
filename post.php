@@ -52,6 +52,10 @@ switch ($op) {
     case 'upload_class_sn':
         upload_class_sn($post_sn, $class_sn);
         break;
+
+    case 'post_status':
+        post_status($post_sn);
+        break;
     
     default:
         $op = "post_list";

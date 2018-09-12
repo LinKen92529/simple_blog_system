@@ -13,6 +13,13 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="post.php?op=post_form&post_sn={$post.post_sn}" class="dropdown-item">編輯文章</a>
                     <a href="javascript:delete_post('{$post.post_sn}')" class="dropdown-item">刪除文章</a>
+                    {if $post.post_display == 'enable'}
+                        <a href="javascript:show_post('{$post.post_sn}')" id="show_btn" class="dropdown-item" style="display: none;">顯示文章</a>
+                        <a href="javascript:hide_post('{$post.post_sn}')" id="hide_btn" class="dropdown-item" style="display: block;">隱藏文章</a>
+                    {else}
+                        <a href="javascript:show_post('{$post.post_sn}')" id="show_btn" class="dropdown-item" style="display: block;">顯示文章</a>
+                        <a href="javascript:hide_post('{$post.post_sn}')" id="hide_btn" class="dropdown-item" style="display: none;">隱藏文章</a>
+                    {/if}
                 </div>
             </div>
         </div>
@@ -212,5 +219,57 @@
         target = place.replace("#", '');
         var target_top = $("#cmt_" + target).offset().top;
         $('html, body').scrollTop(target_top);
+    }
+</script>
+<script>
+    function hide_post(post_sn) {
+        $("#show_btn").toggle();
+        $("#hide_btn").toggle();
+        $.ajax({
+            url: "post.php?op=post_status",
+            type: "POST",
+            data: {
+                post_sn: post_sn,
+                post_status: "hide"
+            },
+            dataType: "HTML",
+            success: function($change_result) {
+                $result = $change_result.charAt(0);
+                if ($result == 'e') {
+                    alert('空白文章');
+                    return;
+                } else if ($result == 'p') {
+                    alert('權限不足');
+                    return;
+                } else if ($result == 's') {
+                    alert('成功隱藏');
+                }
+            }
+        })
+    }
+    function show_post(post_sn) {
+        $("#show_btn").toggle();
+        $("#hide_btn").toggle();
+        $.ajax({
+            url: "post.php?op=post_status",
+            type: "POST",
+            data: {
+                post_sn: post_sn,
+                post_status: "enable"
+            },
+            dataType: "HTML",
+            success: function($change_result) {
+                $result = $change_result.charAt(0);
+                if ($result == 'e') {
+                    alert('空白文章');
+                    return;
+                } else if ($result == 'p') {
+                    alert('權限不足');
+                    return;
+                } else if ($result == 's') {
+                    alert('成功顯示');
+                }
+            }
+        })
     }
 </script>

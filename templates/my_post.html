@@ -2,20 +2,26 @@
     {if $is_admin}
         <h1>我的文章</h1>
         <br>
-        <table class="table table-striped">
+        <table class="table table-striped" style="table-layout: fixed;word-wrap: break-word;word-break: break-all;">
             <thead>
                 <tr>
-                    <th>文章編號</th>
-                    <th>文章名稱</th>
-                    <th>發布日期</th>
+                    <th width="20%">文章編號</th>
+                    <th width="50%">文章名稱</th>
+                    <th width="30%">發布日期</th>
                 </tr>
             </thead>
             <tbody>
                 {foreach from=$all_post item=post}
                     <tr>
-                        <th scope="row"><a href="post.php?op=display_post&post_sn={$post.post_sn}">{$post.post_sn}</a></th>
-                        <td>{$post.post_title}</td>
-                        <td>{$post.post_date}</td>
+                        {if $post.post_display == 'hide'}
+                            <th scope="row" style="background-color: rgb(226, 151, 11);"><a href="post.php?op=post_display&post_sn={$post.post_sn}">{$post.post_sn}</a></th>
+                            <td style="background-color: rgb(226, 151, 11);">{$post.post_title}</td>
+                            <td style="background-color: rgb(226, 151, 11);">{$post.post_date}</td>
+                        {else}
+                            <th scope="row"><a href="post.php?op=post_display&post_sn={$post.post_sn}">{$post.post_sn}</a></th>
+                            <td>{$post.post_title}</td>
+                            <td>{$post.post_date}</td>
+                        {/if}
                     </tr>
                 {/foreach}
             </tbody>

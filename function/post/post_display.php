@@ -1,9 +1,17 @@
 <?php
 function post_display($post_sn) {
-    global $mysqli, $smarty;
+    global $mysqli, $smarty, $is_admin, $now_user_sn;
     $sql = "SELECT * FROM `post` WHERE `post_sn`='{$post_sn}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $post = $result->fetch_assoc();
+    if ($post['post_display'] == 'disable') {
+        die('想不到要說甚麼啦幹');
+    }
+    if ($post['post_display'] == 'hide') {
+        if (!$is_admin and $now_user_sn != $post['post_owner']) {
+            die('阿阿ㄚㄚㄚㄚㄚㄚㄚ');
+        }
+    }
     //chang post content to html
     $parsedown = new Parsedown;
     $post_content = $parsedown->text($post['post_content']);

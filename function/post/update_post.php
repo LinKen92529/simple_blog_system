@@ -18,7 +18,7 @@ function update_post($post_sn, $class_sn) {
     `post_title`='{$post_title}',  
     {$class_sn_sql}
     `post_content`='{$post_content}',
-    `post_tag`='{$post_tag}'
+    `post_tag`='{$post_tag}',
     WHERE `post_sn`='{$post_sn}'";
     if ($mysqli->query($sql)) {
         save_post_pic($post_sn);

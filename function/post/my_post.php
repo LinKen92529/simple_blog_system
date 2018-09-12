@@ -8,8 +8,10 @@ function my_post() {
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $i = 0;
     while ($post = $result->fetch_assoc()) {
-        $all_post[$i] = $post;
-        $i++;
+        if ($post['post_display'] != 'disable') {
+            $all_post[$i] = $post;
+            $i++;
+        }
     }
     $smarty->assign('all_post', $all_post);
 }

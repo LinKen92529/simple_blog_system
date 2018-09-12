@@ -14,13 +14,15 @@ function insert_post($class_sn) {
     `post_owner`,
     `post_counter`,
     `post_tag`,
-    `class_sn`) VALUES ('{$post_title}',
+    `class_sn`,
+    `post_display`) VALUES ('{$post_title}',
     '{$post_content}',
     '{$post_date}',
     '{$_SESSION['user_sn']}',
     '0',
     '{$post_tag}',
-    '{$class_sn}')";
+    '{$class_sn}',
+    'enable')";
     $mysqli->query($sql) or die(mysqli_error($mysqli));
     $post_sn = $mysqli->insert_id;
     save_post_pic($post_sn);
