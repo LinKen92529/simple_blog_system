@@ -8,6 +8,9 @@ function insert_post($class_sn) {
     $post_date = date("Y-m-d H:i:s");
     $post_tag = $mysqli->real_escape_string($_POST['post_tag']);
     $post_content = $mysqli->real_escape_string($_POST['post_content']);
+    if (empty($class_sn)) {
+        $class_sn = "0";
+    }
     $sql = "INSERT INTO `post` (`post_title`,
     `post_content`,
     `post_date`,
