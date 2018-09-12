@@ -6,7 +6,7 @@ function post_display($post_sn) {
     $post = $result->fetch_assoc();
     //chang post content to html
     $parsedown = new Parsedown;
-    $post_content = $parsedown->line($post['post_content']);
+    $post_content = $parsedown->text($post['post_content']);
     $post['post_content'] = $post_content;
     $img_sn = rand(1, 27);
     $post['tag'] = explode(";", $post['post_tag']);
