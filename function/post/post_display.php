@@ -8,7 +8,7 @@ function post_display($post_sn) {
     $parsedown = new Parsedown;
     $post_content = $parsedown->text($post['post_content']);
     $post['post_content'] = $post_content;
-    $img_sn = rand(1, 27);
+    $img_sn = rand(1, 45);
     $post['tag'] = explode(";", $post['post_tag']);
     $sql = "SELECT * FROM `users` WHERE `user_sn`='{$post['post_owner']}'";
     $result = $mysqli->query($sql) or die($mysqli->connect_error);

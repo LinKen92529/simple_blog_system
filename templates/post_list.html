@@ -1,9 +1,9 @@
 <script src="plugin/lazyload.min.js"></script>
 <div class="row" style="align-items: center;justify-content: center;">
     {foreach from=$all_post item=post}
-        <div class="col-md-3" style="background-color: rgba(0, 0, 0, 0.7);margin-bottom: 20px;padding: 20px;margin-right: 20px;">
-            <div class="col-md-12">
-                <a href="post.php?op=post_display&post_sn={$post.post_sn}"><h4 style="font-style: oblique;">{$post.post_title}</h4></a>
+        <div class="col-md-3" style="background-color: rgba(0, 0, 0, 0.7);margin-bottom: 20px;padding: 20px;margin-right: 20px;min-height: 350px">
+            <div class="col-md-12" style="text-overflow: ellipsis;display: inline-block;">
+                <a href="post.php?op=post_display&post_sn={$post.post_sn}"><h4 style="font-style: oblique;" data-toggle="tooltip" data-placement="left" title="{$post.post_title}"><p style="overflow: hidden;text-overflow:ellipsis;">{$post.post_title}</p></h4></a>
             </div>
              <div class="col-md-12">
                 <center>
@@ -14,11 +14,11 @@
             </div>
             <br>
             <div class="col-md-12" style="color: greenyellow">
-                <div class="row">
-                    <i class="fas fa-clock">{$post.post_date}</i>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <i class="fas fa-users">瀏覽人數：{$post.post_counter}</i>
-                </div>
+                <i class="fas fa-user-tag">{$post.post_owner}</i>
+                <br>
+                <i class="fas fa-clock">{$post.post_date}</i>
+                <br>
+                <i class="fas fa-users">瀏覽人數：{$post.post_counter}</i>
             </div>
         </div>
     {/foreach}

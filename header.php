@@ -84,7 +84,7 @@ function post_list() {
             $post['post_owner'] = "不明";
         }
         $all_post[$i] = $post;
-        $img_sn = rand(1, 27);
+        $img_sn = rand(1, 45);
         $all_post[$i]["pic"] = get_pic_path("./uploads/post/{$post_sn}/normal_post_pic.png", "./img/default_post_img/{$img_sn}.png");
         $i++;
     }
