@@ -46,16 +46,16 @@
     <div class="form-group">
         <label class="col-md-2">分類編號</label>
         <div class="col-md-8">
-            <input type="text" class="form-control" name="class_sn" id="class_sn" placeholder="請輸入類別編號,可留空">
+            <div class="input-group-append">
+                <input type="text" class="form-control" name="class_sn" id="class_sn" placeholder="請輸入類別編號,可留空">
+                <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#class_modal">查看</button>
+            </div>
         </div>
     </div>
     <div class="form-group">
         <label class="col-md-4 control-label">文章標籤</label>
         <div class="col-md-8">
-            <div class="input-group-append">
-                <input type="text" class="form-control" id="post_tag" name="post_tag" value="{$post.post_tag}">
-                <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#class_modal">查看</button>
-            </div>
+            <input type="text" class="form-control" id="post_tag" name="post_tag" value="{$post.post_tag}">
         </div>
     </div>
     <!-- class_modal_start -->
