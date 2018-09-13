@@ -67,7 +67,7 @@ function user_detail($user_sn, $token) {
 function post_list() {
     include_once 'plugin/PageBar.php';
     global $mysqli, $smarty;
-    $sql = "SELECT * FROM `post` ORDER BY `post_sn` DESC";
+    $sql = "SELECT * FROM `post` WHERE `post_display`='enable' ORDER BY `post_date` DESC";
     $PageBar = getPageBar($sql, 9, 100);
     $bar = $PageBar['bar'];
     $sql = $PageBar['sql'];
@@ -75,7 +75,7 @@ function post_list() {
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $i = 0;
     while ($post = $result->fetch_assoc()) {
-        if ($post['post_display'] == 'enable') {
+       if ($post['post_display'] == 'enable') {
             $post_sn = $post['post_sn'];
             $ssql = "SELECT * FROM `users` WHERE `user_sn`='{$post['post_owner']}'";
             $rresult = $mysqli->query($ssql) or die($mysqli->connect_error);
@@ -88,7 +88,7 @@ function post_list() {
             $img_sn = rand(1, 45);
             $all_post[$i]["pic"] = get_pic_path("./uploads/post/{$post_sn}/normal_post_pic.png", "./img/default_post_img/{$img_sn}.png");
             $i++;
-        }
+       }
     }
     $smarty->assign("all_post", $all_post);
     $smarty->assign("total", $total);
