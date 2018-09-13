@@ -13,16 +13,11 @@ function update_post($post_sn, $class_sn) {
     if (empty($class_sn)) {
         $class_sn = "0";
     }
-    $class_sn_sql = "`class_sn`='{$class_sn}',";
-    $sql = "UPDATE `post` SET
-    `post_title`='{$post_title}',  
-    {$class_sn_sql}
+    $sql = "UPDATE `post` SET `post_title`='{$post_title}',  
+    `class_sn`='{$class_sn}',
     `post_content`='{$post_content}',
-    `post_tag`='{$post_tag}',
+    `post_tag`='{$post_tag}'
     WHERE `post_sn`='{$post_sn}'";
-    if ($mysqli->query($sql)) {
-        save_post_pic($post_sn);
-    } else {
-        die(mysqli_error($mysqli));
-    }
+    $mysqli->query($sql) or die(mysqli_error($mysqli));
+    save_post_pic($post_sn);
 }
