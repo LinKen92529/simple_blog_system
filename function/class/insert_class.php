@@ -5,7 +5,6 @@ function insert_class() {
         die('我現在很想睡覺懶得想幹話');
     }
     $class_name = $mysqli->real_escape_string($_POST['class_name']);
-    $class_content = $mysqli->real_escape_string($_POST['class_content']);
     if (!empty($_POST['default_post'])) {
         $default_post = $mysqli->real_escape_string($_POST['default_post']);
     } else {

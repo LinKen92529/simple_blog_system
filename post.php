@@ -17,6 +17,8 @@ switch ($op) {
         break;
 
     case 'post_create':
+        include_once "function/class/class_list.php";
+        class_list();
         break;
 
     case 'post_display':
@@ -24,6 +26,8 @@ switch ($op) {
         break;
 
     case 'post_form':
+        include_once "function/class/class_list.php";
+        class_list();
         post_form($post_sn);
         break;
 

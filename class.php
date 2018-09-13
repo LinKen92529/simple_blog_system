@@ -10,6 +10,10 @@ switch ($op) {
         insert_class();
         header("location:class.php?op=class_list");
         break;
+        
+    case 'insert_class_ajax':
+        insert_class_ajax();
+        break;
 
     case 'class_list':
         class_list();
@@ -30,6 +34,7 @@ switch ($op) {
     case 'class_update':
         class_update($class_sn);
         break;
+
 }
 
 require_once 'footer.php';
