@@ -9,8 +9,6 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugin/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="style.css">
-        <script src="plugin/translate/FontsLib.js"></script>
-        <script src="plugin/translate/TraditionToSimple_CN.js"></script>
         <script src="plugin/jquery.min.js"></script>
         <script src="plugin/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -242,24 +240,6 @@
             s.src = 'plugin/anone.js'; 
             b = d.getElementsByTagName('body')[0]; 
             b.appendChild(s);
-        }
-    </script>
-    <script>
-        var t2s = new TraditionToSimple_CN(); 
-        var BodyIsFt = t2s.getcookie();
-        $('.waifu-tips').onload(function(e){
-            var target = $(e.target);
-            var lang   = target.attr('lang');
-            if(lang == 'zh_cn'){
-                t2s.setcookie( '0' );
-            }else if(lang == 'zh_tw'){
-                t2s.setcookie( '1' );	
-            }
-        });
-        if(BodyIsFt == "0"){
-            t2s.translate(0);
-        }else{
-            t2s.translate(1);
         }
     </script>
 </html>
