@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugin/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="style.css">
+        <script src="plugin/translate/FontsLib.js"></script>
+        <script src="plugin/translate/TraditionToSimple_CN.js"></script>
         <script src="plugin/jquery.min.js"></script>
         <script src="plugin/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -140,39 +142,13 @@
                 {/if}
             </div>
         </div>
-        <div class="waifu" class="pull-right">
-            <div class="waifu-tips"></div>
-            <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
-            <div class="waifu-tools" style="font-size: 14px;text-align: center;display: none;">
-                <a href="index.php" style="color: rgb(72, 194, 241);"><i class="fas fa-home"></i></a>
-                <a href="javascript:void(0)" style="color: rgb(72, 194, 241);" id="fa-times"><i class="fas fa-times"></i></a>
-            </div>
-        </div>
         <div id="system_foot">
             <div class="row">
                 <div class="col-md-2">TFcis20 Note Web</div>
             </div>
         </div>
     </body>
-    <script async src="plugin/live2d/waifu-tips.js"></script>
-    <script src="plugin/live2d/live2d.js"></script>
     <script>
-        var page_cookie = document.cookie;
-        if (page_cookie.match('live2d_close') == null) {
-            loadlive2d("live2d", "plugin/Pio/model.json");
-        } else {
-            $(".waifu").css("display", "none");
-        }
-        $("#fa-times").click(function() {
-            document.cookie = "live2d_close=true;path=/";
-            $(".waifu").css("display", "none");
-        });
-        $('.waifu').mouseover(function() {
-            $('.waifu-tools').css('display', 'block');
-        });
-        $('.waifu').mouseout(function() {
-            $('.waifu-tools').css('display', 'none');
-        });
         $(function () {
             $("[data-toggle='tooltip']").tooltip();
         });
@@ -266,6 +242,24 @@
             s.src = 'plugin/anone.js'; 
             b = d.getElementsByTagName('body')[0]; 
             b.appendChild(s);
+        }
+    </script>
+    <script>
+        var t2s = new TraditionToSimple_CN(); 
+        var BodyIsFt = t2s.getcookie();
+        $('.waifu-tips').onload(function(e){
+            var target = $(e.target);
+            var lang   = target.attr('lang');
+            if(lang == 'zh_cn'){
+                t2s.setcookie( '0' );
+            }else if(lang == 'zh_tw'){
+                t2s.setcookie( '1' );	
+            }
+        });
+        if(BodyIsFt == "0"){
+            t2s.translate(0);
+        }else{
+            t2s.translate(1);
         }
     </script>
 </html>
