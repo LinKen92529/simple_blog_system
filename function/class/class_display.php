@@ -1,7 +1,12 @@
 <?php
 function class_display($class_sn) {
     global $mysqli, $smarty;
+    include_once '../../plugin/PageBar.php';
     $sql = "SELECT * FROM `post` WHERE `class_sn`='{$class_sn}'";
+    $PageBar = getPageBar($sql, 9, 100);
+    $bar = $PageBar['bar'];
+    $sql = $PageBar['sql'];
+    $total = $PageBar['total'];
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
     $i = 0;
     while ($post = $result->fetch_assoc()) {
@@ -19,4 +24,6 @@ function class_display($class_sn) {
         $i++;
     }
     @$smarty->assign("class_post", $class_post);
+    $smarty->assign("total", $total);
+    $smarty->assign("bar", $bar);
 }

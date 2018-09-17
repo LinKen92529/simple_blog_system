@@ -127,7 +127,7 @@ class PageBar
             }
         }
 
-        $vars = "";
+        $vars = [];
         // 合併變數名與變數值
         for ($i = 0; $i < count($var); $i++) {
             $vars[$i] = implode("=", $var[$i]);
