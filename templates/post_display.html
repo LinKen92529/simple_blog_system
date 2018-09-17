@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="plugin/prism/prism.css">
 <script src="plugin/prism/prism.js"></script>
+<script src="plugin/zooming.min.js"></script>
 <div class="row">
 <div class="col-md-10" style="word-break:break-all;">
         <h1>{$post.post_title}</h1>
@@ -185,8 +186,6 @@
                 swal("刪除完畢", "後悔來不及了030", "success");
             });
     }
-</script>
-<script>
     function delete_cmt(cmt_sn, post_sn) {
         swal({
                 title: "刪除留言",
@@ -214,7 +213,6 @@
 </script>
 <script>
     place = location.hash;
-    console.log(place);
     if (place != '') {
         target = place.replace("#", '');
         var target_top = $("#cmt_" + target).offset().top;
@@ -272,4 +270,8 @@
             }
         })
     }
+</script>
+<script>
+    var zooming = new Zooming();
+    zooming.listen('img');
 </script>
