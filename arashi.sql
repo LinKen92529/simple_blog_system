@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2.1
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Sep 04, 2018 at 04:14 AM
--- Server version: 5.6.35
--- PHP Version: 7.1.1
+-- 主機: localhost
+-- 產生時間： 2018 年 09 月 20 日 18:52
+-- 伺服器版本: 5.7.23-0ubuntu0.16.04.1
+-- PHP 版本： 7.0.32-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,26 +17,25 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `yukino`
+-- 資料庫： `arashi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `class`
+-- 資料表結構 `class`
 --
 
 CREATE TABLE `class` (
   `class_sn` mediumint(8) NOT NULL COMMENT '分類編號',
   `class_name` varchar(255) NOT NULL COMMENT '分類名稱',
-  `class_content` varchar(255) NOT NULL COMMENT '分類介紹',
   `class_display` varchar(255) NOT NULL COMMENT '分類識別'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmt`
+-- 資料表結構 `cmt`
 --
 
 CREATE TABLE `cmt` (
@@ -51,7 +50,7 @@ CREATE TABLE `cmt` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post`
+-- 資料表結構 `post`
 --
 
 CREATE TABLE `post` (
@@ -62,14 +61,14 @@ CREATE TABLE `post` (
   `post_owner` varchar(255) NOT NULL COMMENT '文章作者',
   `post_counter` varchar(255) NOT NULL COMMENT '瀏覽人數',
   `post_tag` varchar(255) NOT NULL COMMENT '文章標籤',
-  `tag_name` varchar(255) NOT NULL COMMENT '標籤名稱',
-  `class_sn` varchar(255) NOT NULL COMMENT 'zp xo41u0 ck4'
+  `class_sn` mediumint(8) NOT NULL COMMENT '類別編號',
+  `post_display` varchar(255) NOT NULL COMMENT '文章顯示'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- 資料表結構 `users`
 --
 
 CREATE TABLE `users` (
@@ -82,57 +81,57 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- 已匯出資料表的索引
 --
 
 --
--- Indexes for table `class`
+-- 資料表索引 `class`
 --
 ALTER TABLE `class`
   ADD PRIMARY KEY (`class_sn`);
 
 --
--- Indexes for table `cmt`
+-- 資料表索引 `cmt`
 --
 ALTER TABLE `cmt`
   ADD PRIMARY KEY (`cmt_sn`);
 
 --
--- Indexes for table `post`
+-- 資料表索引 `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`post_sn`);
 
 --
--- Indexes for table `users`
+-- 資料表索引 `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_sn`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- 在匯出的資料表使用 AUTO_INCREMENT
 --
 
 --
--- AUTO_INCREMENT for table `class`
+-- 使用資料表 AUTO_INCREMENT `class`
 --
 ALTER TABLE `class`
-  MODIFY `class_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '分類編號', AUTO_INCREMENT=0;
+  MODIFY `class_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '分類編號';
 --
--- AUTO_INCREMENT for table `cmt`
+-- 使用資料表 AUTO_INCREMENT `cmt`
 --
 ALTER TABLE `cmt`
-  MODIFY `cmt_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '留言編號', AUTO_INCREMENT=0;
+  MODIFY `cmt_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '留言編號';
 --
--- AUTO_INCREMENT for table `post`
+-- 使用資料表 AUTO_INCREMENT `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '文章編號', AUTO_INCREMENT=0;
+  MODIFY `post_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '文章編號';
 --
--- AUTO_INCREMENT for table `users`
+-- 使用資料表 AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_sn` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '使用者編號', AUTO_INCREMENT=0;
+  MODIFY `user_sn` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '使用者編號';
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

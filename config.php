@@ -4,5 +4,5 @@ define('_DB_HOST', 'localhost');
 define('_DB_ID', 'root');
 define('_DB_PW', 'e27676271');
 define('_DB_NAME', 'arashi');
-$admin_array = ['godarasi2767', 'testarasi2767'];
+$admin_array = [];
 $top_array = ['arasi27676271', 'godarasi2767'];
