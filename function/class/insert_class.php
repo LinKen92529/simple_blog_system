@@ -16,7 +16,6 @@ function insert_class() {
     if (!empty($default_post)) {
         $each_post_sn = explode(";", $default_post);
         foreach ($each_post_sn as $post_sn) {
-
             $sql = "SELECT * FROM `post` WHERE `class_sn`='{$class_sn}'";
             $result = $mysqli->query($sql) or die($mysqli->connect_error);
             if (!empty($result)) {
