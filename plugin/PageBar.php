@@ -68,7 +68,7 @@ class PageBar
     // 會使用到的 URL 變數名，給 process_query() 過濾用的。
     public $used_query = array();
     // 目前頁數顏色
-    public $act_color = "#990000";
+    public $act_color = "#0066FF";
     public $query_str; // 存放 URL 參數列
     //指定頁面
     public $to_page;
@@ -184,12 +184,12 @@ class PageBar
                 $bar_center = "
                   {$bar_center}
                   <li class='active'>
-                    <a class='page-link' style='background: rgb(255, 225, 128)' href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='{$i}'>{$i}<span class='sr-only'>(current)</span></a>
+                    <a class='page-link' style='background: #337ab7;border-color: #337ab7;color: #fff' href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='{$i}' id='bar_{$i}'>{$i}<span class='sr-only'>(current)</span></a>
                   </li>";
             } else {
                 $bar_center .= "
                   <li>
-                    <a class='page-link' style='background: rgb(255, 225, 128)' href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='{$i}'>{$i}</a>
+                    <a class='page-link' style='background: #fff' href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='{$i}' id='bar_{$i}'>{$i}</a>
                   </li>";
             }
             $i++;
