@@ -68,7 +68,7 @@ function post_list() {
     include_once 'plugin/PageBar.php';
     global $mysqli, $smarty;
     $sql = "SELECT * FROM `post` WHERE `post_display`='enable' ORDER BY `post_date` DESC";
-    $PageBar = getPageBar($sql, 1, 100);
+    $PageBar = getPageBar($sql, 9, 100);
     $bar = $PageBar['bar'];
     $sql = $PageBar['sql'];
     $total = $PageBar['total'];
