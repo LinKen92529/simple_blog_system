@@ -27,12 +27,59 @@
         </div>
     {/foreach}
     <div class="col-md-12 row" style="align-items: center;justify-content: center;">
-        <center>
-            {$bar}
-        </center>
+        {$bar}
+    </div>
+    <div class="col-md-3" style="margin-bottom: 20px;">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">page/total</span>
+            </div>
+            <label class="sr-only" for="show_page"></label>
+            <input id="page_show_input" type="text" class="form-control" readonly placeholder="test">
+        </div>
     </div>
 </div>
 <script>
+    var now_page = parseInt($(".current_bar_link").html())
+    var final_page = parseInt($(".bar_buttom_link").html())
+    $('#page_show_input').attr('placeholder', now_page + '/' + final_page)
+    var target_page = parseInt(now_page) + 3
+    if (now_page <= 3) {
+        target_page = 6
+        $i = target_page
+        while($('.bar_' + $i).html()) {
+            $('.bar_' + $i).html("")
+            $i++
+        }
+    } else {
+        var judge_over = target_page - parseInt($('.bar_buttom_link').html())
+        if (judge_over == 2) {
+            $i = target_page - 7
+            while($('.bar_' + $i).html()) {
+                $('.bar_' + $i).html("")
+                $i--
+            }
+        } else if (judge_over == 3) {
+            $i = target_page - 8
+            while($('.bar_' + $i).html()) {
+                $('.bar_' + $i).html("")
+                $i--
+            }
+        } else {
+            $i = target_page
+            while($('.bar_' + $i).html()) {
+                $('.bar_' + $i).html("")
+                $i++
+            }
+
+            target_page = target_page - 6
+            $i = target_page
+            while($('.bar_' + $i).html()) {
+                $('.bar_' + $i).html("")
+                $i--
+            }
+        }
+    }
     $(".lazyload").lazyload({
         placeholder: "./img/load.gif"
     });
