@@ -19,6 +19,7 @@ latest_post();
 $is_top = $is_admin = $is_user = false;
 if(isset($_SESSION['user_sn'])) {
     if(isset($_COOKIE['token'])) {
+        err_log($_SESSION['user_right']);
         if ($_SESSION['token'] == $_COOKIE['token']) {
             $is_user = true;
             if ($_SESSION['user_right'] == "admin") {

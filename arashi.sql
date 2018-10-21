@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 產生時間： 2018 年 09 月 20 日 18:52
+-- 產生時間： 2018 年 10 月 21 日 16:47
 -- 伺服器版本: 5.7.23-0ubuntu0.16.04.1
 -- PHP 版本： 7.0.32-0ubuntu0.16.04.1
 
@@ -45,6 +45,18 @@ CREATE TABLE `cmt` (
   `user_sn` varchar(255) NOT NULL COMMENT '留言作者',
   `reply_sn` varchar(255) NOT NULL COMMENT '回覆編號',
   `cmt_date` datetime NOT NULL COMMENT '留言時間'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `log`
+--
+
+CREATE TABLE `log` (
+  `log_sn` mediumint(8) NOT NULL COMMENT '日誌編號',
+  `log_content` varchar(255) NOT NULL COMMENT '日誌內容',
+  `log_date` datetime NOT NULL COMMENT '日誌時間'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -97,6 +109,12 @@ ALTER TABLE `cmt`
   ADD PRIMARY KEY (`cmt_sn`);
 
 --
+-- 資料表索引 `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`log_sn`);
+
+--
 -- 資料表索引 `post`
 --
 ALTER TABLE `post`
@@ -122,6 +140,11 @@ ALTER TABLE `class`
 --
 ALTER TABLE `cmt`
   MODIFY `cmt_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '留言編號';
+--
+-- 使用資料表 AUTO_INCREMENT `log`
+--
+ALTER TABLE `log`
+  MODIFY `log_sn` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '日誌編號';
 --
 -- 使用資料表 AUTO_INCREMENT `post`
 --

@@ -1,3 +1,4 @@
+
 <?php
 require_once 'header.php';
 require_folder('./function/webset/');
@@ -9,6 +10,10 @@ switch ($op) {
         webset_bg($_FILES['bg_img']);
         header("location:webset.php?op=web_setting");
         break;
+
+    case 'webset_log':
+        webset_log();
+        header("location:webset.php?op=webset_show_log");
 }
 
 require_once 'footer.php';

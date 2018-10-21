@@ -10,6 +10,10 @@ function user_login($user_id) {
     $user   = $result->fetch_assoc();
     if (!empty($user)) {
         if (password_verify($_POST['user_pw'], $user['user_pw'])) {
+            $user_detail = $user['user_sn'] . '_' . $user['user_name'];
+            $time = date("Y-m-d H:i:s");
+            $ip = get_ip();
+            login_log($user_detail, $time, $ip);
             $_SESSION['user_right'] = $user['user_right'];
             $_SESSION['user_sn'] = $user['user_sn'];
             $_SESSION['user'] = $user;

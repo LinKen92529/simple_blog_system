@@ -83,3 +83,48 @@ function delete_file($path, $type) {
         }
     }
 }
+
+#get user ip
+function get_ip() {
+    if (!empty($_SERVER["HTTP_CLIENT_IP"])){
+        $ip = $_SERVER["HTTP_CLIENT_IP"];
+    } else if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+        $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+    } else { 
+        $ip = $_SERVER["REMOTE_ADDR"];
+    }
+    return $ip;
+}
+
+#log with log in
+function login_log($user, $time, $ip) {
+    global $mysqli;
+    $content = "{$user} login from {$ip}";
+    $sql = "INSERT INTO `log` (`log_content`, `log_date`) VALUES ('{$content}', '{$time}')";
+    $mysqli->query($sql) or die($mysqli->connect_error);
+    $mysqli->insert_id;
+}
+
+function del_post_log($post, $user, $time) {
+    global $mysqli;
+    $content = "{$user} deleted post {$post}";
+    $sql = "INSERT INTO `log` (`log_content`, `log_date`) VALUES ('{$content}', '{$time}')";
+    $mysqli->query($sql) or die($mysqli->connect_error);
+    $mysqli->insert_id;
+}
+
+function change_class_log($status, $class, $user, $time) {
+    global $mysqli;
+    $content = "{$user} {$status} class {$class}";
+    $sql = "INSERT INTO `log` (`log_content`, `log_date`) VALUES ('{$content}', '{$time}')";
+    $mysqli->query($sql) or die($mysqli->connect_error);
+    $mysqli->insert_id;
+}
+
+function del_user_log($user, $who, $time) {
+    global $mysqli;
+    $content = "{$user} delete user {$who}";
+    $sql = "INSERT INTO `log` (`log_content`, `log_date`) VALUES ('{$content}', '{$time}')";
+    $mysqli->query($sql) or die($mysqli->connect_error);
+    $mysqli->insert_id;
+}

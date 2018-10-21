@@ -5,10 +5,15 @@
         })
     })
 </script>
-<h1>網站全域設定</h1>
-<br>
-<div class="row">
-    <div class="col-md-4">
-        <a href="index.php?op=webset_bg" class="btn btn-block btn-skyblue">更改背景</a>
+{if $is_top}
+    <h1>網站全域設定</h1>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="index.php?op=webset_bg" class="btn btn-block btn-skyblue">更改背景</a>
+        </div>
+        <div class="col-md-4">
+            <a href="webset.php?op=webset_log" class="btn btn-block btn-skyblue">網站日誌</a>
+        </div>
     </div>
-</div>
+{/if}
