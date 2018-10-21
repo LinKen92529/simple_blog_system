@@ -27,6 +27,36 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?op=history">更新歷史</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            功能列表
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbar_dropdown">
+                            <a class="dropdown-item" href="index.php?op=post_list" style="color: rgb(0, 105, 217);">回到主頁</a>
+                            <a class="dropdown-item" href="user.php?op=user_form&user_sn={$user_detail.user_sn}" style="color: rgb(0, 105, 217);">修改資料</a>
+                            <a class="dropdown-item" href="class.php?op=class_list" style="color: rgb(0, 105, 217);">類別類表</a>
+                            <a class="dropdown-item" href="index.php?op=history" style="color: rgb(0, 105, 217);">更新歷史</a>
+                        </div>
+                    </li>
+                    {if $is_admin}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                網站管理
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbar_dropdown">
+                                <a class="dropdown-item" href="user.php?op=user_list" style="color: rgb(28, 224, 71);">使用者列表</a>
+                                <a class="dropdown-item" href="post.php?op=post_create" style="color: rgb(28, 224, 71);">發布文章</a>
+                                <a class="dropdown-item" href="post.php?op=my_post&user_sn={$now_user_sn}" style="color: rgb(28, 224, 71);">我的文章</a>
+                                <a class="dropdown-item" href="class.php?op=class_create" style="color: rgb(28, 224, 71);">新增類別</a>
+                                <a class="dropdown-item" href="class.php?op=class_function" style="color: rgb(28, 224, 71)">修改類別</a>
+                            </div>
+                        </li>
+                    {/if}
+                    {if $is_top}
+                        <li class="nav-item">
+                            <a class="nav-link" href="webset.php?op=web_setting">網站全域</a>
+                        </li>
+                    {/if}
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <form class="form-inline my-2 my-lg-0" action="post.php" method="POST" role="form">
@@ -40,7 +70,7 @@
                     </form>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {if $is_user}
-                        <div class="dropdown">
+                        <!-- <div class="dropdown">
                             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="{$user_detail.pic}" alt="{$user_detail.pic}" class="rounded-circle" width="30" height="30">
                             </a>
@@ -70,7 +100,8 @@
                                 <div class="dropdown-divider"></div>
                                 <a href="user.php?op=user_logout" class="dropdown-item" style="color: red;">登出</a>
                             </div>
-                        </div>
+                        </div> -->
+                        <a href="user.php?op=user_lgout" class="btn btn-block btn-danger col-md-2">登出</a>
                     {else}
                         <span>
                             <div class="row">
