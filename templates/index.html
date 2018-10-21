@@ -27,17 +27,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?op=history">更新歷史</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            功能列表
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbar_dropdown">
-                            <a class="dropdown-item" href="index.php?op=post_list" style="color: rgb(0, 105, 217);">回到主頁</a>
-                            <a class="dropdown-item" href="user.php?op=user_form&user_sn={$user_detail.user_sn}" style="color: rgb(0, 105, 217);">修改資料</a>
-                            <a class="dropdown-item" href="class.php?op=class_list" style="color: rgb(0, 105, 217);">類別類表</a>
-                            <a class="dropdown-item" href="index.php?op=history" style="color: rgb(0, 105, 217);">更新歷史</a>
-                        </div>
-                    </li>
+                    {if $is_user}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                功能列表
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbar_dropdown">
+                                <a class="dropdown-item" href="index.php?op=post_list" style="color: rgb(0, 105, 217);">回到主頁</a>
+                                <a class="dropdown-item" href="user.php?op=user_form&user_sn={$user_detail.user_sn}" style="color: rgb(0, 105, 217);">修改資料</a>
+                                <a class="dropdown-item" href="class.php?op=class_list" style="color: rgb(0, 105, 217);">類別類表</a>
+                                <a class="dropdown-item" href="index.php?op=history" style="color: rgb(0, 105, 217);">更新歷史</a>
+                            </div>
+                        </li>
+                    {/if}
                     {if $is_admin}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
