@@ -16,6 +16,9 @@ switch ($op) {
     case 'history':
         break;
 
+    case 'page_index':
+        break;
+
     default:
         $op = "post_list";
         break;

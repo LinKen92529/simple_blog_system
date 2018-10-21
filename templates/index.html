@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?op=history">更新歷史</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?op=page_index">索引列表</a>
+                    </li>
                     {if $is_user}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -176,6 +179,8 @@
                             {include file='class_list.html'}
                         {else if $op=='class_function'}
                             {include file='class_function.html'}
+                        {else if $op=='page_index'}
+                            {include file='page_index.html'}
                         {/if}
                     </div>
                 {/if}
