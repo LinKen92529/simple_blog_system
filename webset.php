@@ -11,9 +11,9 @@ switch ($op) {
         header("location:webset.php?op=web_setting");
         break;
 
-    case 'webset_log':
-        webset_log();
-        header("location:webset.php?op=webset_show_log");
+    case 'webset_show_log':
+        webset_show_log();
+        break;
 }
 
 require_once 'footer.php';

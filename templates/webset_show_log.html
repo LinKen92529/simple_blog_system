@@ -1,2 +1,17 @@
 <h3>伺服器日誌</h3>
-施工中(」・ω・)」うー！(／・ω・)／にゃー！
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>content</th>
+            <th>time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {foreach from=$all_log item=log}
+            <tr>
+                <th scope="row">{$log.log_content}</th>
+                <td>{$log.log_date}</td>
+            </tr>
+        {/foreach}
+    </tbody>
+</table>
