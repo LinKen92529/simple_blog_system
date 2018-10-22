@@ -17,7 +17,10 @@
     <div class="form-group">
         <label class="col-md-4 col-form-label" for="user_pw">使用者密碼：</label>
         <div class="col-md-8">
-            <input type="password" class="form-control" minlength="6" maxlength="16" name="user_pw" id="user_pw" placeholder="請輸入密碼">
+            <div class="input-group-append">
+                <input type="password" class="form-control" minlength="6" maxlength="16" name="user_pw" id="user_pw" placeholder="請輸入密碼">
+                <a href="javascript:show_pw()" class="btn btn-outline-success" id="toggle_pw_btn">顯示</a>
+            </div>
         </div>
     </div>
     <div class="form-group">
@@ -37,9 +40,17 @@
         </div>
     </div>
 </form>
-<script src="plugin/jquery.validate.min.js"></script>
-<script src="plugin/jquery.js"></script>
 <script>
+    function show_pw() {
+        $('#user_pw').attr('type', 'text');
+        $('#toggle_pw_btn').html("隱藏");
+        $('#toggle_pw_btn').attr('href', 'javascript:hide_pw()');
+    }
+    function hide_pw() {
+        $('#user_pw').attr('type', 'password');
+        $('#toggle_pw_btn').html("顯示");
+        $('#toggle_pw_btn').attr('href', 'javascript:show_pw()'); 
+    }
     var id = false;
     var email = false
     var test = 0;
