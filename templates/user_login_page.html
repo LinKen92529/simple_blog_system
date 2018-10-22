@@ -9,7 +9,10 @@
     <div class="form-group">
         <label class="col-form-label">密碼</label>
         <div class="col-md-6">
-            <input type="password" class="form-control" name="user_pw" id="user_pw" placeholder="請輸入密碼">
+            <div class="input-group-append">
+                <input type="password" class="form-control" name="user_pw" id="user_pw" placeholder="請輸入密碼">
+                <a href="javascript:show_pw()" class="btn btn-outline-success" id="toggle_pw_btn">顯示</a>
+            </div>
         </div>
     </div>
     <span id="login_result"></span>
@@ -40,5 +43,15 @@
                 }
             }
         })
+    }
+    function show_pw() {
+        $('#user_pw').attr('type', 'text');
+        $('#toggle_pw_btn').html("隱藏");
+        $('#toggle_pw_btn').attr('href', 'javascript:hide_pw()');
+    }
+    function hide_pw() {
+        $('#user_pw').attr('type', 'password');
+        $('#toggle_pw_btn').html("顯示");
+        $('#toggle_pw_btn').attr('href', 'javascript:show_pw()'); 
     }
 </script>
