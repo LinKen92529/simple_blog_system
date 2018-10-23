@@ -1,0 +1,15 @@
+<h1>最高權限察看</h1>
+<table class="table table-striped">
+    <thead>
+        <th>User_sn</th>
+        <th>Name</th>
+    </thead>
+    <tbody>
+        {foreach from=$all_top item=top}
+        <tr>
+            <th scope="row"><a href="user.php?op=user_form&user_sn={$top.user_sn}">{$top.user_sn}</a></th>
+            <td>{$top.user_name}</a></td>
+        </tr>
+        {/foreach}
+    </tbody>
+</table>

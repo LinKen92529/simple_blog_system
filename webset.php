@@ -14,6 +14,10 @@ switch ($op) {
     case 'webset_show_log':
         webset_show_log();
         break;
+
+    case 'webset_show_top':
+        webset_show_top();
+        break;
 }
 
 require_once 'footer.php';
