@@ -43,7 +43,6 @@
                                 <a class="dropdown-item" href="index.php?op=post_list">回到主頁</a>
                                 <a class="dropdown-item" href="user.php?op=user_form&user_sn={$user_detail.user_sn}">修改資料</a>
                                 <a class="dropdown-item" href="class.php?op=class_list">類別類表</a>
-                                <a class="dropdown-item" href="index.php?op=history">更新歷史</a>
                             </div>
                         </li>
                     {/if}
@@ -79,37 +78,6 @@
                     </form>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {if $is_user}
-                        <!-- <div class="dropdown">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{$user_detail.pic}" alt="{$user_detail.pic}" class="rounded-circle" width="30" height="30">
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-item">
-                                    名前：{$user_detail.user_name}
-                                    <br>
-                                    権限： {$user_detail.user_right}
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <a href="index.php?op=post_list" class="dropdown-item" style="color: rgb(0, 105, 217);">回到主頁</a>
-                                <a href="user.php?op=user_form&user_sn={$user_detail.user_sn}" class="dropdown-item" style="color: rgb(0, 105, 217);">修改資料</a>
-                                <a href="class.php?op=class_list" class="dropdown-item" style="color: rgb(0, 105, 217);">類別類表</a>
-                                <a href="index.php?op=history" class="dropdown-item" style="color: rgb(0, 105, 217);">更新歷史</a>
-                                {if $is_admin}
-                                    <div class="dropdown-divider"></div>
-                                    <a href="user.php?op=user_list" class="dropdown-item" style="color: rgb(28, 224, 71);">使用者列表</a>
-                                    <a href="post.php?op=post_create" class="dropdown-item" style="color: rgb(28, 224, 71);">發布文章</a>
-                                    <a href="post.php?op=my_post&user_sn={$now_user_sn}" class="dropdown-item" style="color: rgb(28, 224, 71);">我的文章</a>
-                                    <a href="class.php?op=class_create" class="dropdown-item" style="color: rgb(28, 224, 71);">新增類別</a>
-                                    <a href="class.php?op=class_function" class="dropdown-item" style="color: rgb(28, 224, 71)">修改類別</a>
-                                {/if}
-                                {if $is_top}
-                                    <div class="dropdown-divider"></div>
-                                    <a href="webset.php?op=web_setting" class="dropdown-item" style="color: rgb(176, 8, 218);">管理網站</a>
-                                {/if}
-                                <div class="dropdown-divider"></div>
-                                <a href="user.php?op=user_logout" class="dropdown-item" style="color: red;">登出</a>
-                            </div>
-                        </div> -->
                         <a href="user.php?op=user_logout" class="btn btn-block btn-danger col-md-2">登出</a>
                     {else}
                         <span>
