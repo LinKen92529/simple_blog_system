@@ -40,10 +40,10 @@
                                 功能列表
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbar_dropdown">
-                                <a class="dropdown-item" href="index.php?op=post_list" style="color: rgb(0, 105, 217);">回到主頁</a>
-                                <a class="dropdown-item" href="user.php?op=user_form&user_sn={$user_detail.user_sn}" style="color: rgb(0, 105, 217);">修改資料</a>
-                                <a class="dropdown-item" href="class.php?op=class_list" style="color: rgb(0, 105, 217);">類別類表</a>
-                                <a class="dropdown-item" href="index.php?op=history" style="color: rgb(0, 105, 217);">更新歷史</a>
+                                <a class="dropdown-item" href="index.php?op=post_list">回到主頁</a>
+                                <a class="dropdown-item" href="user.php?op=user_form&user_sn={$user_detail.user_sn}">修改資料</a>
+                                <a class="dropdown-item" href="class.php?op=class_list">類別類表</a>
+                                <a class="dropdown-item" href="index.php?op=history">更新歷史</a>
                             </div>
                         </li>
                     {/if}
@@ -53,11 +53,11 @@
                                 網站管理
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbar_dropdown">
-                                <a class="dropdown-item" href="user.php?op=user_list" style="color: rgb(28, 224, 71);">使用者列表</a>
-                                <a class="dropdown-item" href="post.php?op=post_create" style="color: rgb(28, 224, 71);">發布文章</a>
-                                <a class="dropdown-item" href="post.php?op=my_post&user_sn={$now_user_sn}" style="color: rgb(28, 224, 71);">我的文章</a>
-                                <a class="dropdown-item" href="class.php?op=class_create" style="color: rgb(28, 224, 71);">新增類別</a>
-                                <a class="dropdown-item" href="class.php?op=class_function" style="color: rgb(28, 224, 71)">修改類別</a>
+                                <a class="dropdown-item" href="user.php?op=user_list">使用者列表</a>
+                                <a class="dropdown-item" href="post.php?op=post_create">發布文章</a>
+                                <a class="dropdown-item" href="post.php?op=my_post&user_sn={$now_user_sn}">我的文章</a>
+                                <a class="dropdown-item" href="class.php?op=class_create">新增類別</a>
+                                <a class="dropdown-item" href="class.php?op=class_function">修改類別</a>
                             </div>
                         </li>
                     {/if}
